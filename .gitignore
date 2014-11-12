@@ -29,3 +29,6 @@
 
 # Visio Temporary Files
 *.~vsdx
+
+# Thumbs.db showing up for no reason
+*.db
