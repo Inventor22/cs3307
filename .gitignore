@@ -32,3 +32,6 @@
 
 # Thumbs.db showing up for no reason
 *.db
+
+# CLion Files
+*.idea
