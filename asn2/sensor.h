@@ -9,8 +9,8 @@ private:
     std::vector<Algorithm> algorithms;
 
 public:
-    Sensor::Sensor();
-    Sensor::~Sensor();
+    Sensor();
+    ~Sensor();
     void attach(Algorithm algo);
     void detach(Algorithm algo);
     void notify(float a);
