@@ -57,7 +57,7 @@ int main(int argc, char** argv){
         myHum.attach(&lowFreqHum);
 
         //Do some updates
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 2; i++) {
             myIR.readDist();
             myHum.getHumidity();
         }
@@ -71,7 +71,7 @@ int main(int argc, char** argv){
         myIR.detach(&lowestIR);
 
         //A few more updates
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 2; i++) {
             myIR.readDist();
             myHum.getHumidity();
         }
