@@ -4,13 +4,16 @@
 #include <vector>
 #include "Algorithm.h"
 
-class Sensor : ISensor {
+class Sensor {
 private:
     std::vector<Algorithm> algorithms;
 
 public:
-    void attach(Algorithm algo) = 0;
-    void detach(Algorithm algo) = 0;
+    Sensor::Sensor();
+    Sensor::~Sensor();
+    void attach(Algorithm algo);
+    void detach(Algorithm algo);
+    void update();
 };
 
 #endif
