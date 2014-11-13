@@ -12,5 +12,5 @@ class Algorithm {
 protected:
 
 public:
-    void Update();
+    virtual void update();
 };
