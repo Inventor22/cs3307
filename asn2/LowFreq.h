@@ -5,8 +5,8 @@
 
     Written by Andrew Simpson
 
-    A concrete observer - just a low pass filter (averaging filter)
-    for the sensor it's attached to.
+    A concrete observer - applies low pass filter (averaging filter)
+    to the readings of the sensor it's attached to.
 */
 
 #include "Algorithm.h"

@@ -5,7 +5,7 @@
 
     Written by Andrew Simpson
 
-    A concrete observer - just keeps a copy of the lowest value
+    A concrete observer - keeps a copy of the lowest value
     from the sensor it's attached to.
 */
 
