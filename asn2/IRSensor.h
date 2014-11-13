@@ -10,18 +10,10 @@ class IRSensor : public Sensor {
 private:
     int dist;
 public:
-    IRSensor() {
-        /* initialize random seed: */
-        srand(time(NULL));
-    }
+    IRSensor();
+    int getDist();
 
-    int getDist() {
-        return dist;
-    }
-
-    void readDist() {
-        return rand() % 100;
-    }
+    void readDist();
 };
 
 #endif
