@@ -13,7 +13,7 @@ public:
     Sensor::~Sensor();
     void attach(Algorithm algo);
     void detach(Algorithm algo);
-    void update();
+    void notify(float a);
 };
 
 #endif
