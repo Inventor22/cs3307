@@ -26,7 +26,7 @@ int main(int argc, char** argv){
     setlogmask(log_level);
 
     //Log start
-    syslog(LOG_INFO, "Stating main.");
+    syslog(LOG_DEBUG, "Stating main.");
 
     //Arguments are unused for now
     if(argc < 0){
@@ -51,17 +51,19 @@ int main(int argc, char** argv){
 
     //Do some updates
     myIR.readDist();
+    myIR.getDist();
     myHum.getHumidity();
 
     //Kill an algorithm
     myHum.detach(lowestHum);
+    myHum.getHumidity();
 
     //Kill a sensor
     myIR.detach(lowestIR);
     myIR.detach(lowFreqIR);
 
     //End logging
-    syslog(LOG_INFO, "End of logging.");
+    syslog(LOG_DEBUG, "End of logging.");
     closelog();
 
     //End
