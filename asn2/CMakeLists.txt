@@ -3,5 +3,5 @@ project(robotSim)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
-set(SOURCE_FILES robot.cpp algorithm.cpp sensor.cpp)
+set(SOURCE_FILES robot.cpp Algorithm.cpp LowPass.cpp sensor.cpp)
 add_executable(robotSim ${SOURCE_FILES})
