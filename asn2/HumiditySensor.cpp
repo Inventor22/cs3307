@@ -1,3 +1,4 @@
+#include <sys/syslog.h>
 #include "HumiditySensor.h"
 
 HumiditySensor::HumiditySensor() {

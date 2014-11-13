@@ -1,3 +1,4 @@
+#include <sys/syslog.h>
 #include "IRSensor.h"
 
 IRSensor::IRSensor() {
@@ -15,5 +16,5 @@ void IRSensor::readDist() {
     syslog(LOG_INFO, "IRSensor readDist");
     int dist = rand() % 100;
     notify(dist);
-    return dist;
+    return;
 }

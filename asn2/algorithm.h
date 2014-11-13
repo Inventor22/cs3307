@@ -9,9 +9,14 @@
     Superclass for the LowFreq and LowestVal algorithms.
  */
 
+#ifndef _ALGORITHM_H
+#define _ALGORITHM_H
+
 class Algorithm {
 protected:
 
 public:
-    virtual void update();
+    virtual void update(float);
 };
+
+#endif
