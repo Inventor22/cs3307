@@ -11,8 +11,8 @@ private:
     int dist;
 public:
     IRSensor();
+    ~IRSensor();
     int getDist();
-
     void readDist();
 };
 
