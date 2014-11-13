@@ -6,6 +6,7 @@
 class HumiditySensor : public Sensor {
 public:
     HumiditySensor();
+    ~HumiditySensor();
     int getHumidity();
 
 private:
