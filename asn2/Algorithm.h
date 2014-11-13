@@ -18,7 +18,7 @@ protected:
 public:
     Algorithm(){}
     ~Algorithm(){}
-    virtual void update(float){}
+    virtual void update(float) = 0;
     inline bool operator==(const Algorithm& other){
         return this == &other;
     }

@@ -38,10 +38,10 @@ int main(int argc, char** argv){
     HumiditySensor myHum;
 
     //Create some algorithms
-    LowestVal lowestIR;
-    LowFreq lowFreqIR;
-    LowestVal lowestHum;
-    LowFreq lowFreqHum;
+    LowestVal lowestIR; //= new LowestVal();
+    LowFreq lowFreqIR; //= new LowFreq();
+    LowestVal lowestHum; //= new LowestVal();
+    LowFreq lowFreqHum; //= new LowFreq();
 
     //Attach senors to algorithms
     myIR.attach(lowestIR);
@@ -53,10 +53,10 @@ int main(int argc, char** argv){
     myIR.readDist();
     myIR.getDist();
     myHum.getHumidity();
+    myHum.getHumidity();
 
     //Kill an algorithm
     myHum.detach(lowestHum);
-    myHum.getHumidity();
 
     //Kill a sensor
     myIR.detach(lowestIR);
