@@ -16,14 +16,20 @@
 #include "LowFreq.h"
 
 /*
+    Robot
+
+    Created by Andrew Simpson on 2014-11-11
+
+    Written by Andrew Simpson
+
     The main function of our program.
+    Used to demonstrate the Observer Design Pattern.
+    Uses syslog to create execution traces.
  */
 int main(int argc, char** argv){
 
     //Start logging
     openlog("robot", LOG_PERROR | LOG_PID | LOG_NDELAY, LOG_USER);
-    //int log_level = LOG_DEBUG;
-    //setlogmask(log_level);
 
     //Log start
     syslog(LOG_DEBUG, "Stating main.");

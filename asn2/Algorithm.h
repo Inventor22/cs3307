@@ -16,9 +16,15 @@ class Algorithm {
 protected:
 
 public:
+    //Constructor
     Algorithm(){}
+    //Destructor
     ~Algorithm(){}
+    //Update function called by subject (sensor)
     virtual void update(float) = 0;
+    //Equality check operator - needed for sensor to
+    //remove an algorithm from its list of subcribed
+    //algorithms.
     inline bool operator==(const Algorithm& other){
         return this == &other;
     }
