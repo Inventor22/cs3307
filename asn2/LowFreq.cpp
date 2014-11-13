@@ -8,6 +8,8 @@ LowFreq::LowFreq(){
     return;
 }
 
+LowFreq::~LowFreq(){}
+
 void LowFreq::update(float updateVal){
     syslog(LOG_DEBUG, "Entered LowFreq::update()");
     state = state*0.75 + updateVal*0.25;

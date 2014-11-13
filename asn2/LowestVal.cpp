@@ -8,6 +8,8 @@ LowestVal::LowestVal(){
     return;
 }
 
+LowestVal::~LowestVal(){}
+
 void LowestVal::update(float updateVal){
     syslog(LOG_DEBUG, "Entered LowestVal::update()");
     if (updateVal < state){

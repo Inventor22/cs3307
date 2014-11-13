@@ -5,7 +5,7 @@
 
     Written by Andrew Simpson and Dustin Dobransky
 
-    This is the main file of
+    This is the main file of our demonstration.
  */
 
 #include <syslog.h>

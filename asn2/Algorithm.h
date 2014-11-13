@@ -16,10 +16,12 @@ class Algorithm {
 protected:
 
 public:
-    virtual void update(float);
+    Algorithm(){}
+    ~Algorithm(){}
+    virtual void update(float){}
     inline bool operator==(const Algorithm& other){
         return this == &other;
-    };
+    }
 };
 
 #endif

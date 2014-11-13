@@ -16,6 +16,8 @@ private:
 public:
     //Constructor
     LowFreq();
+    //Destructor
+    ~LowFreq();
     //Update function called by subject (sensor)
     void update(float);
     //Returns current state
