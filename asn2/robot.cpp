@@ -10,6 +10,8 @@
 
 #include <syslog.h>
 #include <stdlib.h>
+#include "IRSensor.h"
+#include "
 
 /*
     The main function of our program.

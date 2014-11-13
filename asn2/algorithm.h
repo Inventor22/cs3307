@@ -5,7 +5,8 @@
 
     Written by Andrew Simpson
 
-
+    Implements the sensor observer for our robot Observer Pattern.
+    Superclass for the LowFreq and LowestVal algorithms.
  */
 
 class Algorithm {
