@@ -5,5 +5,7 @@ HumiditySensor::HumiditySensor() {
 }
 
 int HumiditySensor::getHumidity() {
-    return 1;
+    int hum = 1;
+    notify(hum);
+    return hum;
 }

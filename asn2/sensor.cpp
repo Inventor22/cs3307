@@ -12,9 +12,9 @@ void Sensor::detach(Algorithm a) {
     algorithms.resize(std::remove(algorithms.begin(), algorithms.end(), a) - algorithms.begin());
 }
 
-void Sensor::update() {
-    std::vector<algorithms>::iterator i = algorithms.begin();
+void Sensor::notify(float a) {
+    std::vector<Algorithm>::iterator i = algorithms.begin();
     for (; i != algorithms.end(); ++i) {
-        i->update();
+        i->update(a);
     }
 }

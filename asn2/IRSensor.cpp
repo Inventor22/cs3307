@@ -10,5 +10,7 @@ int IRSensor::getDist() {
 }
 
 void IRSensor::readDist() {
-    return rand() % 100;
+    int dist = rand() % 100;
+    notify(dist);
+    return dist;
 }
