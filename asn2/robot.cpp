@@ -21,9 +21,9 @@
 int main(int argc, char** argv){
 
     //Start logging
-    openlog("robot_tester", LOG_PERROR | LOG_PID | LOG_NDELAY, LOG_USER);
-    int log_level = LOG_DEBUG;
-    setlogmask(log_level);
+    openlog("robot", LOG_PERROR | LOG_PID | LOG_NDELAY, LOG_USER);
+    //int log_level = LOG_DEBUG;
+    //setlogmask(log_level);
 
     //Log start
     syslog(LOG_DEBUG, "Stating main.");
