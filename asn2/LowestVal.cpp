@@ -1,9 +1,10 @@
 #include "LowestVal.h"
 #include <syslog.h>
+#include <math.h>
 
 LowestVal::LowestVal(){
     syslog(LOG_DEBUG, "Entered LowestVal::LowestVal()");
-    state = 0;
+    state = infinity();
     syslog(LOG_DEBUG, "Exited LowestVal::LowestVal()");
     return;
 }
@@ -15,6 +16,7 @@ void LowestVal::update(float updateVal){
     if (updateVal < state){
         state = updateVal;
     }
+    syslog(LOG_INFO, "State %f after update with %f", state, updateVal);
     syslog(LOG_DEBUG, "Exited LowestVal::update()");
     return;
 }

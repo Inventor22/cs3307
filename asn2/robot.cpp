@@ -32,36 +32,37 @@ int main(int argc, char** argv){
     if(argc < 0){
         syslog(LOG_ERR, "Too few arguments!");
     }
+    //Force objects to be destroyed before closing log
+    {
+        //Create some sensors
+        IRSensor myIR;
+        HumiditySensor myHum;
 
-    //Create some sensors
-    IRSensor myIR;
-    HumiditySensor myHum;
+        //Create some algorithms
+        LowestVal lowestIR; //= new LowestVal();
+        LowFreq lowFreqIR; //= new LowFreq();
+        LowestVal lowestHum; //= new LowestVal();
+        LowFreq lowFreqHum; //= new LowFreq();
 
-    //Create some algorithms
-    LowestVal lowestIR; //= new LowestVal();
-    LowFreq lowFreqIR; //= new LowFreq();
-    LowestVal lowestHum; //= new LowestVal();
-    LowFreq lowFreqHum; //= new LowFreq();
+        //Attach senors to algorithms
+        myIR.attach(&lowestIR);
+        myIR.attach(&lowFreqIR);
+        myHum.attach(&lowestHum);
+        myHum.attach(&lowFreqHum);
 
-    //Attach senors to algorithms
-    myIR.attach(lowestIR);
-    myIR.attach(lowFreqIR);
-    myHum.attach(lowestHum);
-    myHum.attach(lowFreqHum);
+        //Do some updates
+        for (int i = 0; i < 5; i++) {
+            myIR.readDist();
+            myHum.getHumidity();
+        }
 
-    //Do some updates
-    myIR.readDist();
-    myIR.getDist();
-    myHum.getHumidity();
-    myHum.getHumidity();
+        //Kill an algorithm
+        myHum.detach(&lowestHum);
 
-    //Kill an algorithm
-    myHum.detach(lowestHum);
-
-    //Kill a sensor
-    myIR.detach(lowestIR);
-    myIR.detach(lowFreqIR);
-
+        //Kill a sensor
+        myIR.detach(&lowestIR);
+        myIR.detach(&lowFreqIR);
+    }
     //End logging
     syslog(LOG_DEBUG, "End of logging.");
     closelog();

@@ -13,7 +13,7 @@ LowFreq::~LowFreq(){}
 void LowFreq::update(float updateVal){
     syslog(LOG_DEBUG, "Entered LowFreq::update()");
     state = state*0.75 + updateVal*0.25;
-    syslog(LOG_INFO, "State was updated to: %f when updated with %f", state, updateVal);
+    syslog(LOG_INFO, "State is %f after with %f", state, updateVal);
     syslog(LOG_DEBUG, "Exited LowFreq::update()");
     return;
 }
