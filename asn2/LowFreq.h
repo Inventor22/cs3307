@@ -9,13 +9,13 @@
 
 #include "Algorithm.h"
 
-class LowPass : public Algorithm{
+class LowFreq : public Algorithm{
 private:
     //Stores the current state of the algorithm
     float state;
 public:
     //Constructor
-    LowPass();
+    LowFreq();
     //Update function called by subject (sensor)
     void update(float);
     //Returns current state

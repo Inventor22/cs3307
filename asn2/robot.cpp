@@ -11,7 +11,8 @@
 #include <syslog.h>
 #include <stdlib.h>
 #include "IRSensor.h"
-#include "
+#include "LowestVal.h"
+#include "LowFreq.h"
 
 /*
     The main function of our program.
@@ -29,16 +30,19 @@ int main(int argc, char** argv){
     }
 
     //Create some sensors
+    IRSensor myIR;
 
 
     //Create some algorithms
-
+    LowestVal lowestIR;
+    LowFreq lowFreqIR;
 
     //Attach senors to algorithms
-
+    myIR.attach(lowestIR);
+    myIR.attach(lowFreqIR);
 
     //Do some updates
-
+    myIR.readDist();
 
     //Kill an algorithm
 

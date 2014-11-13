@@ -1,22 +1,22 @@
 #include "LowFreq.h"
 #include <syslog.h>
 
-LowPass::LowPass(){
-    syslog(LOG_DEBUG, "Entered LowPass::LowPass()");
+LowFreq::LowFreq(){
+    syslog(LOG_DEBUG, "Entered LowFreq::LowFreq()");
     state = 0;
-    syslog(LOG_DEBUG, "Exited LowPass::LowPass()");
+    syslog(LOG_DEBUG, "Exited LowFreq::LowFreq()");
     return;
 }
 
-void LowPass::update(float updateVal){
-    syslog(LOG_DEBUG, "Entered LowPass::update()");
+void LowFreq::update(float updateVal){
+    syslog(LOG_DEBUG, "Entered LowFreq::update()");
     state = state*0.75 + updateVal*0.25;
-    syslog(LOG_DEBUG, "Exited LowPass::update()");
+    syslog(LOG_DEBUG, "Exited LowFreq::update()");
     return;
 }
 
-float LowPass::getState(){
-    syslog(LOG_DEBUG, "Entered LowPass::getState()");
-    syslog(LOG_DEBUG, "Exited LowPass::getState()");
+float LowFreq::getState(){
+    syslog(LOG_DEBUG, "Entered LowFreq::getState()");
+    syslog(LOG_DEBUG, "Exited LowFreq::getState()");
     return state;
 }
