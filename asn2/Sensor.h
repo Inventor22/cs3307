@@ -6,13 +6,13 @@
 
 class Sensor {
 private:
-    std::vector<Algorithm> algorithms;
+    std::vector<Algorithm&> algorithms;
 
 public:
     Sensor();
     ~Sensor();
-    void attach(Algorithm algo);
-    void detach(Algorithm algo);
+    void attach(Algorithm& algo);
+    void detach(Algorithm& algo);
     void notify(float a);
 };
 
