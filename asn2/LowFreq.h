@@ -3,6 +3,8 @@
 
     Created by Andrew Simpson on November 2014-11-12
 
+    Written by Andrew Simpson
+
     A concrete observer - just a low pass filter (averaging filter)
     for the sensor it's attached to.
 */

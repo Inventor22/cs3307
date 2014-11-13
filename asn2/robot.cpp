@@ -56,12 +56,19 @@ int main(int argc, char** argv){
             myHum.getHumidity();
         }
 
-        //Kill an algorithm
-        myHum.detach(&lowestHum);
+        //Add a new algorithm
+        LowFreq lowFreqIR2;
+        myIR.attach(&lowFreqIR2);
 
-        //Kill a sensor
+        //Detach some algorithms
+        myHum.detach(&lowestHum);
         myIR.detach(&lowestIR);
-        myIR.detach(&lowFreqIR);
+
+        //A few more updates
+        for (int i = 0; i < 5; i++) {
+            myIR.readDist();
+            myHum.getHumidity();
+        }
     }
     //End logging
     syslog(LOG_DEBUG, "End of logging.");

@@ -3,6 +3,8 @@
 
     Created by Andrew Simpson on November 2014-11-12
 
+    Written by Andrew Simpson
+
     A concrete observer - just keeps a copy of the lowest value
     from the sensor it's attached to.
 */
