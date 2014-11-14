@@ -10,7 +10,7 @@
  */
 LowestVal::LowestVal(){
     syslog(LOG_DEBUG, "Entered LowestVal::LowestVal()");
-    state = infinity();
+    state = INFINITY;
     syslog(LOG_DEBUG, "Exited LowestVal::LowestVal()");
     return;
 }
