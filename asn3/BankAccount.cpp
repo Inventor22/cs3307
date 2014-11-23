@@ -30,7 +30,7 @@ int BankAccount::deposit(int const amount) {
 	return _balance;
 }
 
-int BankAccount::withdrawl(int const amount) {
+int BankAccount::withdrawal(int const amount) {
 	if (_balance - amount < 0) {
 		return INSUFFICIENT_FUNDS;
 	}

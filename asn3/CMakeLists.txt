@@ -4,8 +4,6 @@ project(asn3)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
 set(SOURCE_FILES
-    mtk/mtktrace.cpp
-    mtk/mtktrace.hpp
     Bank.cpp
     Bank.h
     BankAccount.cpp

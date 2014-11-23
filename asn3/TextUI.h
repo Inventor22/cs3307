@@ -9,10 +9,12 @@ private:
 	//BankMember::UserType currUserType;
 	//Database will be a member eventually
 	Bank bank;
+    bool bLogging;
 	bool bShutdown;
 
 public:
 	TextUI();
+    TextUI(bool logging);
 	~TextUI();
 	void displayHeader();
 	BankMember* setupFirstMaintainer();

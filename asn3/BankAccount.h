@@ -25,7 +25,7 @@ public:
 	int getBalance();
 	unsigned long getAccountId();
 	int deposit(int const amount);
-	int withdrawl(int const amount);
+	int withdrawal(int const amount);
 };
 
 #endif

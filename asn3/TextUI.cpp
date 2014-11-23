@@ -3,6 +3,9 @@
 #include <sstream>
 #include <stdlib.h>
 
+#include <syslog.h>
+#include <fstream>
+
 #include "TextUI.h"
 
 #include "InputParser.h"
@@ -11,10 +14,22 @@
 #include "BankMaintainer.h"
 #include "BankManager.h"
 #include "BankMemberDatabase.h"
-#include "mtk/mtktrace.hpp"
 
 TextUI::TextUI(){
 	bShutdown = false;
+    bLogging = true;
+    setlogmask(LOG_UPTO(LOG_INFO));
+}
+
+TextUI::TextUI(bool logging){
+    bShutdown = false;
+    bLogging = logging;
+    if (logging){
+        setlogmask(LOG_UPTO(LOG_DEBUG));
+    }
+    else {
+        setlogmask(LOG_UPTO(LOG_INFO));
+    }
 }
 
 TextUI::~TextUI(){
@@ -22,16 +37,16 @@ TextUI::~TextUI(){
 }
 
 void TextUI::displayHeader(){
-	mtklog("displayHeader() entered");
+	syslog(LOG_DEBUG, "displayHeader() entered");
 	std::cout << "\n" << "****************************************************" << std::endl
 		<< "\tDoDrew Automated Teller Machine v0.2" << std::endl
 		<< "****************************************************" << std::endl << std::endl;
-	mtklog("displayHeader() exited");
+	syslog(LOG_DEBUG, "displayHeader() exited");
 	return;
 }
 
 BankMember* TextUI::setupFirstMaintainer(){
-	mtklog("setupFirstMaintainer() entered");
+	syslog(LOG_DEBUG, "setupFirstMaintainer() entered");
 	std::string tFirstName;
 	std::string tLastName;
 	long tPIN;
@@ -53,12 +68,12 @@ BankMember* TextUI::setupFirstMaintainer(){
 	std::cout << "The new user's ID is " << firstMaintainer->getId() << ".\n";
 	bank.addMaintainer(firstMaintainer);
 	std::cout << "First maintainer setup.\n\n";
-	mtklog("setupFirstMaintainer() exited");
+	syslog(LOG_DEBUG, "setupFirstMaintainer() exited");
 	return firstMaintainer;
 }
 
 BankMember* TextUI::setupFirstManager(){
-	mtklog("setupFirstManager() entered");
+	syslog(LOG_DEBUG, "setupFirstManager() entered");
 	std::string tFirstName;
 	std::string tLastName;
 	long tPIN;
@@ -80,18 +95,18 @@ BankMember* TextUI::setupFirstManager(){
 	std::cout << "The new user's ID is " << firstManager->getId() << ".\n";
 	bank.addManager(firstManager);
 	std::cout << "First manager setup.\n\n";
-	mtklog("setupFirstManager() exited");
+	syslog(LOG_DEBUG, "setupFirstManager() exited");
 	return firstManager;
 }
 
 bool TextUI::processTransaction(){
-	mtklog("processTransaction() entered");
+	syslog(LOG_DEBUG, "processTransaction() entered");
 	bool successful = true;
 	//Get user ID
 	BankMember* user = promptForId();
 	//Get user to input their PIN, and confirm that they're ok
 	if (!promptForPin(user)){
-		mtklog("processTransaction() exited");
+		syslog(LOG_DEBUG, "processTransaction() exited");
 		return true;  //Exit, but don't shutdown
 	}
 	bool cont = true;
@@ -109,7 +124,7 @@ bool TextUI::processTransaction(){
 		}
 		else{
 			//Should be unreachable, will just end if user does not have a type
-			mtklog("Reached unreachable case. Invalid type.");
+			syslog(LOG_ERR, "Reached unreachable case. Invalid type.");
 			break;
 			cont = false;
 		}
@@ -145,7 +160,7 @@ bool TextUI::processTransaction(){
 		successful = false;
 	}
 
-	mtklog("processTransaction() exited");
+	syslog(LOG_DEBUG, "processTransaction() exited");
 	return successful;
 }
 
@@ -154,7 +169,7 @@ bool TextUI::getShutdownStatus(){
 }
 
 BankMember* TextUI::promptForId(){
-	mtklog("promptForID() entered");
+	syslog(LOG_DEBUG, "promptForID() entered");
 	//Promt to log in.
 	long lngID;
 	int intIdx;
@@ -174,12 +189,12 @@ BankMember* TextUI::promptForId(){
 			bFound = true;
 		}
 	}
-	mtklog("promptForID() exited");
+	syslog(LOG_DEBUG, "promptForID() exited");
 	return member;
 }
 
 bool TextUI::promptForPin(BankMember* user){
-	mtklog("promptForPin(BankMember) entered");
+	syslog(LOG_DEBUG, "promptForPin(BankMember) entered");
 	bool successful = true;
 	char attempts = 0;
 	long pin;
@@ -188,18 +203,18 @@ bool TextUI::promptForPin(BankMember* user){
 		attempts++;
 		if (attempts >= 3){
 			std::cout << "Maximum login attempt count exceeded.\n\n";
-			mtklog("promptForPin(BankMember) exited");
+			syslog(LOG_DEBUG, "promptForPin(BankMember) exited");
 			return false;
 		}
 		std::cout << "You have entered the incorrect PIN, please try again ("
 			<< attempts + 1 << "/3):\n";
 	}
-	mtklog("promptForPin(BankMember) exited");
+	syslog(LOG_DEBUG, "promptForPin(BankMember) exited");
 	return successful;
 }
 
 bool TextUI::changePIN(BankMember* user){
-	mtklog("changePin(BankMember) entered");
+	syslog(LOG_DEBUG, "changePin(BankMember) entered");
 	bool successful = true, authenticated = false;
 	int pin, tries, pin2;
 	std::cout << "Please enter your current PIN:\n";
@@ -221,7 +236,7 @@ bool TextUI::changePIN(BankMember* user){
 
 	if (!authenticated){
 		std::cout << "Sorry, maximum number of tries met.\nPlease try again later.\n";
-		mtklog("changePin(BankMember) exited");
+		syslog(LOG_DEBUG, "changePin(BankMember) exited");
 		return successful = false;
 	}
 
@@ -231,7 +246,7 @@ bool TextUI::changePIN(BankMember* user){
 		tries++;
 		if (tries >= 3){
 			std::cout << "Sorry, maximum number of tries met.\nPlease try again later.\n";
-			mtklog("changePin(BankMember) exited");
+			syslog(LOG_DEBUG, "changePin(BankMember) exited");
 			return successful = false;
 		}
 		else{
@@ -246,7 +261,7 @@ bool TextUI::changePIN(BankMember* user){
 			tries++;
 			if (tries >= 3){
 				std::cout << "Sorry, maximum number of tries met.\nPlease try again later.\n";
-				mtklog("changePin(BankMember) exited");
+				syslog(LOG_DEBUG, "changePin(BankMember) exited");
 				return successful = false;
 			}
 			else{
@@ -257,7 +272,7 @@ bool TextUI::changePIN(BankMember* user){
 			tries++;
 			if (tries >= 3){
 				std::cout << "Sorry, maximum number of tries met.\nPlease try again later.\n";
-				mtklog("changePin(BankMember) exited");
+				syslog(LOG_DEBUG, "changePin(BankMember) exited");
 				return successful = false;
 			}
 			std::cout << "Sorry, PINs do not match.\nPlease try again:\n";
@@ -272,31 +287,20 @@ bool TextUI::changePIN(BankMember* user){
 		std::cout << "Pin changed.\n";
 	}
 
-	mtklog("changePin(BankMember) exited");
+	syslog(LOG_DEBUG, "changePin(BankMember) exited");
 	return successful;
 }
 
 bool TextUI::isValidPIN(int pin){
-	mtklog("isValidPin(int) entered");
+	syslog(LOG_DEBUG, "isValidPin(int) entered");
 	// Pin must be 4 digits and positive
 	bool isValid = (pin < 10000) && (pin>999);
-	mtklog("isValidPin(int) exited");
+	syslog(LOG_DEBUG, "isValidPin(int) exited");
 	return isValid;
 }
 
-//Moved to InputParser
-//std::string TextUI::moneyToStr(long amount){
-//	mtklog("monetToStr(long) entered");
-//	//Build string with a string stream
-//	std::ostringstream oss;
-//	oss << "$" << amount / 10 << "." << amount % 100;
-//	std::string str = oss.str();
-//	mtklog("monetToStr(long) exited");
-//	return str;
-//}
-
 bool TextUI::processManagerTransaction(BankManager* user){
-	mtklog("processManagerTransaction(BankMember) entered");
+	syslog(LOG_DEBUG, "processManagerTransaction(BankMember) entered");
 	bool successful = true;
 	std::cout 
 		<< "============================\n"
@@ -331,16 +335,16 @@ bool TextUI::processManagerTransaction(BankManager* user){
 		break;
 	default:
 		//Should be unreachable
-		mtklog("Reached unreachable case. Invalid type.");
+		syslog(LOG_ERR, "Reached unreachable case. Invalid type.");
 		break;
 	}
 
-	mtklog("processManagerTransaction(BankMember) exited");
+	syslog(LOG_DEBUG, "processManagerTransaction(BankMember) exited");
 	return successful;
 }
 
 bool TextUI::openAccount(){
-	mtklog("openAccount() entered");
+	syslog(LOG_DEBUG, "openAccount() entered");
 	bool successful = true;
 	std::string firstName;
 	std::string lastName;
@@ -351,14 +355,14 @@ bool TextUI::openAccount(){
 	std::cout << "Please enter the new user's first name:\n";
 	if (!InputParser::getString(firstName)){
 		std::cout << "Invalid input.  Cancelling.\n";
-		mtklog("openAccount() exited");
+		syslog(LOG_DEBUG, "openAccount() exited");
 		return false;
 	}
 
 	std::cout << "Please enter the new user's last name:\n";
 	if (!InputParser::getString(lastName)){
 		std::cout << "Invalid input.  Cancelling.\n";
-		mtklog("openAccount() exited");
+		syslog(LOG_DEBUG, "openAccount() exited");
 		return false;
 	}
 
@@ -407,7 +411,7 @@ bool TextUI::openAccount(){
 			bank.addBankAccount(tempClient->getId(), BankAccount::SAVING);
 			break;
 		default:
-			mtklog("Reached unreachable case. Invalid type.");
+			syslog(LOG_ERR, "Reached unreachable case. Invalid type.");
 			break;  //Not reachable
 		}
 
@@ -426,12 +430,12 @@ bool TextUI::openAccount(){
 
 	std::cout << "Account created.\n";
 
-	mtklog("openAccount() exited");
+	syslog(LOG_DEBUG, "openAccount() exited");
 	return successful;
 }
 
 bool TextUI::closeAccount(BankManager* manager){
-	mtklog("closeAccount() entered");
+	syslog(LOG_DEBUG, "closeAccount() entered");
 	bool successful = true;
 	long ID;
 	
@@ -477,12 +481,12 @@ bool TextUI::closeAccount(BankManager* manager){
 		//TODO: Show the reason why not.
 	}
 
-	mtklog("closeAccount() exited");
+	syslog(LOG_DEBUG, "closeAccount() exited");
 	return successful;
 }
 
 void TextUI::queryAccount(){
-	mtklog("queryAccount() entered");
+	syslog(LOG_DEBUG, "queryAccount() entered");
 	//Get user
 	long ID;
 	std::cout << "Which accout would you like to view?\n"
@@ -503,17 +507,17 @@ void TextUI::queryAccount(){
 	//Give option to print to file?
 
 
-	mtklog("queryAccount() exited");
+	syslog(LOG_DEBUG, "queryAccount() exited");
 	return;
 }
 
 void TextUI::queryAccounts(){
-	mtklog("queryAccounts() entered");
+	syslog(LOG_DEBUG, "queryAccounts() entered");
 	//Get list of accounts from bank, spam out.
 	//Just list name, ID
 	//TODO: iterate through all accounts and list their properties.
 	
-	mtklog("queryAccounts() exited");
+	syslog(LOG_DEBUG, "queryAccounts() exited");
 	return;
 }
 
@@ -562,14 +566,14 @@ void TextUI::showAccount(BankMember* memberToView){
 }
 
 void TextUI::viewBankTotals(){
-	mtklog("viewBankTotals() entered");
+	syslog(LOG_DEBUG, "viewBankTotals() entered");
 	std::cout << "Sorry, this feature is currently unimplemented.\n";
-	mtklog("viewBankTotals() exited");
+	syslog(LOG_DEBUG, "viewBankTotals() exited");
 	return;
 }
 
 bool TextUI::processMaintainerTransaction(BankMaintainer* user){
-	mtklog("processMaintainerTransaction(BankMember) entered");
+	syslog(LOG_DEBUG, "processMaintainerTransaction(BankMember) entered");
 	bool cont = true;
 	std::cout 
 		<< "============================\n"
@@ -600,19 +604,20 @@ bool TextUI::processMaintainerTransaction(BankMaintainer* user){
 		break;
 	default:
 		//Should be unreachable
-		mtklog("Reached unreachable case. Invalid type.");
+		syslog(LOG_ERR, "Reached unreachable case. Invalid type.");
 		break;
 	}
-	mtklog("processMaintainerTransaction(BankMember) exited");
+	syslog(LOG_DEBUG, "processMaintainerTransaction(BankMember) exited");
 	return cont;
 }
 
 bool TextUI::enableLogging(){
-	mtklog("enableLogging() entered");
+	syslog(LOG_DEBUG, "enableLogging() entered");
 	bool successful = true;
 	char chrEn;
 
-	std::cout << "Logging is currently " << (mtkGetEnable() ? "enabled" : "disabled") << ".\n";
+    // Check if the logging level is UPTO(LOG_DEBUG)
+	std::cout << "Logging is currently " << (bLogging ? "enabled" : "disabled") << ".\n";
 	std::cout << "Would you like to enable or disable logging?\n";
 	std::cout << "E/e to enable, D/d to disable:\n";
 	while ((!InputParser::getChar(chrEn)) || !((chrEn=='E')||(chrEn=='e')||(chrEn=='D')||(chrEn=='d'))){
@@ -620,27 +625,45 @@ bool TextUI::enableLogging(){
 	}
 
 	if ((chrEn == 'E') || (chrEn == 'e')){
-		mtkSetEnable(true);
+        setlogmask(LOG_UPTO(LOG_DEBUG));
 		std::cout << "Logging enabled.\n";
 	}
 	else{
-		mtkSetEnable(false);
+		setlogmask(LOG_UPTO(LOG_INFO));
 		std::cout << "Logging disabled.\n";
 	}
 
-	mtklog("enableLogging() exited");
+	syslog(LOG_DEBUG, "enableLogging() exited");
 	return successful;
 }
 
 bool TextUI::printLogs(){
-	mtklog("printLogs() entered");
-	bool successful = mtkPrintLogFile();
-	mtklog("printLogs() exited");
+	syslog(LOG_DEBUG, "printLogs() entered");
+	bool successful;
+	// Open the file
+    std::ifstream inputFile;
+    inputFile.open("/var/log/syslog");
+    if (inputFile.is_open()){
+        successful = true;
+        std::string line;
+        size_t pos;
+        while (std::getline(inputFile, line)){
+            if (line.find("bank_sim") != std::string::npos) {
+                std::cout << line << std::endl;
+            }
+        }
+        inputFile.close();
+    }
+    else {
+        successful = false;
+        std::cout << "Unable to open log file to print to console.\n";
+    }
+	syslog(LOG_DEBUG, "printLogs() exited");
 	return successful;
 }
 
 bool TextUI::shutdown(){
-	mtklog("shutdown() entered");
+	syslog(LOG_DEBUG, "shutdown() entered");
 	bool cont = true;
 	char choice;
 	std::cout << "Are you sure that you want to shutdown?\n"
@@ -659,12 +682,12 @@ bool TextUI::shutdown(){
 		bShutdown = false;
 	}
 
-	mtklog("shutdown() exited");
+	syslog(LOG_DEBUG, "shutdown() exited");
 	return cont;
 }
 
 bool TextUI::processClientTransaction(BankClient* user){
-	mtklog("processClientTransaction(BankMember) entered");
+	syslog(LOG_DEBUG, "processClientTransaction(BankMember) entered");
 	bool cont = true;
 	//Check if there is a complimentary account
 	bool bMissingComplimentary = !((user->hasChequing())&&(user->hasSavings()));
@@ -730,16 +753,16 @@ bool TextUI::processClientTransaction(BankClient* user){
 		break;
 	default:
 		//Should be unreachable
-		mtklog("Reached unreachable case. Invalid type.");
+		syslog(LOG_ERR, "Reached unreachable case. Invalid type.");
 		break;
 	}
 	
-	mtklog("processClientTransaction(BankMember) exited");
+	syslog(LOG_DEBUG, "processClientTransaction(BankMember) exited");
 	return cont;
 }
 
 long TextUI::withdrawal(BankClient* client){
-	mtklog("withdrawal(BankClient*) entered");
+	syslog(LOG_DEBUG, "withdrawal(BankClient*) entered");
 	long amount = 0;
 	//Print out balances
 	balances(client);
@@ -765,14 +788,14 @@ long TextUI::withdrawal(BankClient* client){
 	}
 	else if (hasChequing){
 		std::cout << "  (1) - Chequing\n";
-		while (!InputParser::getChar(choice) || !(choice == '1')){
+		while (!InputParser::getChar(choice) || choice != '1'){
 			std::cout << "Invalid choice. Please try again:\n";
 		}
 		fromChequing = true;
 	}
 	else{ // hasSavings must be true
 		std::cout << "  (1) - Savings\n";
-		while (!InputParser::getChar(choice) || !(choice == '1')){
+		while (!InputParser::getChar(choice) || choice != '1'){
 			std::cout << "Invalid choice. Please try again:\n";
 		}
 		fromChequing = false;
@@ -784,7 +807,7 @@ long TextUI::withdrawal(BankClient* client){
 		std::cout << "Invalid entry, please try again:\n";
 	}
 
-	//Actually do withdrawl
+	//Actually do withdrawal
 	if (fromChequing){
 		amount = removeMoneyFromChequing(client, amount);
 	}
@@ -801,12 +824,12 @@ long TextUI::withdrawal(BankClient* client){
 		std::cout << "Your new savings balance is " << InputParser::moneyToStr(client->checkSavingsBalance()) << ".\n";
 	}
 
-	mtklog("withdrawal(BankClient*) exited");
+	syslog(LOG_DEBUG, "withdrawal(BankClient*) exited");
 	return amount;
 }
 
 long TextUI::deposit(BankClient* client){
-	mtklog("deposit(BankClient*) entered");
+	syslog(LOG_DEBUG, "deposit(BankClient*) entered");
 	long amount = 0;
 	//Print out balances
 	balances(client);
@@ -858,12 +881,12 @@ long TextUI::deposit(BankClient* client){
 		client->getAccount(BankAccount::SAVING)->deposit(amount);
 	}
 
-	mtklog("withdrawal(BankClient*) exited");
+	syslog(LOG_DEBUG, "withdrawal(BankClient*) exited");
 	return amount;
 }
 
 long TextUI::transfer(BankClient* client){
-	mtklog("transfer(BankClient*) entered");
+	syslog(LOG_DEBUG, "transfer(BankClient*) entered");
 	long amount = 0;
 	long amountTransfered = 0;
 	//Print out balances
@@ -953,19 +976,19 @@ long TextUI::transfer(BankClient* client){
 			}
 			else{
 				std::cout << "Maximum number of attempts made.\nPlease try again later.\n";
-				mtklog("transfer(BankClient*) exited");
+				syslog(LOG_DEBUG, "transfer(BankClient*) exited");
 				return amount = 0;
 			}
 		}
 		if (((otherMember = bank.getBankMember(otherID)) == NULL) || ((otherClient = dynamic_cast<BankClient*>(otherMember)) == NULL)){
 			std::cout << "Client " << otherID << " does not exist.\nPlease try again later.\n";
-			mtklog("transfer(BankClient*) exited");
+			syslog(LOG_DEBUG, "transfer(BankClient*) exited");
 			return amount = 0;
 		}
 		if (!otherClient->hasChequing()){
 			std::cout << "Sorry, client " << otherID << " does not have a chequing account to recieve your funds.\n"
 				<< "Your transaction cannot be completed at this time.\n";
-			mtklog("transfer(BankClient*) exited");
+			syslog(LOG_DEBUG, "transfer(BankClient*) exited");
 			return 0;
 		}
 	}
@@ -991,7 +1014,7 @@ long TextUI::transfer(BankClient* client){
 		break;
 	default: 
 		//Unreachable
-		mtklog("Reached unreachable case. Invalid type.");
+		syslog(LOG_DEBUG, "Reached unreachable case. Invalid type.");
 		break;
 	}
 	std::cout << "?\n";
@@ -1051,17 +1074,17 @@ long TextUI::transfer(BankClient* client){
 		break;
 	default: 
 		//Unreachable
-		mtklog("Reached unreachable case. Invalid type.");
+		syslog(LOG_DEBUG, "Reached unreachable case. Invalid type.");
 		break;
 	}
 	std::cout << " completed.\n";
 
-	mtklog("transfer(BankClient*) exited");
+	syslog(LOG_DEBUG, "transfer(BankClient*) exited");
 	return amount;
 }
 
 void TextUI::balances(BankClient* client){
-	mtklog("balances(BankClient*) entered");
+	syslog(LOG_DEBUG, "balances(BankClient*) entered");
 	bool hasChequing = client->hasChequing();
 	bool hasSavings = client->hasSavings();
 
@@ -1072,17 +1095,17 @@ void TextUI::balances(BankClient* client){
 	if (hasSavings){
 		std::cout << "  Savings:  " << InputParser::moneyToStr(client->checkSavingsBalance()) << "\n";
 	}
-	mtklog("balances(BankClient*) entered");
+	syslog(LOG_DEBUG, "balances(BankClient*) entered");
 	return;
 }
 
 bool TextUI::openComplimentary(BankClient* client){
-	mtklog("openComplimentary(BankClient*) entered");
+	syslog(LOG_DEBUG, "openComplimentary(BankClient*) entered");
 	bool hasChequing = client->hasChequing();
 	bool hasSavings  = client->hasSavings();
 	bool successful = true;
 	if (hasChequing && hasSavings){ // Can't open complimentary already has both, should be unreachable
-		mtklog("openComplimentary(BankClient*) exited");
+		syslog(LOG_DEBUG, "openComplimentary(BankClient*) exited");
 		return false;
 	}
 	if (hasChequing){
@@ -1098,12 +1121,12 @@ bool TextUI::openComplimentary(BankClient* client){
 		std::cout << "Chequing account opened.\n";
 	}
 
-	mtklog("openComplimentary(BankClient*) exited");
+	syslog(LOG_DEBUG, "openComplimentary(BankClient*) exited");
 	return successful;
 }
 
 long TextUI::removeMoneyFromChequing(BankClient* client, long amount){
-	mtklog("removeMoneyFromChequing(BankClient*,long) entered");
+	syslog(LOG_DEBUG, "removeMoneyFromChequing(BankClient*,long) entered");
 	if (amount > client->checkChequingBalance()){
 		std::cout << "Error: Insufficient funds.\n";
 		amount=0;
@@ -1119,7 +1142,7 @@ long TextUI::removeMoneyFromChequing(BankClient* client, long amount){
 			std::cout << "Invalid input, please try again:\n";
 		}
 		if ((choice == 'Y') || (choice == 'y')){
-			client->getAccount(BankAccount::AccountType::CHECKING)->withdrawl(amount + 200);
+            client->getAccount(BankAccount::AccountType::CHECKING)->withdrawal(amount + 200);
 		}
 		else{
 			amount = 0;
@@ -1135,29 +1158,29 @@ long TextUI::removeMoneyFromChequing(BankClient* client, long amount){
 			std::cout << "Invalid input, please try again:\n";
 		}
 		if ((choice == 'Y') || (choice == 'y')){
-			client->getAccount(BankAccount::AccountType::CHECKING)->withdrawl(amount + 200);
+            client->getAccount(BankAccount::AccountType::CHECKING)->withdrawal(amount + 200);
 		}
 		else{
 			amount = 0;
 		}
 	}
 	else { //Has enough money, won't incur an extra fee
-		client->getAccount(BankAccount::AccountType::CHECKING)->withdrawl(amount);
+        client->getAccount(BankAccount::AccountType::CHECKING)->withdrawal(amount);
 	}
 
-	mtklog("removeMoneyFromChequing(BankClient*,long) exited");
+	syslog(LOG_DEBUG, "removeMoneyFromChequing(BankClient*,long) exited");
 	return amount;
 }
 
 long TextUI::removeMoneyFromSavings(BankClient* client, long amount){
-	mtklog("removeMoneyFromSavings(BankClient*,long) entered");
+	syslog(LOG_DEBUG, "removeMoneyFromSavings(BankClient*,long) entered");
 	if (amount > client->checkSavingsBalance()){
 		std::cout << "Error: Insufficient funds.\n";
 		amount = 0;
 	}
 	else { //Has enough money
-		client->getAccount(BankAccount::AccountType::SAVING)->withdrawl(amount);
+        client->getAccount(BankAccount::AccountType::SAVING)->withdrawal(amount);
 	}
-	mtklog("removeMoneyFromSavings(BankClient*,long) exited");
+	syslog(LOG_DEBUG, "removeMoneyFromSavings(BankClient*,long) exited");
 	return amount;
 }

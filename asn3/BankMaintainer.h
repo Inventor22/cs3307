@@ -6,8 +6,6 @@
 #include <string>
 #include <ctime>
 #include "BankMember.h"
-#include "mtk/mtktrace.hpp"
-
 
 class BankMaintainer : public BankMember {
 private:
