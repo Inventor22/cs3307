@@ -4,14 +4,14 @@
 #include <stdlib.h>
 
 #include "TextUI.h"
+
 #include "InputParser.h"
 
-#include "Bank.h"
-#include "BankMember.h"
 #include "BankClient.h"
 #include "BankMaintainer.h"
 #include "BankManager.h"
 #include "BankMemberDatabase.h"
+#include "mtk/mtktrace.hpp"
 
 TextUI::TextUI(){
 	bShutdown = false;
@@ -980,13 +980,13 @@ long TextUI::transfer(BankClient* client){
 	}
 	std::cout << " to ";
 	switch (trTo){
-	case target_t::CHEQUING:
+	case CHEQUING:
 		std::cout << "chequing";
 		break;
-	case target_t::SAVINGS:
+	case SAVINGS:
 		std::cout << "savings";
 		break;
-	case target_t::OTHER:
+	case OTHER:
 		std::cout << "account " << otherID;
 		break;
 	default: 
@@ -1040,13 +1040,13 @@ long TextUI::transfer(BankClient* client){
 	}
 	std::cout << " to ";
 	switch (trTo){
-	case target_t::CHEQUING:
+	case CHEQUING:
 		std::cout << "chequing";
 		break;
-	case target_t::SAVINGS:
+	case SAVINGS:
 		std::cout << "savings";
 		break;
-	case target_t::OTHER:
+	case OTHER:
 		std::cout << "account " << otherID;
 		break;
 	default: 
