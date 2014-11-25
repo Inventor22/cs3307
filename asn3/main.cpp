@@ -8,26 +8,25 @@ using namespace std;
 
 int main(){
 
+	// Initialize ui, starting debug level logging
 	TextUI ui(true);
 
-    // Start logging, default to full traces for now.
-	openlog("bank_sim", LOG_PID | LOG_NDELAY, LOG_USER);
-    setlogmask(LOG_UPTO(LOG_DEBUG));
-
+	// Log the start up time
 	time_t now = time(0);
 	char* dt = ctime(&now);
 	syslog(LOG_INFO, "Starting up system, time is %s", dt);
 
-	//Check for saved userbase
+	// Check for saved userbase
 	ifstream dbFileIn("userDB.txt");
 
 	if (!dbFileIn.is_open()){
-		//If not found, perform first time setup (add maintainer, then admin)
+		// If not found, perform first time setup (add maintainer, then admin)
 		ui.setupFirstMaintainer();
 		ui.setupFirstManager();
 	}
 	dbFileIn.close();
 
+	// Process transactions until the quit flag is raised
 	bool bQuit = false;
 	while (!bQuit) {
         ui.processTransaction();
