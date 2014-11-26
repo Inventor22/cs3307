@@ -4,12 +4,12 @@ BankManager::BankManager(std::ifstream& is) : BankMember(is) {
 }
 
 BankManager::BankManager(std::string fN, std::string lN, unsigned int pin) :
-BankMember(fN, lN, pin, MemberType::MANAGER) {
+BankMember(fN, lN, pin, MANAGER) {
 
 }
 
 BankManager::BankManager(std::string fN, std::string lN, unsigned long id, unsigned int pin) :
-BankMember(fN, lN, id, pin, MemberType::MANAGER) {
+BankMember(fN, lN, id, pin, MANAGER) {
 
 }
 
