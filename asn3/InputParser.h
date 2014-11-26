@@ -14,4 +14,11 @@ public:
 	static bool getLongOrString(bool& which, std::string& strIo, long& lngIo);
 
 	static std::string moneyToStr(long io);
+
+private:
+	static std::string trn_string(int i);
+	static int to_int(std::string s);
+	static int to_long(std::string s);
+
 };
+
