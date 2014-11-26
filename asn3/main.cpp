@@ -2,7 +2,7 @@
 #include <fstream>
 #include "BankMember.h"
 #include "TextUI.h"
-#include <sys/syslog.h>
+#include <syslog.h> //GAUL doesn't like sys/syslog.h for some reason...
 
 using namespace std;
 
