@@ -1,5 +1,4 @@
 #include "BankClient.h"
-#include "IdManager.h"
 
 BankClient::BankClient(std::ifstream& is) : BankMember(is) {
 	int numAccounts = 0;
@@ -17,12 +16,10 @@ BankClient::BankClient(std::ifstream& is) : BankMember(is) {
 	}	
 }
 
-BankClient::BankClient(std::string firstName, std::string lastName, unsigned int pin) :
-BankMember(firstName, lastName, pin, MemberType::CLIENT) {
+BankClient::BankClient(std::string firstName, std::string lastName, unsigned int pin) : BankMember(firstName, lastName, pin, CLIENT) {
 }
 
-BankClient::BankClient(std::string firstName, std::string lastName, unsigned long id, unsigned int pin) :
-BankMember(firstName, lastName, id, pin, MemberType::CLIENT) {
+BankClient::BankClient(std::string firstName, std::string lastName, unsigned long id, unsigned int pin) : BankMember(firstName, lastName, id, pin, CLIENT) {
 }
 
 BankAccount* BankClient::getAccount(BankAccount::AccountType accountType) {
@@ -67,7 +64,7 @@ void BankClient::write(std::ofstream& o) {
 }
 
 long BankClient::checkChequingBalance() {
-	BankAccount* bankAccount = getAccount(BankAccount::AccountType::CHECKING);
+	BankAccount* bankAccount = getAccount(BankAccount::CHECKING);
 	if (bankAccount) {
 		return bankAccount->getBalance();
 	}
@@ -75,7 +72,7 @@ long BankClient::checkChequingBalance() {
 }
 
 long BankClient::checkSavingsBalance() {
-	BankAccount* bankAccount = getAccount(BankAccount::AccountType::SAVING);
+	BankAccount* bankAccount = getAccount(BankAccount::SAVING);
 	if (bankAccount) {
 		return bankAccount->getBalance();
 	}
@@ -83,29 +80,29 @@ long BankClient::checkSavingsBalance() {
 }
 
 bool BankClient::hasChequing() {
-	BankAccount* bankAccount = getAccount(BankAccount::AccountType::CHECKING);
+	BankAccount* bankAccount = getAccount(BankAccount::CHECKING);
 	return bankAccount != NULL;
 }
 
 bool BankClient::hasSavings() {
-	BankAccount* bankAccount = getAccount(BankAccount::AccountType::SAVING);
+	BankAccount* bankAccount = getAccount(BankAccount::SAVING);
 	return bankAccount != NULL;
 }
 
 bool BankClient::openChequing(unsigned long id) {
-	if (getAccount(BankAccount::AccountType::CHECKING) != NULL) {
+	if (getAccount(BankAccount::CHECKING) != NULL) {
 		return false;
 	}
 	bankAccounts.push_back(
-		BankAccount(BankAccount::AccountType::CHECKING, id));
+		BankAccount(BankAccount::CHECKING, id));
 	return true;
 }
 
 bool BankClient::openSavings(unsigned long id) {
-	if (getAccount(BankAccount::AccountType::CHECKING) != NULL) {
+	if (getAccount(BankAccount::CHECKING) != NULL) {
 		return false;
 	}
 	bankAccounts.push_back(
-		BankAccount(BankAccount::AccountType::SAVING, id));
+		BankAccount(BankAccount::SAVING, id));
 	return true;
 }
