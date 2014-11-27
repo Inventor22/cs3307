@@ -175,7 +175,7 @@ int InputParser::to_int(std::string s)
 } 
 
 //Very basic implementation -> placeholder!
-int InputParser::to_long(std::string s)
+long InputParser::to_long(std::string s)
 {
 	long l;
 	std::istringstream(s) >> l;
