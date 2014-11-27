@@ -18,7 +18,7 @@ public:
 private:
 	static std::string trn_string(int i);
 	static int to_int(std::string s);
-	static int to_long(std::string s);
+	static long to_long(std::string s);
 
 };
 
