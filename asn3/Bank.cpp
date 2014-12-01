@@ -1,4 +1,7 @@
 #include <string>
+#include <fstream>
+#include <iostream>
+
 #include "Bank.h"
 
 const int Bank::MAX_ACCOUNTS = 2;
@@ -10,6 +13,10 @@ Bank::Bank() {
 }
 
 void Bank::setExecutionTraceStatus(Bank::TraceState traceState) {
+	executionTrace = traceState;
+}
+
+void Bank::setExecutionTraceStatus(bool traceState) {
 	executionTrace = traceState;
 }
 
@@ -49,11 +56,16 @@ unsigned long Bank::generateNewBankAccountId() {
 void Bank::writeStateToFile() {
 	std::ofstream bankFile;
 	bankFile.open("BankDatabase.txt");
-	bankFile << executionTrace << std::endl;
+	bankFile << std::boolalpha << executionTrace << std::endl;
 	database.writeDatabaseToFile(bankFile);
+	bankFile.close();
 }
 
-void Bank::readStateFromFile() {
-	std::ifstream bankFile("BankDatabase.txt");
-	database.loadDatabaseFromFile(bankFile, executionTrace);
+void Bank::readStateFromFile() {	
+	std::ifstream bankFile;
+	bankFile.open("BankDatabase.txt");
+	bankFile >> std::boolalpha >> executionTrace;
+	database.loadDatabaseFromFile(bankFile);
+	bankFile.close();
 }
+
