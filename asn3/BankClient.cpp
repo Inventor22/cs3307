@@ -106,3 +106,27 @@ bool BankClient::openSavings(unsigned long id) {
 		BankAccount(BankAccount::SAVING, id));
 	return true;
 }
+
+int BankClient::payCreditCard() {
+    if (hasCreditCard && creditBalance > 0) {
+
+        BankAccount* b = getAccount(BankAccount::AccountType::CHECKING);
+        long chequingBal = checkChequingBalance();
+
+        if (payMinimum) {
+            long payment = creditBalance * minimumPayment;
+
+            if (chequingBal > payment) {
+                creditBalance -= b->withdrawal(payment);
+            } else {
+                creditBalance -= b->withdrawal(chequingBal);
+            }
+        } else {
+            if (chequingBal > creditBalance) {
+                creditBalance -= b->withdrawal(creditBalance);
+            } else {
+                creditBalance -= b->withdrawal(chequingBal);
+            }
+        }
+    }
+}

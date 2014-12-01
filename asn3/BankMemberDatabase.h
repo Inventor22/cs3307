@@ -43,6 +43,13 @@ public:
 
 	unsigned long generateNewBankAccountId();
 
+    /*
+    For each user, check if amount owing >0, if >0 then automatically take minimum payment
+    from chequing, then process interest: 2%
+    */
+
+    void processMonthlyCreditPayments();
+
 };
 
 #endif
