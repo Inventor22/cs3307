@@ -3,8 +3,10 @@
 
     Created by Andrew Simpson on November 2014-11-12
 
-    A concrete observer - just a low pass filter (averaging filter)
-    for the sensor it's attached to.
+    Written by Andrew Simpson
+
+    A concrete observer - applies low pass filter (averaging filter)
+    to the readings of the sensor it's attached to.
 */
 
 #include "Algorithm.h"
@@ -16,6 +18,8 @@ private:
 public:
     //Constructor
     LowFreq();
+    //Destructor
+    ~LowFreq();
     //Update function called by subject (sensor)
     void update(float);
     //Returns current state

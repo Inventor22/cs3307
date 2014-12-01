@@ -3,7 +3,9 @@
 
     Created by Andrew Simpson on November 2014-11-12
 
-    A concrete observer - just keeps a copy of the lowest value
+    Written by Andrew Simpson
+
+    A concrete observer - keeps a copy of the lowest value
     from the sensor it's attached to.
 */
 
@@ -16,6 +18,8 @@ private:
 public:
     //Constructor
     LowestVal();
+    //Destructor
+    ~LowestVal();
     //Update function called by subject (sensor)
     void update(float);
     //Returns current state
