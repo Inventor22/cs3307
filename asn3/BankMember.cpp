@@ -4,6 +4,11 @@ BankMember::BankMember(std::ifstream& is) {
 	readFromFile(is);
 }
 
+BankMember::BankMember(std::ifstream& is, int memType) {
+	is >> _id >> _pin >> _firstName >> _lastName;
+	_memberType = (BankMember::MemberType) memType;
+}
+
 BankMember::BankMember(std::string firstName,
 					   std::string lastName,
 					   unsigned int pin,
@@ -72,3 +77,4 @@ void BankMember::readFromFile(std::ifstream& i) {
 	i >> memberType >> _id >> _pin >> _firstName >> _lastName;
 	_memberType = (BankMember::MemberType) memberType;
 }
+
