@@ -1,4 +1,5 @@
-#pragma once
+#ifndef _TEXTUI_H
+#define _TEXTUI_H
 
 #include "Bank.h"
 #include "BankMember.h"
@@ -8,9 +9,9 @@ private:
   //BankMember currUser;
   //BankMember::UserType currUserType;
   //Database will be a member eventually
-  Bank bank;
-  bool bLogging;
-  bool bShutdown;
+  Bank &_bank;
+  bool _bLogging;
+  bool _bShutdown;
 
 public:
   TextUI(bool logging, Bank &bank);
@@ -57,3 +58,5 @@ private:
   long removeMoneyFromSavings(BankClient* client, long amount);
 
 };
+
+#endif

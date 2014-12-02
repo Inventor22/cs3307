@@ -15,15 +15,9 @@
 #include "BankManager.h"
 #include "BankMemberDatabase.h"
 
-TextUI::TextUI(){
-  bShutdown = false;
-    bLogging = true;
-    setlogmask(LOG_UPTO(LOG_INFO));
-}
-
-TextUI::TextUI(bool logging){
-    bShutdown = false;
-    bLogging = logging;
+TextUI::TextUI(bool logging, Bank &bank) : _bank(bank){
+    _bShutdown = false;
+    _bLogging = logging;
     if (logging){
         setlogmask(LOG_UPTO(LOG_DEBUG));
     }
@@ -63,10 +57,10 @@ BankMember* TextUI::setupFirstMaintainer(){
   {
     std::cout << "Invalid PIN, please try again:\n";
   }
-  tID = bank.generateNewBankMemberId();
+  tID = _bank.generateNewBankMemberId();
   BankMaintainer* firstMaintainer = new BankMaintainer(tFirstName, tLastName, tID, tPIN);
   std::cout << "The new user's ID is " << firstMaintainer->getId() << ".\n";
-  bank.addMaintainer(firstMaintainer);
+  _bank.addMaintainer(firstMaintainer);
   std::cout << "First maintainer setup.\n\n";
   syslog(LOG_DEBUG, "setupFirstMaintainer() exited");
   return firstMaintainer;
@@ -90,10 +84,10 @@ BankMember* TextUI::setupFirstManager(){
   {
     std::cout << "Invalid PIN, please try again:\n";
   }
-  tID = bank.generateNewBankMemberId();
+  tID = _bank.generateNewBankMemberId();
   BankManager* firstManager = new BankManager(tFirstName, tLastName, tID, tPIN);
   std::cout << "The new user's ID is " << firstManager->getId() << ".\n";
-  bank.addManager(firstManager);
+  _bank.addManager(firstManager);
   std::cout << "First manager setup.\n\n";
   syslog(LOG_DEBUG, "setupFirstManager() exited");
   return firstManager;
@@ -156,7 +150,7 @@ bool TextUI::processTransaction(){
   std::cout << "Goodbye " << user->getFirstName() << "!\n";
 
   //Check if it is time to shut down
-  if (bShutdown == true){
+  if (_bShutdown == true){
     successful = false;
   }
 
@@ -165,7 +159,7 @@ bool TextUI::processTransaction(){
 }
 
 bool TextUI::getShutdownStatus(){
-  return bShutdown;
+  return _bShutdown;
 }
 
 BankMember* TextUI::promptForId(){
@@ -182,7 +176,7 @@ BankMember* TextUI::promptForId(){
       std::cout << "Invalid ID, please try again.\n";
       continue;
     }
-    if ((member = bank.getBankMember(lngID)) == NULL){
+    if ((member = _bank.getBankMember(lngID)) == NULL){
       std::cout << "\tUser with ID " << lngID << " not found.\n";
     }
     else{
@@ -349,7 +343,7 @@ bool TextUI::openAccount(){
   std::string firstName;
   std::string lastName;
   int PIN;
-  unsigned long ID = bank.generateNewBankMemberId();
+  unsigned long ID = _bank.generateNewBankMemberId();
   char userType;
 
   std::cout << "Please enter the new user's first name:\n";
@@ -393,22 +387,22 @@ bool TextUI::openAccount(){
       std::cout << "Invalid input, please try again.\n";
     }
 
-    bank.addClient(tempClient);
+    _bank.addClient(tempClient);
 
     switch (choice)
     {
     case 'C':
     case 'c':
-      bank.addBankAccount(tempClient->getId(), BankAccount::CHECKING);
+      _bank.addBankAccount(tempClient->getId(), BankAccount::CHECKING);
       break;
     case 'S':
     case 's':
-      bank.addBankAccount(tempClient->getId(), BankAccount::SAVING);
+      _bank.addBankAccount(tempClient->getId(), BankAccount::SAVING);
       break;
     case 'B':
     case 'b':
-      bank.addBankAccount(tempClient->getId(), BankAccount::CHECKING);
-      bank.addBankAccount(tempClient->getId(), BankAccount::SAVING);
+      _bank.addBankAccount(tempClient->getId(), BankAccount::CHECKING);
+      _bank.addBankAccount(tempClient->getId(), BankAccount::SAVING);
       break;
     default:
       syslog(LOG_ERR, "Reached unreachable case. Invalid type.");
@@ -419,12 +413,12 @@ bool TextUI::openAccount(){
   }
   if ((userType == 'm') || (userType == 'M')){
     BankMaintainer* tempMaintainer = new BankMaintainer(firstName, lastName, ID, PIN);
-    bank.addMaintainer(tempMaintainer);
+    _bank.addMaintainer(tempMaintainer);
     std::cout << "The new user's ID is " << tempMaintainer->getId() << ".\n";
   }
   if ((userType == 't')||(userType == 'T')){
     BankManager* tempManager = new BankManager(firstName, lastName, ID, PIN);
-    bank.addManager(tempManager);
+    _bank.addManager(tempManager);
     std::cout << "The new user's ID is " << tempManager->getId() << ".\n";
   }
 
@@ -446,7 +440,7 @@ bool TextUI::closeAccount(BankManager* manager){
   }
 
   //Check if the account has money in it.
-  BankMember* memberToDelete = bank.database.getBankMember(ID);
+  BankMember* memberToDelete = _bank.database.getBankMember(ID);
 
   if (BankClient * clientToDelete = dynamic_cast<BankClient*>(memberToDelete)){
     if (((clientToDelete->hasChequing())&&(clientToDelete->checkChequingBalance() != 0)) 
@@ -470,7 +464,7 @@ bool TextUI::closeAccount(BankManager* manager){
   }
 
   if (successful){
-    successful = bank.deleteMember(ID);
+    successful = _bank.deleteMember(ID);
   }
 
   if (successful){
@@ -496,7 +490,7 @@ void TextUI::queryAccount(){
   }
 
   //Get account account has money in it.
-  BankMember* memberToView = bank.getBankMember(ID);
+  BankMember* memberToView = _bank.getBankMember(ID);
 
   showAccount(memberToView);
 
@@ -513,7 +507,7 @@ void TextUI::queryAccount(){
 
 void TextUI::queryAccounts(){
   syslog(LOG_DEBUG, "queryAccounts() entered");
-  //Get list of accounts from bank, spam out.
+  //Get list of accounts from _bank, spam out.
   //Just list name, ID
   //TODO: iterate through all accounts and list their properties.
   
@@ -617,7 +611,7 @@ bool TextUI::enableLogging(){
   char chrEn;
 
     // Check if the logging level is UPTO(LOG_DEBUG)
-  std::cout << "Logging is currently " << (bLogging ? "enabled" : "disabled") << ".\n";
+  std::cout << "Logging is currently " << (_bLogging ? "enabled" : "disabled") << ".\n";
   std::cout << "Would you like to enable or disable logging?\n";
   std::cout << "E/e to enable, D/d to disable:\n";
   while ((!InputParser::getChar(chrEn)) || !((chrEn=='E')||(chrEn=='e')||(chrEn=='D')||(chrEn=='d'))){
@@ -673,13 +667,13 @@ bool TextUI::shutdown(){
   }
   if ((choice == 'Y') || (choice == 'y')){
     std::cout << "Shutting down.\n";
-    bank.writeStateToFile(); //Save bank data
-    bShutdown = true;       //Raise shutdown flag
+    _bank.writeStateToFile(); //Save _bank data
+    _bShutdown = true;       //Raise shutdown flag
     cont = false;          //Don't perform another transaction, just shut down
   }
   else{
     std::cout << "Cancelling shutdown request.\n";
-    bShutdown = false;
+    _bShutdown = false;
   }
 
   syslog(LOG_DEBUG, "shutdown() exited");
@@ -980,7 +974,7 @@ long TextUI::transfer(BankClient* client){
         return amount = 0;
       }
     }
-    if (((otherMember = bank.getBankMember(otherID)) == NULL) || ((otherClient = dynamic_cast<BankClient*>(otherMember)) == NULL)){
+    if (((otherMember = _bank.getBankMember(otherID)) == NULL) || ((otherClient = dynamic_cast<BankClient*>(otherMember)) == NULL)){
       std::cout << "Client " << otherID << " does not exist.\nPlease try again later.\n";
       syslog(LOG_DEBUG, "transfer(BankClient*) exited");
       return amount = 0;
@@ -1110,14 +1104,12 @@ bool TextUI::openComplimentary(BankClient* client){
   }
   if (hasChequing){
     //Open savings account
-    bank.addBankAccount(client->getId(), BankAccount::SAVING);
-    //client->openSavings(bank.generateNewBankAccountId());  //old way
+    _bank.addBankAccount(client->getId(), BankAccount::SAVING);
     std::cout << "Savings account opened.\n";
   }
   else{
     //Open chequing account
-    bank.addBankAccount(client->getId(), BankAccount::CHECKING);
-    //client->openChequing(bank.generateNewBankAccountId());  //old way
+    _bank.addBankAccount(client->getId(), BankAccount::CHECKING);
     std::cout << "Chequing account opened.\n";
   }
 
