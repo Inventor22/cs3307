@@ -159,7 +159,7 @@ std::string InputParser::moneyToStr(long io){
 }
 
 //Very basic implementation -> placeholder!
-std::string InputParser::trn_string(int i){
+std::string InputParser::intToStr(int i){
   std::stringstream s;
   s << i;
   return s.str();
@@ -167,7 +167,7 @@ std::string InputParser::trn_string(int i){
 
 
 //Very basic implementation -> placeholder!
-int InputParser::to_int(std::string s)
+int InputParser::strToInt(std::string s)
 {
   int i;
   std::istringstream(s) >> i;
@@ -175,7 +175,7 @@ int InputParser::to_int(std::string s)
 } 
 
 //Very basic implementation -> placeholder!
-long InputParser::to_long(std::string s)
+long InputParser::strToLng(std::string s)
 {
   long l;
   std::istringstream(s) >> l;

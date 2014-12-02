@@ -16,9 +16,9 @@ public:
   static std::string moneyToStr(long io);
 
 private:
-  static std::string trn_string(int i);
-  static int to_int(std::string s);
-  static long to_long(std::string s);
+  static std::string intToStr(int i);
+  static int strToInt(std::string s);
+  static long strToLng(std::string s);
 
 };
 
