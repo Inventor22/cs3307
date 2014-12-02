@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Detailed report on module InputParser-->
+<CCCC_Project>
+<module_summary>
+<lines_of_code value="170" level="0" />
+<lines_of_code_per_member_function value="******" level="0" />
+<McCabes_cyclomatic_complexity value="45" level="0" />
+<McCabes_cyclomatic_complexity_per_member_function value="******" level="2" />
+<lines_of_code value="52" level="0" />
+<lines_of_code_per_member_function value="********" level="2" />
+<lines_of_code_per_line_of_comment value="3.269" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="0.865" level="0" />
+<weighted_methods_per_class_unity value="11" level="0" />
+<weighted_methods_per_class_visibility value="3" level="0" />
+<depth_of_inheritance_tree value="0" level="0" />
+<number_of_children value="0" level="0" />
+<coupling_between_objects value="2" level="0" />
+<IF4 value="0" level="0" />
+<IF4_per_member_function value="********" level="0" />
+<IF4_visible value="0" level="0" />
+<IF4_visible_per_member_function value="********" level="0" />
+<IF4_concrete value="0" level="0" />
+<IF4_concrete_per_member_function value="********" level="0" />
+</module_summary>
+<module_detail>
+<description>definition</description>
+<source_reference file="InputParser.h" line="7" />
+<lines_of_code value="4" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</module_detail>
+<procedural_detail>
+<member_function>
+<name>getChar(char &amp;)</name>
+<extent>
+<description>definition</description>
+<source_reference file="InputParser.cpp" line="51" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="InputParser.h" line="11" />
+</extent>
+<lines_of_code value="12" level="0" />
+<McCabes_cyclomatic_complexity value="3" level="0" />
+<lines_of_comment value="1" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>getInt(int &amp;)</name>
+<extent>
+<description>definition</description>
+<source_reference file="InputParser.cpp" line="7" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="InputParser.h" line="9" />
+</extent>
+<lines_of_code value="18" level="0" />
+<McCabes_cyclomatic_complexity value="4" level="0" />
+<lines_of_comment value="6" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>getLong(long &amp;)</name>
+<extent>
+<description>definition</description>
+<source_reference file="InputParser.cpp" line="30" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="InputParser.h" line="10" />
+</extent>
+<lines_of_code value="18" level="0" />
+<McCabes_cyclomatic_complexity value="4" level="0" />
+<lines_of_comment value="6" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>getLongOrString(bool &amp;,string &amp;,long &amp;)</name>
+<extent>
+<description>definition</description>
+<source_reference file="InputParser.cpp" line="125" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="InputParser.h" line="15" />
+</extent>
+<lines_of_code value="20" level="0" />
+<McCabes_cyclomatic_complexity value="4" level="0" />
+<lines_of_comment value="10" level="0" />
+<lines_of_code_per_line_of_comment value="2.000" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>getMoney(long &amp;)</name>
+<extent>
+<description>definition</description>
+<source_reference file="InputParser.cpp" line="71" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="InputParser.h" line="13" />
+</extent>
+<lines_of_code value="43" level="1" />
+<McCabes_cyclomatic_complexity value="11" level="1" />
+<lines_of_comment value="15" level="0" />
+<lines_of_code_per_line_of_comment value="2.867" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="0.733" level="0" />
+</member_function>
+<member_function>
+<name>getString(string &amp;)</name>
+<extent>
+<description>definition</description>
+<source_reference file="InputParser.cpp" line="63" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="InputParser.h" line="12" />
+</extent>
+<lines_of_code value="8" level="0" />
+<McCabes_cyclomatic_complexity value="3" level="0" />
+<lines_of_comment value="1" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>intToStr(int)</name>
+<extent>
+<description>definition</description>
+<source_reference file="InputParser.cpp" line="161" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="InputParser.h" line="21" />
+</extent>
+<lines_of_code value="6" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="2" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>lngToStr(long)</name>
+<extent>
+<description>definition</description>
+<source_reference file="InputParser.cpp" line="168" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="InputParser.h" line="22" />
+</extent>
+<lines_of_code value="6" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="1" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>moneyToStr(long)</name>
+<extent>
+<description>definition</description>
+<source_reference file="InputParser.cpp" line="149" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="InputParser.h" line="17" />
+</extent>
+<lines_of_code value="9" level="0" />
+<McCabes_cyclomatic_complexity value="2" level="0" />
+<lines_of_comment value="2" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>strToInt(string)</name>
+<extent>
+<description>definition</description>
+<source_reference file="InputParser.cpp" line="175" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="InputParser.h" line="23" />
+</extent>
+<lines_of_code value="13" level="0" />
+<McCabes_cyclomatic_complexity value="6" level="0" />
+<lines_of_comment value="4" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="1.500" level="0" />
+</member_function>
+<member_function>
+<name>strToLng(string)</name>
+<extent>
+<description>definition</description>
+<source_reference file="InputParser.cpp" line="193" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="InputParser.h" line="24" />
+</extent>
+<lines_of_code value="13" level="0" />
+<McCabes_cyclomatic_complexity value="6" level="0" />
+<lines_of_comment value="4" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="1.500" level="0" />
+</member_function>
+</procedural_detail>
+<structural_detail>
+<module>
+<name>InputParser</name>
+<client_module>
+</client_module>
+<supplier_module>
+<name>bool</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="InputParser.cpp" line="125" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="InputParser.h" line="15" />
+</extent>
+<name>string</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="InputParser.cpp" line="63" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="InputParser.cpp" line="125" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="InputParser.cpp" line="175" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="InputParser.cpp" line="193" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="InputParser.h" line="12" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="InputParser.h" line="15" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="InputParser.h" line="23" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="InputParser.h" line="24" />
+</extent>
+</supplier_module>
+</module>
+</structural_detail>
+</CCCC_Project>

@@ -1,0 +1,499 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Detailed report on module BankClient-->
+<CCCC_Project>
+<module_summary>
+<lines_of_code value="170" level="0" />
+<lines_of_code_per_member_function value="******" level="0" />
+<McCabes_cyclomatic_complexity value="44" level="0" />
+<McCabes_cyclomatic_complexity_per_member_function value="******" level="2" />
+<lines_of_code value="6" level="0" />
+<lines_of_code_per_member_function value="********" level="2" />
+<lines_of_code_per_line_of_comment value="28.333" level="1" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="7.333" level="1" />
+<weighted_methods_per_class_unity value="16" level="0" />
+<weighted_methods_per_class_visibility value="0" level="0" />
+<depth_of_inheritance_tree value="1" level="0" />
+<number_of_children value="0" level="0" />
+<coupling_between_objects value="10" level="0" />
+<IF4 value="256" level="1" />
+<IF4_per_member_function value="********" level="2" />
+<IF4_visible value="64" level="1" />
+<IF4_visible_per_member_function value="********" level="2" />
+<IF4_concrete value="0" level="0" />
+<IF4_concrete_per_member_function value="********" level="0" />
+</module_summary>
+<module_detail>
+<description>definition</description>
+<source_reference file="BankClient.h" line="14" />
+<lines_of_code value="11" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="1" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</module_detail>
+<procedural_detail>
+<member_function>
+<name>BankClient(ifstream &amp;)</name>
+<extent>
+<description>definition</description>
+<source_reference file="BankClient.cpp" line="5" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="BankClient.h" line="26" />
+</extent>
+<lines_of_code value="16" level="0" />
+<McCabes_cyclomatic_complexity value="3" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>BankClient(string,string,int)</name>
+<extent>
+<description>definition</description>
+<source_reference file="BankClient.cpp" line="21" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="BankClient.h" line="28" />
+</extent>
+<lines_of_code value="9" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>BankClient(string,string,long,int)</name>
+<extent>
+<description>definition</description>
+<source_reference file="BankClient.cpp" line="30" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="BankClient.h" line="29" />
+</extent>
+<lines_of_code value="9" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>addAccount(AccountType,long)</name>
+<extent>
+<description>definition</description>
+<source_reference file="BankClient.cpp" line="49" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="BankClient.h" line="38" />
+</extent>
+<lines_of_code value="15" level="0" />
+<McCabes_cyclomatic_complexity value="6" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="******" level="2" />
+</member_function>
+<member_function>
+<name>checkChequingBalance()</name>
+<extent>
+<description>definition</description>
+<source_reference file="BankClient.cpp" line="89" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="BankClient.h" line="33" />
+</extent>
+<lines_of_code value="8" level="0" />
+<McCabes_cyclomatic_complexity value="3" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>checkSavingsBalance()</name>
+<extent>
+<description>definition</description>
+<source_reference file="BankClient.cpp" line="97" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="BankClient.h" line="34" />
+</extent>
+<lines_of_code value="8" level="0" />
+<McCabes_cyclomatic_complexity value="3" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>getAccount(AccountType)</name>
+<extent>
+<description>definition</description>
+<source_reference file="BankClient.cpp" line="39" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="BankClient.h" line="31" />
+</extent>
+<lines_of_code value="10" level="0" />
+<McCabes_cyclomatic_complexity value="4" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>hasChequing()</name>
+<extent>
+<description>definition</description>
+<source_reference file="BankClient.cpp" line="105" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="BankClient.h" line="35" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>hasSavings()</name>
+<extent>
+<description>definition</description>
+<source_reference file="BankClient.cpp" line="110" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="BankClient.h" line="36" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>openChequing(long)</name>
+<extent>
+<description>definition</description>
+<source_reference file="BankClient.cpp" line="115" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="BankClient.h" line="42" />
+</extent>
+<lines_of_code value="9" level="0" />
+<McCabes_cyclomatic_complexity value="3" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>openSavings(long)</name>
+<extent>
+<description>definition</description>
+<source_reference file="BankClient.cpp" line="124" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="BankClient.h" line="44" />
+</extent>
+<lines_of_code value="9" level="0" />
+<McCabes_cyclomatic_complexity value="3" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>payCreditCard()</name>
+<extent>
+<description>definition</description>
+<source_reference file="BankClient.cpp" line="142" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="BankClient.h" line="50" />
+</extent>
+<lines_of_code value="23" level="0" />
+<McCabes_cyclomatic_complexity value="5" level="0" />
+<lines_of_comment value="4" level="0" />
+<lines_of_code_per_line_of_comment value="5.750" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="1.250" level="0" />
+</member_function>
+<member_function>
+<name>removeAccount(AccountType)</name>
+<extent>
+<description>definition</description>
+<source_reference file="BankClient.cpp" line="78" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="BankClient.h" line="40" />
+</extent>
+<lines_of_code value="11" level="0" />
+<McCabes_cyclomatic_complexity value="5" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="******" level="0" />
+</member_function>
+<member_function>
+<name>setAccount(BankAccount)</name>
+<extent>
+<description>definition</description>
+<source_reference file="BankClient.cpp" line="64" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="BankClient.h" line="39" />
+</extent>
+<lines_of_code value="14" level="0" />
+<McCabes_cyclomatic_complexity value="6" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="******" level="2" />
+</member_function>
+<member_function>
+<name>viewFailedPayments()</name>
+<extent>
+<description>declaration</description>
+<source_reference file="BankClient.h" line="52" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>writeToFile(ofstream &amp;)</name>
+<extent>
+<description>definition</description>
+<source_reference file="BankClient.cpp" line="133" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="BankClient.h" line="55" />
+</extent>
+<lines_of_code value="7" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="1" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+</procedural_detail>
+<structural_detail>
+<module>
+<name>BankClient</name>
+<client_module>
+<name>Bank</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="Bank.cpp" line="24" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="Bank.h" line="35" />
+</extent>
+<name>TextUI</name>
+<visible>false</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="TextUI.cpp" line="683" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="TextUI.cpp" line="758" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="TextUI.cpp" line="825" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="TextUI.cpp" line="882" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="TextUI.cpp" line="1080" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="TextUI.cpp" line="1096" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="TextUI.cpp" line="1120" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="TextUI.cpp" line="1167" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="TextUI.h" line="51" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="TextUI.h" line="52" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="TextUI.h" line="53" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="TextUI.h" line="54" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="TextUI.h" line="55" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="TextUI.h" line="56" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="TextUI.h" line="57" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="TextUI.h" line="58" />
+</extent>
+</client_module>
+<supplier_module>
+<name>AccountType</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="BankClient.cpp" line="39" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="BankClient.cpp" line="49" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="BankClient.cpp" line="78" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="BankClient.h" line="31" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="BankClient.h" line="38" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="BankClient.h" line="40" />
+</extent>
+<name>BankAccount</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="BankClient.cpp" line="64" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="BankClient.h" line="39" />
+</extent>
+<name>BankMember</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>inheritance</description>
+<source_reference file="BankClient.h" line="14" />
+</extent>
+<name>bool</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>has by value</description>
+<source_reference file="BankClient.h" line="19" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="BankClient.h" line="20" />
+</extent>
+<name>ifstream</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="BankClient.cpp" line="5" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="BankClient.h" line="26" />
+</extent>
+<name>ofstream</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="BankClient.cpp" line="133" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="BankClient.h" line="23" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="BankClient.h" line="55" />
+</extent>
+<name>string</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="BankClient.cpp" line="21" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="BankClient.cpp" line="21" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="BankClient.cpp" line="30" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="BankClient.cpp" line="30" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="BankClient.h" line="28" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="BankClient.h" line="28" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="BankClient.h" line="29" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="BankClient.h" line="29" />
+</extent>
+<name>vector</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>has by value</description>
+<source_reference file="BankClient.h" line="16" />
+</extent>
+</supplier_module>
+</module>
+</structural_detail>
+</CCCC_Project>
