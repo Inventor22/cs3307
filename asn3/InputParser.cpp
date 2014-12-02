@@ -1,6 +1,5 @@
 #include <iostream>
 #include <sstream>
-#include <string>
 #include <stdexcept>
 
 #include "InputParser.h"
@@ -14,7 +13,7 @@ bool InputParser::getInt(int& io){
       //Doesn't work in C98
       //io = std::stoi(strIn);  //Attempt to parse to an int.
 
-      io = to_int(strIn);
+      io = strToInt(strIn);
 
       std::cout << "\n";  //Print an extra line to look nice
       return true;
@@ -35,7 +34,7 @@ bool InputParser::getLong(long& io){
     try{
       //Doesn't work in C98
       //io = std::stol(strIn);  //Attempt to parse to a long.
-      io = to_long(strIn);
+      io = strToLng(strIn);
 
       std::cout << "\n";  //Print an extra line to look nice
       return true;
@@ -88,7 +87,7 @@ bool InputParser::getMoney(long& io){
       try{
         //Doesn't work in C98
         //io = std::stol(strIn);  //Attempt to parse to a long.
-        io = to_long(strIn);  
+        io = strToLng(strIn);
 
         io *= 100; //Shift to dollars
         std::string cents = strIn.substr(idx+1);
@@ -96,7 +95,7 @@ bool InputParser::getMoney(long& io){
         //Doesn't work in C98
         //io += std::stol(cents);
 
-        io += to_long(cents);
+        io += strToLng(cents);
         std::cout << "\n";  //Print an extra line to look nice
         return true;
       }
@@ -108,7 +107,7 @@ bool InputParser::getMoney(long& io){
       try{
         //Doesn't work in C98
         //io = std::stol(strIn);  //Attempt to parse to a long.
-        io = to_long(strIn);  
+        io = strToLng(strIn);
 
         io *= 100; //Shift to dollars
         std::cout << "\n";  //Print an extra line to look nice
@@ -129,7 +128,7 @@ bool InputParser::getLongOrString(bool& which, std::string& strIo, long& lngIo){
     try{
       //Doesn't work in C98
       //lngIo = std::stol(strIo);  //Attempt to parse to a long.
-      lngIo = to_long(strIo);
+      lngIo = strToLng(strIo);
     
       which = false; //Mark that it was a long
       std::cout << "\n";  //Print an extra line to look nice
@@ -148,13 +147,13 @@ bool InputParser::getLongOrString(bool& which, std::string& strIo, long& lngIo){
 }
 
 std::string InputParser::moneyToStr(long io){
-  std::string strRet = "$" + trn_string(io / 100) + ".";
+  std::string strRet = "$" + strToLng(io / 100) + ".";
   if ((io % 100) <= 9){
     //If user has 0-9 cents, leading zero after decimal is dropped, make sure it is added.
     strRet += '0';
   }
   //Print cents
-  strRet += trn_string(io % 100);
+  strRet += strToLng(io % 100);
   return strRet;
 }
 
@@ -165,21 +164,47 @@ std::string InputParser::intToStr(int i){
   return s.str();
 }
 
+//Very basic implementation -> placeholder!
+std::string InputParser::lngToStr(long ln){
+  std::stringstream s;
+  s << ln;
+  return s.str();
+}
 
 //Very basic implementation -> placeholder!
-int InputParser::strToInt(std::string s)
-{
-  int i;
-  std::istringstream(s) >> i;
-  return i;
+int InputParser::strToInt(std::string s){
+  int retVal;
+  // Check if the string is a valid int
+  // TODO: Check length
+  for (int i=0; i < s.length(); i++)  {
+    if (i == 0 && s[i]=='-')
+      continue;
+    if (s[i] < '0' || s[i] > '9'){
+      // Throw exception
+
+      throw std::invalid_argument("recieved value was not an integer");
+    }
+  }
+  std::istringstream(s) >> retVal;
+  return retVal;
 } 
 
 //Very basic implementation -> placeholder!
-long InputParser::strToLng(std::string s)
-{
-  long l;
-  std::istringstream(s) >> l;
-  return l;
+long InputParser::strToLng(std::string s){
+  long ln;
+  // Check if the string is a valid long
+  // TODO: Check length
+  for (int i=0; i < s.length(); i++)  {
+    if (i == 0 && s[i]=='-')
+      continue;
+    if (s[i] < '0' || s[i] > '9'){
+      // Throw exception
+
+      throw std::invalid_argument("recieved value was not an integer");
+    }
+  }
+  std::istringstream(s) >> ln;
+  return ln;
 }
 
 

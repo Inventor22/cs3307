@@ -1,4 +1,5 @@
-#pragma once
+#ifndef _INPUTPARSER_H
+#define _INPUTPARSER_H
 
 #include <iostream>
 #include <string>
@@ -16,9 +17,12 @@ public:
   static std::string moneyToStr(long io);
 
 private:
+  // Conversion functions
   static std::string intToStr(int i);
+  static std::string lngToStr(long ln);
   static int strToInt(std::string s);
   static long strToLng(std::string s);
 
 };
 
+#endif
