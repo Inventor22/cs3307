@@ -27,7 +27,7 @@ void BankMaintainer::printTrace() {
   traceFile.close();
 }
 
-void BankMaintainer::write(std::ofstream& o) {
+void BankMaintainer::writeToFile(std::ofstream& o) {
   o << "Maintainer" << " ";
   BankMember::writeToFile(o);
 }

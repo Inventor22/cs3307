@@ -21,7 +21,7 @@ void BankManager::closeClientAccount(unsigned long id) {
 
 }
 
-//void BankManager::writeToFile(std::ofstream& o) {
-//  o << "Manager" << " ";
-//  BankMember::writeToFile(o);
-//}
+void BankManager::writeToFile(std::ofstream& o) {
+  o << "Manager" << " ";
+  BankMember::writeToFile(o);
+}

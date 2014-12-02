@@ -25,7 +25,7 @@ public:
   void printTrace();
 
 protected:
-  virtual void write(std::ofstream& o);
+  virtual void writeToFile(std::ofstream& o);
 };
 
 #endif

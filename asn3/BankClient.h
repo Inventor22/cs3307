@@ -27,6 +27,7 @@ public:
   bool hasSavings();
 
   bool addAccount(BankAccount::AccountType accountType, unsigned long accountId);
+  bool setAccount(BankAccount account);
   bool removeAccount(BankAccount::AccountType accountType);
 
   bool openChequing(unsigned long id);
@@ -34,7 +35,7 @@ public:
   bool openSavings(unsigned long id);
 
 protected:
-  virtual void write(std::ofstream& o);
+  virtual void writeToFile(std::ofstream& o);
 };
 
 #endif

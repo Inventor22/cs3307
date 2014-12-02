@@ -5,6 +5,7 @@
 #include <fstream>
 #include <string>
 #include <vector>
+#include <fstream>
 
 class BankAccount {
 public:
@@ -17,6 +18,7 @@ private:
   unsigned long _id;
 
 public:
+  BankAccount(std::ifstream is);
   BankAccount(AccountType accountType);
   BankAccount(AccountType accountType, unsigned long id);
   BankAccount(AccountType accountType, unsigned long id, int balance);
@@ -26,6 +28,11 @@ public:
   unsigned long getAccountId();
   int deposit(int const amount);
   int withdrawal(int const amount);
+
+protected:
+  void writeToFile(std::ofstream& o);
+
+  void readFromFile(std::ifstream& i);
 };
 
 #endif

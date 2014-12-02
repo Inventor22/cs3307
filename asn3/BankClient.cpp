@@ -47,6 +47,20 @@ bool BankClient::addAccount(BankAccount::AccountType accountType, unsigned long 
   return true;
 }
 
+bool BankClient::setAccount(BankAccount account) {
+  if (bankAccounts.size() >= 2) {
+    return false;
+  }
+  std::vector<BankAccount>::iterator itr;
+  for (itr = bankAccounts.begin(); itr != bankAccounts.end(); ++itr) {
+    if (itr->getAccountType() == account.getAccountType()) {
+      return false;
+    }
+  }
+  bankAccounts.push_back(account);
+  return true;
+}
+
 bool BankClient::removeAccount(BankAccount::AccountType accountType) {
   std::vector<BankAccount>::iterator itr;
   for (itr = bankAccounts.begin(); itr != bankAccounts.end(); ++itr) {
@@ -56,11 +70,6 @@ bool BankClient::removeAccount(BankAccount::AccountType accountType) {
     }
   }
   return false;
-}
-
-void BankClient::write(std::ofstream& o) {
-  o << "Client" << " ";
-  BankMember::writeToFile(o);
 }
 
 long BankClient::checkChequingBalance() {
@@ -105,4 +114,13 @@ bool BankClient::openSavings(unsigned long id) {
   bankAccounts.push_back(
     BankAccount(BankAccount::SAVING, id));
   return true;
+}
+
+void BankClient::writeToFile(std::ofstream& o) {
+  o << "Client" << " ";
+  BankMember::writeToFile(o);
+  for (int i=0; i<bankAccounts.size(); i++){
+    // Write out accounts
+
+  }
 }

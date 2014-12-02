@@ -79,6 +79,7 @@ void BankMember::writeToFile(std::ofstream& o) {
 void BankMember::readFromFile(std::ifstream& i) {
   int memberType;
   //i >> memberType >> _id >> _pin >> _firstName >> _lastName;
+  i >> memberType;
   i >> _id >> _pin >> _firstName >> _lastName;
   _memberType = (BankMember::MemberType) memberType;
 }

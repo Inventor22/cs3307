@@ -75,29 +75,46 @@ void BankMemberDatabase::loadDatabaseFromFile(std::ifstream& is) {
 
   BankMember::MemberType memberType;
   int memInt;
+
+  // First string cannot be an account - eat it for now
+  std::string type;
+
+  is >> type;
+
   while (is >> memInt) {
 
     if (0 <= memInt && memInt <= 4)
       memberType = (BankMember::MemberType)memInt;
 
     switch (memberType) {
-      case BankMember::MANAGER:
-      {
-            BankClient* bankClient = new BankClient(is);
-            bankMembers.insert(MemberPair(bankClient->getId(), bankClient));
-      }
-        break;
       case BankMember::CLIENT:
-      {
-            BankManager* bankManager = new BankManager(is);
-            bankMembers.insert(MemberPair(bankManager->getId(), bankManager));
-      }
+        {
+          BankClient* bankClient = new BankClient(is);
+          bankMembers.insert(MemberPair(bankClient->getId(), bankClient));
+          is >> type;
+          if (type.compare("Account") == 0)
+          {
+            // TODO: Parse accounts
+            BankAccount bankAccount(is);
+            bankClient->setAccount(bankAccount);
+          }
+        }
+        break;
+      case BankMember::MANAGER:
+        {
+          BankManager* bankManager = new BankManager(is);
+          bankMembers.insert(MemberPair(bankManager->getId(), bankManager));
+          // Eat the next line
+          is >> type;
+        }
         break;
       case BankMember::MAINTENANCE:
-      {
-            BankMaintainer* bankMaintainer = new BankMaintainer(is);
-            bankMembers.insert(MemberPair(bankMaintainer->getId(), bankMaintainer));
-      }
+        {
+          BankMaintainer* bankMaintainer = new BankMaintainer(is);
+          bankMembers.insert(MemberPair(bankMaintainer->getId(), bankMaintainer));
+          // Eat the next line
+          is >> type;
+        }
         break;
       default:
         break;
