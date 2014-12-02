@@ -3,6 +3,9 @@
 BankMaintainer::BankMaintainer(std::ifstream& i) : BankMember(i) {
 }
 
+BankMaintainer::BankMaintainer(std::ifstream& i, int memType) : BankMember(i, memType) {
+}
+
 BankMaintainer::BankMaintainer(std::string fN, std::string lN, unsigned int pin) :
 BankMember(fN, lN, pin, MAINTENANCE) {
 }
