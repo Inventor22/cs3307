@@ -1,3 +1,5 @@
+#include <sstream>
+#include <malloc.h>
 #include "BankClient.h"
 
 BankClient::BankClient(std::ifstream& is) : BankMember(is) {
@@ -17,13 +19,21 @@ BankClient::BankClient(std::ifstream& is) : BankMember(is) {
 }
 
 BankClient::BankClient(std::string firstName, std::string lastName, unsigned int pin) : BankMember(firstName, lastName, pin, CLIENT) {
-    std::string s = std::to_string(_id);
-    failedPayments.open(s, std::ios::app);
+    std::ostringstream s;
+    s << _id;
+    const std::string iStr(s.str());
+    char *cp = (char*)malloc(sizeof(char)*(iStr.length() + 1));
+    failedPayments.open(cp, std::ios::app);
+    free(cp);
 }
 
 BankClient::BankClient(std::string firstName, std::string lastName, unsigned long id, unsigned int pin) : BankMember(firstName, lastName, id, pin, CLIENT) {
-    std::string s = std::to_string(_id);
-    failedPayments.open(s, std::ios::app);
+    std::ostringstream s;
+    s << _id;
+    const std::string iStr(s.str());
+    char *cp = (char*)malloc(sizeof(char)*(iStr.length() + 1));
+    failedPayments.open(cp, std::ios::app);
+    free(cp);
 }
 
 BankAccount* BankClient::getAccount(BankAccount::AccountType accountType) {
