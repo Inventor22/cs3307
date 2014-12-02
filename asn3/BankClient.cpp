@@ -13,13 +13,17 @@ BankClient::BankClient(std::ifstream& is) : BankMember(is) {
     is >> accountBalance;
     this->addAccount((BankAccount::AccountType)accountType, accountId);
     this->getAccount((BankAccount::AccountType)accountType)->deposit(accountBalance);
-  }  
+  }
 }
 
 BankClient::BankClient(std::string firstName, std::string lastName, unsigned int pin) : BankMember(firstName, lastName, pin, CLIENT) {
+    std::string s = std::to_string(_id);
+    failedPayments.open(s, std::ios::app);
 }
 
 BankClient::BankClient(std::string firstName, std::string lastName, unsigned long id, unsigned int pin) : BankMember(firstName, lastName, id, pin, CLIENT) {
+    std::string s = std::to_string(_id);
+    failedPayments.open(s, std::ios::app);
 }
 
 BankAccount* BankClient::getAccount(BankAccount::AccountType accountType) {
@@ -123,4 +127,31 @@ void BankClient::writeToFile(std::ofstream& o) {
     // Write out accounts
 
   }
+}
+
+int BankClient::payCreditCard() {
+    if (hasCreditCard && creditBalance > 0) {
+
+        BankAccount* b = getAccount(BankAccount::AccountType::CHECKING);
+        long chequingBal = checkChequingBalance();
+
+        if (payMinimum) {
+            long payment = creditBalance * minimumPayment;
+
+            if (chequingBal > payment) {
+                creditBalance -= b->withdrawal(payment);
+            } else {
+                creditBalance -= b->withdrawal(chequingBal);
+            }
+
+            creditBalance *= 1.02;
+        } else {
+            if (chequingBal > creditBalance) {
+                creditBalance -= b->withdrawal(creditBalance);
+            } else {
+                creditBalance -= b->withdrawal(chequingBal);
+                creditBalance *= 1.02;
+            }
+        }
+    }
 }

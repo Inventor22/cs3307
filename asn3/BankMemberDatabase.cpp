@@ -162,3 +162,14 @@ unsigned long BankMemberDatabase::generateNewBankAccountId() {
   return IdManager::generateNewUniqueId(bankAccounts);
 }
 
+void BankMemberDatabase::processMonthlyCreditPayments() {
+    for (BankMemberItr itr = bankMembers.begin(); itr != bankMembers.end(); ++itr) {
+        BankMember* b = itr->second;
+        if (BankClient* member = dynamic_cast<BankClient*>(b)) {
+            if (member->hasChequing()) {
+                member->payCreditCard();
+            }
+        }
+    }
+}
+

@@ -8,10 +8,19 @@
 #include "BankAccount.h"
 #include "BankMember.h"
 #include "IdManager.h"
+#include <iostream>
+#include<fstream>
 
 class BankClient : public BankMember {
 private:
   std::vector<BankAccount> bankAccounts;
+
+    const float minimumPayment = 0.1;
+    bool hasCreditCard;
+    bool payMinimum; // true
+    long creditBalance;
+
+    std::ofstream failedPayments;
 
 public:
   BankClient(std::ifstream& is);
@@ -33,6 +42,14 @@ public:
   bool openChequing(unsigned long id);
 
   bool openSavings(unsigned long id);
+
+    /*
+    For each user, check if amount owing >0, if >0 then automatically take minimum payment
+    from chequing, then process interest: 2%
+    */
+    int payCreditCard();
+
+    void viewFailedPayments();
 
 protected:
   virtual void writeToFile(std::ofstream& o);
