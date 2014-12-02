@@ -71,26 +71,28 @@ bool BankMemberDatabase::deleteBankAccount(unsigned long id) {
 	return false;
 }
 
-void BankMemberDatabase::loadDatabaseFromFile(std::ifstream& is, bool& executionTrace) {
-	is >> executionTrace;
+void BankMemberDatabase::loadDatabaseFromFile(std::ifstream& is) {
+
 	int memberType;
+
 	while (is >> memberType) {
+
 		switch (memberType) {
 			case 1:
 			{
-					  BankClient* bankClient = new BankClient(is);
+					  BankClient* bankClient = new BankClient(is, memberType);
 					  bankMembers.insert(MemberPair(bankClient->getId(), bankClient));
 			}
 				break;
 			case 0:
 			{
-					  BankManager* bankManager = new BankManager(is);
+					  BankManager* bankManager = new BankManager(is, memberType);
 					  bankMembers.insert(MemberPair(bankManager->getId(), bankManager));
 			}
 				break;
 			case 2:
 			{
-					  BankMaintainer* bankMaintainer = new BankMaintainer(is);
+					  BankMaintainer* bankMaintainer = new BankMaintainer(is, memberType);
 					  bankMembers.insert(MemberPair(bankMaintainer->getId(), bankMaintainer));
 			}
 				break;
@@ -98,6 +100,7 @@ void BankMemberDatabase::loadDatabaseFromFile(std::ifstream& is, bool& execution
 				break;
 		}
 	}
+
 }
 
 void BankMemberDatabase::writeDatabaseToFile(std::ofstream& os) {
