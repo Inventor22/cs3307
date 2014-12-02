@@ -19,10 +19,7 @@ protected:
   MemberType _memberType;
 
 public:
-  // Deprecated both - responsibility of reading
-  // from file is not held by this class
   BankMember(std::ifstream& is);
-  //BankMember(std::ifstream& is, int memType);
 
   BankMember(std::string firstName,
          std::string lastName,
