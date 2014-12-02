@@ -46,3 +46,4 @@ private:
 		return account.find(bankId) != account.end();
 	}
 };
+
