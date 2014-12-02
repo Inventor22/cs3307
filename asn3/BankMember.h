@@ -20,7 +20,7 @@ protected:
 
 public:
 	BankMember(std::ifstream& is);
-	BankMember(std::ifstream& is, int memType);
+	BankMember(std::ifstream& is, MemberType memType);
 
 	BankMember(std::string firstName,
 			   std::string lastName,

@@ -18,7 +18,7 @@ BankClient::BankClient(std::ifstream& is) : BankMember(is) {
     failedPayments.open(s, std::ios::app);
 }
 
-BankClient::BankClient(std::ifstream& is, int memType) : BankMember(is, memType) {
+BankClient::BankClient(std::ifstream& is) : BankMember(is, BankMember::CLIENT) {
 	int numAccounts = 0;
 	is >> numAccounts;
 	if (numAccounts == 0) return;
