@@ -29,10 +29,7 @@ public:
   BankMemberDatabase database;
 
   Bank();
-
-// Deprecated
-//  void setExecutionTraceStatus(TraceState traceState);
-//  void setExecutionTraceStatus(bool traceState);
+  
   void addManager(BankManager* bankManager);
   void addMaintainer(BankMaintainer* bankMaintainer);
   void addClient(BankClient* bankClient);

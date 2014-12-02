@@ -13,15 +13,6 @@ const std::string Bank::LOG_FILE = "trace.txt";
 Bank::Bank() {
 }
 
-// Deprecated
-//void Bank::setExecutionTraceStatus(Bank::TraceState traceState) {
-//  executionTrace = traceState;
-//}
-//
-//void Bank::setExecutionTraceStatus(bool traceState) {
-//  executionTrace = traceState;
-//}
-
 void Bank::addManager(BankManager* bankManager) {
   database.addBankMember(bankManager);
 }
