@@ -3,10 +3,6 @@
 BankManager::BankManager(std::ifstream& is) : BankMember(is) {
 }
 
-BankManager::BankManager(std::ifstream& is, int memType) : BankMember(is, memType) {
-}
-
-
 BankManager::BankManager(std::string fN, std::string lN, unsigned int pin) :
 BankMember(fN, lN, pin, MANAGER) {
 
@@ -25,7 +21,7 @@ void BankManager::closeClientAccount(unsigned long id) {
 
 }
 
-void BankManager::writeToFile(std::ofstream& o) {
-  o << "Manager" << " ";
-  BankMember::writeToFile(o);
-}
+//void BankManager::writeToFile(std::ofstream& o) {
+//  o << "Manager" << " ";
+//  BankMember::writeToFile(o);
+//}

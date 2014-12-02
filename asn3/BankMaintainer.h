@@ -12,7 +12,6 @@ private:
 
 public:
   BankMaintainer(std::ifstream& i);
-  BankMaintainer(std::ifstream& i, int memType);
 
   BankMaintainer(std::string fN, std::string lN, unsigned int pin);
 

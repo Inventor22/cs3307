@@ -33,7 +33,7 @@ TextUI::~TextUI(){
 void TextUI::displayHeader(){
   syslog(LOG_DEBUG, "displayHeader() entered");
   std::cout << "\n" << "****************************************************" << std::endl
-    << "\tDoDrew Automated Teller Machine v0.2" << std::endl
+    << "\tAutomated Teller Machine v0.2" << std::endl
     << "****************************************************" << std::endl << std::endl;
   syslog(LOG_DEBUG, "displayHeader() exited");
   return;
@@ -523,7 +523,7 @@ void TextUI::showAccount(BankMember* memberToView){
     std::cout << "Type:                 " << "Client\n";
     if (clientToView->hasChequing()){
       std::cout << "Chequing account ID:  ";
-      std::cout << clientToView->getAccount(BankAccount::AccountType::CHECKING)->getAccountId() << "\n";
+      std::cout << clientToView->getAccount(BankAccount::CHECKING)->getAccountId() << "\n";
       std::cout << "Chequing Balance:     ";
       std::cout << InputParser::moneyToStr(clientToView->checkChequingBalance()) << "\n";
     }
@@ -533,7 +533,7 @@ void TextUI::showAccount(BankMember* memberToView){
     }
     if (clientToView->hasSavings()){
       std::cout << "Savings account ID:   ";
-      std::cout << clientToView->getAccount(BankAccount::AccountType::SAVING)->getAccountId() << "\n";
+      std::cout << clientToView->getAccount(BankAccount::SAVING)->getAccountId() << "\n";
       std::cout << "Savings Balance:      ";
       std::cout << InputParser::moneyToStr(clientToView->checkSavingsBalance()) << "\n";
     }
@@ -1030,13 +1030,13 @@ long TextUI::transfer(BankClient* client){
       switch (trTo)
       {
       case CHEQUING:
-        amountTransfered = client->getAccount(BankAccount::AccountType::CHECKING)->deposit(amount);
+        amountTransfered = client->getAccount(BankAccount::CHECKING)->deposit(amount);
         break;
       case SAVINGS:
-        amountTransfered = client->getAccount(BankAccount::AccountType::SAVING)->deposit(amount);
+        amountTransfered = client->getAccount(BankAccount::SAVING)->deposit(amount);
         break;
       case OTHER:
-        amountTransfered = otherClient->getAccount(BankAccount::AccountType::CHECKING)->deposit(amount);
+        amountTransfered = otherClient->getAccount(BankAccount::CHECKING)->deposit(amount);
         break;
       default:
         break;

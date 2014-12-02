@@ -73,26 +73,29 @@ bool BankMemberDatabase::deleteBankAccount(unsigned long id) {
 
 void BankMemberDatabase::loadDatabaseFromFile(std::ifstream& is) {
 
-  int memberType;
+  BankMember::MemberType memberType;
+  int memInt;
+  while (is >> memInt) {
 
-  while (is >> memberType) {
+    if (0 <= memInt && memInt <= 4)
+      memberType = (BankMember::MemberType)memInt;
 
     switch (memberType) {
-      case 1:
+      case BankMember::MANAGER:
       {
-            BankClient* bankClient = new BankClient(is, memberType);
+            BankClient* bankClient = new BankClient(is);
             bankMembers.insert(MemberPair(bankClient->getId(), bankClient));
       }
         break;
-      case 0:
+      case BankMember::CLIENT:
       {
-            BankManager* bankManager = new BankManager(is, memberType);
+            BankManager* bankManager = new BankManager(is);
             bankMembers.insert(MemberPair(bankManager->getId(), bankManager));
       }
         break;
-      case 2:
+      case BankMember::MAINTENANCE:
       {
-            BankMaintainer* bankMaintainer = new BankMaintainer(is, memberType);
+            BankMaintainer* bankMaintainer = new BankMaintainer(is);
             bankMembers.insert(MemberPair(bankMaintainer->getId(), bankMaintainer));
       }
         break;

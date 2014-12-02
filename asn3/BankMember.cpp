@@ -1,9 +1,9 @@
 #include "BankMember.h"
 
 // Deprecated
-//BankMember::BankMember(std::ifstream& is) {
-//  readFromFile(is);
-//}
+BankMember::BankMember(std::ifstream& is) {
+  readFromFile(is);
+}
 
 // Deprecated
 //BankMember::BankMember(std::ifstream& is, int memType) {
@@ -71,12 +71,15 @@ BankMember::MemberType BankMember::getMemberType() {
 }
 
 void BankMember::writeToFile(std::ofstream& o) {
-  o << getId() << " " << getPin() << " " << getFirstName() << " " << getLastName() << std::endl;
+  // For some reason my IDE wants this done on two lines
+  o << _memberType << " " << _id << " " << _pin << " ";
+  o << _firstName << " " << _lastName << std::endl;
 };
 
 void BankMember::readFromFile(std::ifstream& i) {
   int memberType;
-  i >> memberType >> _id >> _pin >> _firstName >> _lastName;
+  //i >> memberType >> _id >> _pin >> _firstName >> _lastName;
+  i >> _id >> _pin >> _firstName >> _lastName;
   _memberType = (BankMember::MemberType) memberType;
 }
 
