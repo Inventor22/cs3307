@@ -5,21 +5,27 @@ BankClient::BankClient(std::ifstream& is) : BankMember(is) {
 	is >> numAccounts;
 	if (numAccounts == 0) return;
 	int accountType = 0;
-	for (int i = 0; i < numAccounts; i++) {
-		unsigned long accountId;
-		int accountBalance;
-		is >> accountType;
-		is >> accountId;
-		is >> accountBalance;
-		this->addAccount((BankAccount::AccountType)accountType, accountId);
-		this->getAccount((BankAccount::AccountType)accountType)->deposit(accountBalance);
-	}	
+    for (int i = 0; i < numAccounts; i++) {
+        unsigned long accountId;
+        int accountBalance;
+        is >> accountType;
+        is >> accountId;
+        is >> accountBalance;
+        this->addAccount((BankAccount::AccountType)accountType, accountId);
+        this->getAccount((BankAccount::AccountType)accountType)->deposit(accountBalance);
+    }
+    std::string s = std::to_string(_id);
+    failedPayments.open(s, std::ios::app);
 }
 
 BankClient::BankClient(std::string firstName, std::string lastName, unsigned int pin) : BankMember(firstName, lastName, pin, CLIENT) {
+    std::string s = std::to_string(_id);
+    failedPayments.open(s, std::ios::app);
 }
 
 BankClient::BankClient(std::string firstName, std::string lastName, unsigned long id, unsigned int pin) : BankMember(firstName, lastName, id, pin, CLIENT) {
+    std::string s = std::to_string(_id);
+    failedPayments.open(s, std::ios::app);
 }
 
 BankAccount* BankClient::getAccount(BankAccount::AccountType accountType) {
@@ -121,11 +127,14 @@ int BankClient::payCreditCard() {
             } else {
                 creditBalance -= b->withdrawal(chequingBal);
             }
+
+            creditBalance *= 1.02;
         } else {
             if (chequingBal > creditBalance) {
                 creditBalance -= b->withdrawal(creditBalance);
             } else {
                 creditBalance -= b->withdrawal(chequingBal);
+                creditBalance *= 1.02;
             }
         }
     }

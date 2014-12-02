@@ -8,6 +8,8 @@
 #include "BankAccount.h"
 #include "BankMember.h"
 #include "IdManager.h"
+#include <iostream>
+#include<fstream>
 
 class BankClient : public BankMember {
 private:
@@ -17,6 +19,8 @@ private:
     bool hasCreditCard;
     bool payMinimum; // true
     long creditBalance;
+
+    std::ofstream failedPayments;
 
 public:
 	BankClient(std::ifstream& is);
@@ -43,6 +47,8 @@ public:
     from chequing, then process interest: 2%
     */
     int payCreditCard();
+
+    void viewFailedPayments();
 
 protected:
 	virtual void write(std::ofstream& o);
