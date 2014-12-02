@@ -18,7 +18,8 @@
 
 class Bank {
 public:
-  bool executionTrace;
+  //Deprecated
+  //bool executionTrace;
   static const int MAX_ACCOUNTS;
   static const int WITHDRAWL_BALANCE_WARNING;
   static const int WITHDRAWL_FEE; // cents
@@ -29,8 +30,9 @@ public:
 
   Bank();
 
-  void setExecutionTraceStatus(TraceState traceState);
-  void setExecutionTraceStatus(bool traceState);
+// Deprecated
+//  void setExecutionTraceStatus(TraceState traceState);
+//  void setExecutionTraceStatus(bool traceState);
   void addManager(BankManager* bankManager);
   void addMaintainer(BankMaintainer* bankMaintainer);
   void addClient(BankClient* bankClient);
@@ -44,8 +46,8 @@ public:
 
   unsigned long generateNewBankAccountId();
 
-  void writeStateToFile();
-  void readStateFromFile();
+  void writeStateToFile(bool logging);
+  bool readStateFromFile(std::ifstream file);
 };
 
 #endif

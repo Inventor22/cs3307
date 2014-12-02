@@ -147,13 +147,13 @@ bool InputParser::getLongOrString(bool& which, std::string& strIo, long& lngIo){
 }
 
 std::string InputParser::moneyToStr(long io){
-  std::string strRet = "$" + strToLng(io / 100) + ".";
+  std::string strRet = "$" + lngToStr(io / 100) + ".";
   if ((io % 100) <= 9){
     //If user has 0-9 cents, leading zero after decimal is dropped, make sure it is added.
     strRet += '0';
   }
   //Print cents
-  strRet += strToLng(io % 100);
+  strRet += lngToStr(io % 100);
   return strRet;
 }
 
@@ -175,7 +175,7 @@ std::string InputParser::lngToStr(long ln){
 int InputParser::strToInt(std::string s){
   int retVal;
   // Check if the string is a valid int
-  // TODO: Check length
+  // TODO: Check length / size
   for (int i=0; i < s.length(); i++)  {
     if (i == 0 && s[i]=='-')
       continue;
@@ -193,7 +193,7 @@ int InputParser::strToInt(std::string s){
 long InputParser::strToLng(std::string s){
   long ln;
   // Check if the string is a valid long
-  // TODO: Check length
+  // TODO: Check length / size
   for (int i=0; i < s.length(); i++)  {
     if (i == 0 && s[i]=='-')
       continue;

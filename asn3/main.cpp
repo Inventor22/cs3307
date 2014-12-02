@@ -30,7 +30,7 @@ int main(){
   }
     //Otherwise, read data from database
   else
-    bank.loadDatabase(dbFileIn);
+    bank.readStateFromFile(dbFileIn);
   
   dbFileIn.close();
 

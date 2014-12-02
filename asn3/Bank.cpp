@@ -1,6 +1,7 @@
 #include <string>
 #include <fstream>
 #include <iostream>
+#include <syslog.h>
 
 #include "Bank.h"
 
@@ -12,13 +13,14 @@ const std::string Bank::LOG_FILE = "trace.txt";
 Bank::Bank() {
 }
 
-void Bank::setExecutionTraceStatus(Bank::TraceState traceState) {
-  executionTrace = traceState;
-}
-
-void Bank::setExecutionTraceStatus(bool traceState) {
-  executionTrace = traceState;
-}
+// Deprecated
+//void Bank::setExecutionTraceStatus(Bank::TraceState traceState) {
+//  executionTrace = traceState;
+//}
+//
+//void Bank::setExecutionTraceStatus(bool traceState) {
+//  executionTrace = traceState;
+//}
 
 void Bank::addManager(BankManager* bankManager) {
   database.addBankMember(bankManager);
@@ -53,19 +55,27 @@ unsigned long Bank::generateNewBankAccountId() {
   return database.generateNewBankAccountId();
 }
 
-void Bank::writeStateToFile() {
+void Bank::writeStateToFile(bool logging) {
   std::ofstream bankFile;
   bankFile.open("BankDatabase.txt");
-  bankFile << std::boolalpha << executionTrace << std::endl;
+  bankFile << std::boolalpha << logging << std::endl;
   database.writeDatabaseToFile(bankFile);
   bankFile.close();
 }
 
-void Bank::readStateFromFile() {  
-  std::ifstream bankFile;
-  bankFile.open("BankDatabase.txt");
-  bankFile >> std::boolalpha >> executionTrace;
+bool Bank::readStateFromFile(std::ifstream bankFile) {
+  bool logging;
+  bankFile >> std::boolalpha >> logging;
+  if (logging){
+    setlogmask(LOG_UPTO(LOG_DEBUG));
+  }
+  else{
+    setlogmask(LOG_UPTO(LOG_INFO));
+  }
   database.loadDatabaseFromFile(bankFile);
-  bankFile.close();
+  // Caller's responsibility
+  //bankFile.close();
+
+  return logging;
 }
 
