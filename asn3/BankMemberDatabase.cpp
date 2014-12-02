@@ -125,30 +125,22 @@ void BankMemberDatabase::loadDatabaseFromFile(std::ifstream& is) {
 
 void BankMemberDatabase::writeDatabaseToFile(std::ofstream& os) {
   for (BankMemberItr itr = bankMembers.begin(); itr != bankMembers.end(); ++itr) {
-    BankMember* a = itr->second;
+    BankMember *bankMember = itr->second;
 
-    //os << a->getMemberType() << " " << a->getId() << " " << a->getPin() << " " << a->getFullName() << " ";
-    //os << "T:" << a->getMemberType() << " id:" << a->getId() << " pin:" << a->getPin() << " name:" << a->getFullName() << " ";
-    os << a->getMemberType() << " " << a->getId() << " " << a->getPin() << " " << a->getFullName() << " ";
+    // Again, my IDE is only ok with this on two lines.
+    os << bankMember->getMemberType() << " " << bankMember->getId();
+    os << " " << bankMember->getPin() << " " << bankMember->getFullName() << " ";
 
-    
-    if (a->getMemberType() == BankMember::CLIENT) {
-      if (BankClient * bc = dynamic_cast<BankClient*>(a)) {
+    if (bankMember->getMemberType() == BankMember::CLIENT) {
+      if (BankClient *bankClient = dynamic_cast<BankClient*>(bankMember)) {
         BankAccount* ba = NULL;
-        int numAccounts = bc->hasChequing() + bc->hasSavings();
-        //os << "numacc: " << numAccounts << " ";
-        os << numAccounts << " ";
-        if (bc->hasChequing()) {
-          ba = bc->getAccount(BankAccount::CHECKING);
-          //os << ba->getAccountType() << " " << ba->getAccountId() << " " << ba->getBalance() << " ";
-          //os << "at:" << ba->getAccountType() << " aid:" << ba->getAccountId() << " bal:" << ba->getBalance() << " ";
-          os << ba->getAccountType() << " " << ba->getAccountId() << " " << ba->getBalance() << " ";
+        if (bankClient->hasChequing()) {
+          ba = bankClient->getAccount(BankAccount::CHECKING);
+          os << "Account " << ba->getAccountType() << " " << ba->getAccountId() << " " << ba->getBalance() << " ";
         }
-        if (bc->hasSavings()) {
-          ba = bc->getAccount(BankAccount::SAVING);
-          //os << ba->getAccountType() << " " << ba->getAccountId() << " " << ba->getBalance() << " ";
-          //os << "at:" << ba->getAccountType() << " aid:" << ba->getAccountId() << " bal:" << ba->getBalance() << " ";
-          os << ba->getAccountType() << " " << ba->getAccountId() << " " << ba->getBalance() << " ";
+        if (bankClient->hasSavings()) {
+          ba = bankClient->getAccount(BankAccount::SAVING);
+          os << "Account " << ba->getAccountType() << " " << ba->getAccountId() << " " << ba->getBalance() << " ";
         }
       }
     }
@@ -156,11 +148,11 @@ void BankMemberDatabase::writeDatabaseToFile(std::ofstream& os) {
   }
 }
 
-void printAccountDetails(BankClient* bc, BankAccount::AccountType accountType, std::ofstream& os) {
-  BankAccount* ba = bc->getAccount(accountType);
-  //os << "at:" << ba->getAccountType() << " aid:" << ba->getAccountId() << " bal:" << ba->getBalance() << " ";
-  os << " " << ba->getAccountType() << " " << ba->getAccountId() << ba->getBalance() << " ";
-}
+// Unknown usage, deprecated
+//void printAccountDetails(BankClient* bc, BankAccount::AccountType accountType, std::ofstream& os) {
+//  BankAccount* ba = bc->getAccount(accountType);
+//  os << " " << ba->getAccountType() << " " << ba->getAccountId() << ba->getBalance() << " ";
+//}
 
 unsigned long BankMemberDatabase::generateNewBankMemberId() {
   return IdManager::generateNewUniqueId(bankMembers);
