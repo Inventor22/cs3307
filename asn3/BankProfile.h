@@ -8,9 +8,9 @@ using namespace std;
 
 class BankProfile {
 public:
-	static const int MAX_ACCOUNTS = 2;
-	static const int WITHDRAWL_BALANCE_WARNING = 1000;
-	static const int WITHDRAWL_FEE = 200; // cents
+  static const int MAX_ACCOUNTS = 2;
+  static const int WITHDRAWL_BALANCE_WARNING = 1000;
+  static const int WITHDRAWL_FEE = 200; // cents
 };
 
 #endif

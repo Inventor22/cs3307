@@ -9,31 +9,31 @@ _accountType(accountType), _id(id), _balance(0) {
 }
 
 BankAccount::BankAccount(BankAccount::AccountType accountType,
-						 unsigned long id, int balance) :
+             unsigned long id, int balance) :
 _accountType(accountType), _id(id), _balance(balance) {
 }
 
 BankAccount::AccountType BankAccount::getAccountType() {
-	return _accountType;
+  return _accountType;
 }
 
 unsigned long BankAccount::getAccountId() {
-	return _id;
+  return _id;
 }
 
 int BankAccount::getBalance() {
-	return _balance;
+  return _balance;
 }
 
 int BankAccount::deposit(int const amount) {
-	_balance += amount;
-	return _balance;
+  _balance += amount;
+  return _balance;
 }
 
 int BankAccount::withdrawal(int const amount) {
-	if (_balance - amount < 0) {
-		return INSUFFICIENT_FUNDS;
-	}
-	_balance -= amount;
-	return amount;
+  if (_balance - amount < 0) {
+    return INSUFFICIENT_FUNDS;
+  }
+  _balance -= amount;
+  return amount;
 }

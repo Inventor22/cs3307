@@ -11,31 +11,31 @@
 
 class BankClient : public BankMember {
 private:
-	std::vector<BankAccount> bankAccounts;
+  std::vector<BankAccount> bankAccounts;
 
 public:
-	BankClient(std::ifstream& is);
-	BankClient(std::ifstream& is, int memType);
+  BankClient(std::ifstream& is);
+  BankClient(std::ifstream& is, int memType);
 
-	BankClient(std::string firstName, std::string lastName, unsigned int pin);
-	BankClient(std::string firstName, std::string lastName, unsigned long id, unsigned int pin);
+  BankClient(std::string firstName, std::string lastName, unsigned int pin);
+  BankClient(std::string firstName, std::string lastName, unsigned long id, unsigned int pin);
 
-	BankAccount* getAccount(BankAccount::AccountType accountType);
+  BankAccount* getAccount(BankAccount::AccountType accountType);
 
-	long checkChequingBalance();
-	long checkSavingsBalance();
-	bool hasChequing();
-	bool hasSavings();
+  long checkChequingBalance();
+  long checkSavingsBalance();
+  bool hasChequing();
+  bool hasSavings();
 
-	bool addAccount(BankAccount::AccountType accountType, unsigned long accountId);
-	bool removeAccount(BankAccount::AccountType accountType);
+  bool addAccount(BankAccount::AccountType accountType, unsigned long accountId);
+  bool removeAccount(BankAccount::AccountType accountType);
 
-	bool openChequing(unsigned long id);
+  bool openChequing(unsigned long id);
 
-	bool openSavings(unsigned long id);
+  bool openSavings(unsigned long id);
 
 protected:
-	virtual void write(std::ofstream& o);
+  virtual void write(std::ofstream& o);
 };
 
 #endif

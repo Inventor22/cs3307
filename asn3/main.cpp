@@ -1,18 +1,24 @@
-//Contains code initializing the Text UI, reading in from database (if applicable), and quitting the program!
-//Made for CS3307A Final Project
 #include <iostream>
 #include <fstream>
+#include <syslog.h>
+#include "BankMember.h"
+#include "TextUI.h"
+#include "Bank.h"
 
 #include "TextUI.h" //See TextUI object below
 
 using namespace std; //Replace this with something else?
 
-//PURPOSE: control centre
-//RETURNS: 0 aka program done
 int main(){
 
-	// Initialize text ui
-	TextUI ui;
+	// Log the start up time
+	time_t now = time(0);
+	char* dt = ctime(&now);
+	syslog(LOG_INFO, "Starting up system, time is %s", dt);
+
+	// Initialize text ui, starting debug level debugging
+	TextUI ui(true);
+	Bank
 
 	// Check for saved userbase
 	ifstream dbFileIn("BankDatabase.txt");
@@ -24,7 +30,7 @@ int main(){
 	}
 	//Otherwise, read data from database
 	else
-		ui.readFromBase();
+		ui.loadDatabase();
 	
 	dbFileIn.close();
 
@@ -36,6 +42,6 @@ int main(){
 		if (ui.getShutdownStatus()) {
 			bQuit = true;
 		}
-    	}
+    }
 	return 0;
 }

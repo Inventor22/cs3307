@@ -13,59 +13,59 @@ Bank::Bank() {
 }
 
 void Bank::setExecutionTraceStatus(Bank::TraceState traceState) {
-	executionTrace = traceState;
+  executionTrace = traceState;
 }
 
 void Bank::setExecutionTraceStatus(bool traceState) {
-	executionTrace = traceState;
+  executionTrace = traceState;
 }
 
 void Bank::addManager(BankManager* bankManager) {
-	database.addBankMember(bankManager);
+  database.addBankMember(bankManager);
 }
 
 void Bank::addMaintainer(BankMaintainer* bankMaintainer) {
-	database.addBankMember(bankMaintainer);
+  database.addBankMember(bankMaintainer);
 }
 
 void Bank::addClient(BankClient* bankClient) {
-	database.addBankMember(bankClient);
+  database.addBankMember(bankClient);
 }
 
 void Bank::addBankAccount(unsigned long bankMemberId,
-						  BankAccount::AccountType accountType) {
-	database.addBankAccount(bankMemberId, accountType);
+              BankAccount::AccountType accountType) {
+  database.addBankAccount(bankMemberId, accountType);
 }
 
 BankMember* Bank::getBankMember(unsigned long id) {
-	return database.getBankMember(id);
+  return database.getBankMember(id);
 }
 
 bool Bank::deleteMember(unsigned long id) {
-	return database.deleteBankMember(id);
+  return database.deleteBankMember(id);
 }
 
 unsigned long Bank::generateNewBankMemberId() {
-	return database.generateNewBankMemberId();
+  return database.generateNewBankMemberId();
 }
 
 unsigned long Bank::generateNewBankAccountId() {
-	return database.generateNewBankAccountId();
+  return database.generateNewBankAccountId();
 }
 
 void Bank::writeStateToFile() {
-	std::ofstream bankFile;
-	bankFile.open("BankDatabase.txt");
-	bankFile << std::boolalpha << executionTrace << std::endl;
-	database.writeDatabaseToFile(bankFile);
-	bankFile.close();
+  std::ofstream bankFile;
+  bankFile.open("BankDatabase.txt");
+  bankFile << std::boolalpha << executionTrace << std::endl;
+  database.writeDatabaseToFile(bankFile);
+  bankFile.close();
 }
 
-void Bank::readStateFromFile() {	
-	std::ifstream bankFile;
-	bankFile.open("BankDatabase.txt");
-	bankFile >> std::boolalpha >> executionTrace;
-	database.loadDatabaseFromFile(bankFile);
-	bankFile.close();
+void Bank::readStateFromFile() {  
+  std::ifstream bankFile;
+  bankFile.open("BankDatabase.txt");
+  bankFile >> std::boolalpha >> executionTrace;
+  database.loadDatabaseFromFile(bankFile);
+  bankFile.close();
 }
 
