@@ -18,6 +18,22 @@ BankClient::BankClient(std::ifstream& is) : BankMember(is) {
     failedPayments.open(s, std::ios::app);
 }
 
+BankClient::BankClient(std::ifstream& is, int memType) : BankMember(is, memType) {
+	int numAccounts = 0;
+	is >> numAccounts;
+	if (numAccounts == 0) return;
+	int accountType = 0;
+	for (int i = 0; i < numAccounts; i++) {
+		unsigned long accountId;
+		int accountBalance;
+		is >> accountType;
+		is >> accountId;
+		is >> accountBalance;
+		this->addAccount((BankAccount::AccountType)accountType, accountId);
+		this->getAccount((BankAccount::AccountType)accountType)->deposit(accountBalance);
+	}	
+}
+
 BankClient::BankClient(std::string firstName, std::string lastName, unsigned int pin) : BankMember(firstName, lastName, pin, CLIENT) {
     std::string s = std::to_string(_id);
     failedPayments.open(s, std::ios::app);

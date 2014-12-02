@@ -1,5 +1,3 @@
-#pragma once
-
 #ifndef BANKMEMBER_H
 #define BANKMEMBER_H
 
@@ -8,6 +6,7 @@
 #include <string>
 
 class BankMember {
+
 public:
 	typedef enum MemberType { MANAGER = 0, CLIENT = 1, MAINTENANCE = 2 };
 
@@ -21,6 +20,7 @@ protected:
 
 public:
 	BankMember(std::ifstream& is);
+	BankMember(std::ifstream& is, int memType);
 
 	BankMember(std::string firstName,
 			   std::string lastName,
@@ -58,3 +58,4 @@ protected:
 };
 
 #endif
+

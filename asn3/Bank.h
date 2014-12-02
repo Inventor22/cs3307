@@ -1,12 +1,18 @@
+//Contains code for the bank, which stores the execution trace, and allows for members to be added. 
+//Also handles the writing/reading
+//Made for CS3307A Final Project
 #ifndef BANK_H
 #define BANK_H
 
 #include <iostream>
+#include <fstream>
 #include <set>
 #include <string>
+
 #include "BankManager.h"
 #include "BankMaintainer.h"
 #include "BankClient.h"
+
 #include "IdManager.h"
 #include "BankMemberDatabase.h"
 
@@ -24,6 +30,7 @@ public:
 	Bank();
 
 	void setExecutionTraceStatus(TraceState traceState);
+	void setExecutionTraceStatus(bool traceState);
 	void addManager(BankManager* bankManager);
 	void addMaintainer(BankMaintainer* bankMaintainer);
 	void addClient(BankClient* bankClient);
@@ -39,7 +46,7 @@ public:
 
 	void writeStateToFile();
 	void readStateFromFile();
-
 };
 
 #endif
+

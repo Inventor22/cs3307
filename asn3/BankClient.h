@@ -24,7 +24,8 @@ private:
 
 public:
 	BankClient(std::ifstream& is);
-	
+	BankClient(std::ifstream& is, int memType);
+
 	BankClient(std::string firstName, std::string lastName, unsigned int pin);
 	BankClient(std::string firstName, std::string lastName, unsigned long id, unsigned int pin);
 
@@ -55,3 +56,4 @@ protected:
 };
 
 #endif
+
