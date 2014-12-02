@@ -142,7 +142,7 @@ void BankClient::writeToFile(std::ofstream& o) {
 int BankClient::payCreditCard() {
     if (hasCreditCard && creditBalance > 0) {
 
-        BankAccount* b = getAccount(BankAccount::AccountType::CHECKING);
+        BankAccount* b = getAccount(BankAccount::CHECKING);
         long chequingBal = checkChequingBalance();
 
         if (payMinimum) {

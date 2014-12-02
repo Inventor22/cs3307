@@ -54,7 +54,7 @@ void Bank::writeStateToFile(bool logging) {
   bankFile.close();
 }
 
-bool Bank::readStateFromFile(std::ifstream bankFile) {
+bool Bank::readStateFromFile(std::ifstream &bankFile) {
   bool logging;
   bankFile >> std::boolalpha >> logging;
   if (logging){

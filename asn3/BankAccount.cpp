@@ -1,6 +1,6 @@
 #include "BankAccount.h"
 
-BankAccount::BankAccount(std::ifstream is) {
+BankAccount::BankAccount(std::ifstream &is) {
   readFromFile(is);
 }
 

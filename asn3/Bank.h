@@ -29,7 +29,7 @@ public:
   BankMemberDatabase database;
 
   Bank();
-  
+
   void addManager(BankManager* bankManager);
   void addMaintainer(BankMaintainer* bankMaintainer);
   void addClient(BankClient* bankClient);
@@ -44,7 +44,7 @@ public:
   unsigned long generateNewBankAccountId();
 
   void writeStateToFile(bool logging);
-  bool readStateFromFile(std::ifstream file);
+  bool readStateFromFile(std::ifstream &file);
 };
 
 #endif

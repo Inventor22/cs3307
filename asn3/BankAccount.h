@@ -18,7 +18,7 @@ private:
   unsigned long _id;
 
 public:
-  BankAccount(std::ifstream is);
+  BankAccount(std::ifstream &is);
   BankAccount(AccountType accountType);
   BankAccount(AccountType accountType, unsigned long id);
   BankAccount(AccountType accountType, unsigned long id, int balance);

@@ -1134,7 +1134,7 @@ long TextUI::removeMoneyFromChequing(BankClient* client, long amount){
       std::cout << "Invalid input, please try again:\n";
     }
     if ((choice == 'Y') || (choice == 'y')){
-            client->getAccount(BankAccount::AccountType::CHECKING)->withdrawal(amount + 200);
+            client->getAccount(BankAccount::CHECKING)->withdrawal(amount + 200);
     }
     else{
       amount = 0;
@@ -1150,14 +1150,14 @@ long TextUI::removeMoneyFromChequing(BankClient* client, long amount){
       std::cout << "Invalid input, please try again:\n";
     }
     if ((choice == 'Y') || (choice == 'y')){
-            client->getAccount(BankAccount::AccountType::CHECKING)->withdrawal(amount + 200);
+            client->getAccount(BankAccount::CHECKING)->withdrawal(amount + 200);
     }
     else{
       amount = 0;
     }
   }
   else { //Has enough money, won't incur an extra fee
-        client->getAccount(BankAccount::AccountType::CHECKING)->withdrawal(amount);
+        client->getAccount(BankAccount::CHECKING)->withdrawal(amount);
   }
 
   syslog(LOG_DEBUG, "removeMoneyFromChequing(BankClient*,long) exited");
@@ -1171,7 +1171,7 @@ long TextUI::removeMoneyFromSavings(BankClient* client, long amount){
     amount = 0;
   }
   else { //Has enough money
-        client->getAccount(BankAccount::AccountType::SAVING)->withdrawal(amount);
+        client->getAccount(BankAccount::SAVING)->withdrawal(amount);
   }
   syslog(LOG_DEBUG, "removeMoneyFromSavings(BankClient*,long) exited");
   return amount;
