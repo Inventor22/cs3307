@@ -5,6 +5,7 @@
 #include <string>
 #include <vector>
 #include <map>
+#include <fstream>
 #include "BankMember.h"
 #include "BankClient.h"
 #include "BankManager.h"
@@ -37,7 +38,7 @@ public:
 
 	void writeDatabaseToFile(std::ofstream& os);
 	
-	void loadDatabaseFromFile(std::ifstream& is, bool& executionTrace);
+	void loadDatabaseFromFile(std::ifstream& is);
 
 	unsigned long generateNewBankMemberId();
 
@@ -53,3 +54,4 @@ public:
 };
 
 #endif
+

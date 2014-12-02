@@ -1,5 +1,5 @@
-#ifndef BANK_H
-#define BANK_H
+#ifndef BANK_PROFILE_H
+#define BANK_PROFILE_H
 
 #include <iostream>
 #include <string>
@@ -14,3 +14,4 @@ public:
 };
 
 #endif
+
