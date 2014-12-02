@@ -667,7 +667,7 @@ bool TextUI::shutdown(){
   }
   if ((choice == 'Y') || (choice == 'y')){
     std::cout << "Shutting down.\n";
-    _bank.writeStateToFile(); //Save _bank data
+    _bank.writeStateToFile(_bLogging); //Save _bank data
     _bShutdown = true;       //Raise shutdown flag
     cont = false;          //Don't perform another transaction, just shut down
   }
