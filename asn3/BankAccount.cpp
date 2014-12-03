@@ -50,6 +50,6 @@ void BankAccount::writeToFile(std::ofstream& o){
 void BankAccount::readFromFile(std::ifstream& i){
   int accountType;
   i >> accountType;
-  i >> _balance >> _id;
+  i >> _id >> _balance;
   _accountType = (AccountType)accountType;
 }

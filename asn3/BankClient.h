@@ -43,16 +43,17 @@ public:
 
   bool openSavings(unsigned long id);
 
-    /*
-    For each user, check if amount owing >0, if >0 then automatically take minimum payment
-    from chequing, then process interest: 2%
-    */
-    int payCreditCard();
+  /*
+  For each user, check if amount owing >0, if >0 then automatically take minimum payment
+  from chequing, then process interest: 2%
+  */
+  int payCreditCard();
 
-    void viewFailedPayments();
+  void viewFailedPayments();
+
+  void writeToFile(std::ofstream& o);
 
 protected:
-  virtual void writeToFile(std::ofstream& o);
 };
 
 #endif

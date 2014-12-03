@@ -14,8 +14,9 @@ public:
 
   void closeClientAccount(unsigned long id);
 
+  void writeToFile(std::ofstream& o);
+
 protected:
-  virtual void writeToFile(std::ofstream& o);
 };
 
 #endif

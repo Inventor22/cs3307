@@ -31,7 +31,6 @@ public:
 
 protected:
   void writeToFile(std::ofstream& o);
-
   void readFromFile(std::ifstream& i);
 };
 

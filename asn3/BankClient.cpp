@@ -3,19 +3,12 @@
 #include "BankClient.h"
 
 BankClient::BankClient(std::ifstream& is) : BankMember(is) {
+  _memberType = CLIENT;
   int numAccounts = 0;
   is >> numAccounts;
-  if (numAccounts == 0) return;
-  int accountType = 0;
-  for (int i = 0; i < numAccounts; i++) {
-    unsigned long accountId;
-    int accountBalance;
-    is >> accountType;
-    is >> accountId;
-    is >> accountBalance;
-    this->addAccount((BankAccount::AccountType)accountType, accountId);
-    this->getAccount((BankAccount::AccountType)accountType)->deposit(accountBalance);
-  }
+  // Note: accounts cannot be read in here - they need to
+  // be in the the BankMemberDatabase's master list before
+  // they can be added to the account.
 }
 
 BankClient::BankClient(std::string firstName, std::string lastName, unsigned int pin) : BankMember(firstName, lastName, pin, CLIENT) {
@@ -133,9 +126,19 @@ bool BankClient::openSavings(unsigned long id) {
 void BankClient::writeToFile(std::ofstream& o) {
   o << "Client" << " ";
   BankMember::writeToFile(o);
-  for (int i=0; i<bankAccounts.size(); i++){
-    // Write out accounts
+  o << " " << bankAccounts.size() << std::endl;
 
+  // Write out accounts
+  BankAccount *bankAcc;
+  if (hasChequing()) {
+    bankAcc = getAccount(BankAccount::CHECKING);
+    o << "Account " << bankAcc->getAccountType() << " " << bankAcc->getAccountId()
+        << " " << bankAcc->getBalance() << "\n";
+  }
+  if (hasSavings()) {
+    bankAcc = getAccount(BankAccount::SAVING);
+    o << "Account " << bankAcc->getAccountType() << " " << bankAcc->getAccountId()
+        << " " << bankAcc->getBalance() << "\n";
   }
 }
 

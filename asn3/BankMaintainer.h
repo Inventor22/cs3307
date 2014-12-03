@@ -17,15 +17,11 @@ public:
 
   BankMaintainer(std::string fN, std::string lN, unsigned long id, unsigned int pin);
 
-  //void setTrace(Bank::TraceState traceState)
-  //{
-  //  _bank->setExecutionTraceStatus(traceState);
-  //}
-
   void printTrace();
 
+  void writeToFile(std::ofstream& o);
+
 protected:
-  virtual void writeToFile(std::ofstream& o);
 };
 
 #endif

@@ -89,36 +89,42 @@ void BankMemberDatabase::loadDatabaseFromFile(std::ifstream& is) {
     switch (memberType) {
       case BankMember::CLIENT:
         {
-          BankClient* bankClient = new BankClient(is);
-          bankMembers.insert(MemberPair(bankClient->getId(), bankClient));
+          BankClient *client = new BankClient(is);
+          bankMembers.insert(MemberPair(client->getId(), client));
+          if (is.eof())
+            break;
           is >> type;
-          if (type.compare("Account") == 0)
+          while (type.compare("Account") == 0)
           {
-            // TODO: Parse accounts
             BankAccount bankAccount(is);
-            bankClient->setAccount(bankAccount);
+            client->setAccount(bankAccount);
+            bankAccounts.insert(AccountPair(client->getId(), client->getAccount(bankAccount.getAccountType())));
+            if (is.eof())
+              break;
+            is >> type;
           }
         }
         break;
       case BankMember::MANAGER:
         {
-          BankManager* bankManager = new BankManager(is);
+          BankManager *bankManager = new BankManager(is);
           bankMembers.insert(MemberPair(bankManager->getId(), bankManager));
-          // Eat the next line
-          is >> type;
         }
         break;
       case BankMember::MAINTENANCE:
         {
-          BankMaintainer* bankMaintainer = new BankMaintainer(is);
+          BankMaintainer *bankMaintainer = new BankMaintainer(is);
           bankMembers.insert(MemberPair(bankMaintainer->getId(), bankMaintainer));
-          // Eat the next line
-          is >> type;
         }
         break;
       default:
         break;
     }
+
+    if (is.eof())
+      break;
+    // Eat the next entry
+    is >> type;
   }
 
 }
@@ -127,32 +133,36 @@ void BankMemberDatabase::writeDatabaseToFile(std::ofstream& os) {
   for (BankMemberItr itr = bankMembers.begin(); itr != bankMembers.end(); ++itr) {
     BankMember *bankMember = itr->second;
 
-    // Again, my IDE is only ok with this on two lines.
-    os << bankMember->getMemberType() << " " << bankMember->getId();
-    os << " " << bankMember->getPin() << " " << bankMember->getFullName() << " ";
-
-    if (bankMember->getMemberType() == BankMember::CLIENT) {
-      if (BankClient *bankClient = dynamic_cast<BankClient*>(bankMember)) {
-        BankAccount* ba = NULL;
-        if (bankClient->hasChequing()) {
-          ba = bankClient->getAccount(BankAccount::CHECKING);
-          os << "Account " << ba->getAccountType() << " " << ba->getAccountId() << " " << ba->getBalance() << " ";
+    switch (bankMember->getMemberType())
+    {
+      case BankMember::CLIENT:
+        // Attempt dynamic cast
+        if (BankClient *bankClient = dynamic_cast<BankClient*>(bankMember)) {
+          // Write the client to file
+          bankClient->writeToFile(os);
         }
-        if (bankClient->hasSavings()) {
-          ba = bankClient->getAccount(BankAccount::SAVING);
-          os << "Account " << ba->getAccountType() << " " << ba->getAccountId() << " " << ba->getBalance() << " ";
+        break;
+      case BankMember::MANAGER:
+        if (BankManager *bankManager = dynamic_cast<BankManager*>(bankMember)) {
+          // Write the client to file
+          bankManager->writeToFile(os);
         }
-      }
+        break;
+      case BankMember::MAINTENANCE:
+        if (BankMaintainer *bankMaintainer = dynamic_cast<BankMaintainer*>(bankMember)) {
+          // Write the client to file
+          bankMaintainer->writeToFile(os);
+        }
+        break;
+      default:
+        // Something went very wrong
+        // Do nothing...
+        break;
     }
-    os << std::endl;
+    // Each is responsible for printing a final endline...
+    //os << std::endl;
   }
 }
-
-// Unknown usage, deprecated
-//void printAccountDetails(BankClient* bc, BankAccount::AccountType accountType, std::ofstream& os) {
-//  BankAccount* ba = bc->getAccount(accountType);
-//  os << " " << ba->getAccountType() << " " << ba->getAccountId() << ba->getBalance() << " ";
-//}
 
 unsigned long BankMemberDatabase::generateNewBankMemberId() {
   return IdManager::generateNewUniqueId(bankMembers);

@@ -1,6 +1,7 @@
 #include "BankManager.h"
 
 BankManager::BankManager(std::ifstream& is) : BankMember(is) {
+  _memberType = MANAGER;
 }
 
 BankManager::BankManager(std::string fN, std::string lN, unsigned int pin) :
@@ -24,4 +25,6 @@ void BankManager::closeClientAccount(unsigned long id) {
 void BankManager::writeToFile(std::ofstream& o) {
   o << "Manager" << " ";
   BankMember::writeToFile(o);
+  // Nothing special to do, go to next line
+  o << std::endl;
 }
