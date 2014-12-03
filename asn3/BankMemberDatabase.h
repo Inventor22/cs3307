@@ -1,4 +1,3 @@
-#pragma once
 #ifndef BANK_MEMBER_DATABASE
 #define BANK_MEMBER_DATABASE
 
