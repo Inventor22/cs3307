@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Detailed report on module BankMember-->
+<CCCC_Project>
+<module_summary>
+<lines_of_code value="60" level="0" />
+<lines_of_code_per_member_function value="******" level="0" />
+<McCabes_cyclomatic_complexity value="6" level="0" />
+<McCabes_cyclomatic_complexity_per_member_function value="******" level="2" />
+<lines_of_code value="0" level="0" />
+<lines_of_code_per_member_function value="********" level="0" />
+<lines_of_code_per_line_of_comment value="******" level="2" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="******" level="2" />
+<weighted_methods_per_class_unity value="14" level="0" />
+<weighted_methods_per_class_visibility value="0" level="0" />
+<depth_of_inheritance_tree value="0" level="0" />
+<number_of_children value="3" level="0" />
+<coupling_between_objects value="9" level="0" />
+<IF4 value="400" level="1" />
+<IF4_per_member_function value="********" level="2" />
+<IF4_visible value="256" level="2" />
+<IF4_visible_per_member_function value="********" level="2" />
+<IF4_concrete value="36" level="1" />
+<IF4_concrete_per_member_function value="********" level="2" />
+</module_summary>
+<module_detail>
+<description>definition</description>
+<source_reference file="BankMember.h" line="10" />
+<lines_of_code value="3" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</module_detail>
+<procedural_detail>
+<member_function>
+<name>BankMember(ifstream &amp;)</name>
+<extent>
+<description>definition</description>
+<source_reference file="BankMember.cpp" line="3" />
+</extent>
+<lines_of_code value="3" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>BankMember(string,string,int,MemberType)</name>
+<extent>
+<description>definition</description>
+<source_reference file="BankMember.cpp" line="7" />
+</extent>
+<lines_of_code value="9" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>BankMember(string,string,long,int,MemberType)</name>
+<extent>
+<description>definition</description>
+<source_reference file="BankMember.cpp" line="17" />
+</extent>
+<lines_of_code value="10" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>getFirstName()</name>
+<extent>
+<description>definition</description>
+<source_reference file="BankMember.cpp" line="40" />
+</extent>
+<lines_of_code value="3" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>getFullName()</name>
+<extent>
+<description>definition</description>
+<source_reference file="BankMember.cpp" line="48" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>getId()</name>
+<extent>
+<description>definition</description>
+<source_reference file="BankMember.cpp" line="36" />
+</extent>
+<lines_of_code value="3" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>getLastName()</name>
+<extent>
+<description>definition</description>
+<source_reference file="BankMember.cpp" line="44" />
+</extent>
+<lines_of_code value="3" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>getMemberType()</name>
+<extent>
+<description>definition</description>
+<source_reference file="BankMember.cpp" line="62" />
+</extent>
+<lines_of_code value="3" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>getPin()</name>
+<extent>
+<description>definition</description>
+<source_reference file="BankMember.cpp" line="32" />
+</extent>
+<lines_of_code value="3" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>readFromFile(ifstream &amp;)</name>
+<extent>
+<description>definition</description>
+<source_reference file="BankMember.cpp" line="70" />
+</extent>
+<lines_of_code value="4" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>setFirstName(string)</name>
+<extent>
+<description>definition</description>
+<source_reference file="BankMember.cpp" line="54" />
+</extent>
+<lines_of_code value="3" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>setLastName(string)</name>
+<extent>
+<description>definition</description>
+<source_reference file="BankMember.cpp" line="58" />
+</extent>
+<lines_of_code value="3" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>setPin(int)</name>
+<extent>
+<description>definition</description>
+<source_reference file="BankMember.cpp" line="28" />
+</extent>
+<lines_of_code value="3" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>writeToFile(ofstream &amp;)</name>
+<extent>
+<description>definition</description>
+<source_reference file="BankMember.cpp" line="66" />
+</extent>
+<lines_of_code value="2" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+</procedural_detail>
+<structural_detail>
+<module>
+<name>BankMember</name>
+<client_module>
+<name>BankClient</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>inheritance</description>
+<source_reference file="BankClient.h" line="12" />
+</extent>
+<name>BankMaintainer</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>inheritance</description>
+<source_reference file="BankMaintainer.h" line="12" />
+</extent>
+<name>BankManager</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>inheritance</description>
+<source_reference file="BankManager.h" line="6" />
+</extent>
+<name>BankMemberDatabase</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="BankMemberDatabase.cpp" line="26" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="BankMemberDatabase.h" line="29" />
+</extent>
+<name>TextUI</name>
+<visible>false</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="TextUI.cpp" line="181" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="TextUI.cpp" line="201" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="TextUI.cpp" line="520" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="TextUI.h" line="28" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="TextUI.h" line="29" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="TextUI.h" line="39" />
+</extent>
+</client_module>
+<supplier_module>
+<name>MemberType</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="BankMember.cpp" line="10" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="BankMember.cpp" line="21" />
+</extent>
+<name>ifstream</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="BankMember.cpp" line="3" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="BankMember.cpp" line="70" />
+</extent>
+<name>ofstream</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="BankMember.cpp" line="66" />
+</extent>
+<name>string</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="BankMember.cpp" line="7" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="BankMember.cpp" line="8" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="BankMember.cpp" line="17" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="BankMember.cpp" line="18" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="BankMember.cpp" line="54" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="BankMember.cpp" line="58" />
+</extent>
+</supplier_module>
+</module>
+</structural_detail>
+</CCCC_Project>

@@ -1,0 +1,663 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Detailed report on module TextUI-->
+<CCCC_Project>
+<module_summary>
+<lines_of_code value="1029" level="1" />
+<lines_of_code_per_member_function value="******" level="0" />
+<McCabes_cyclomatic_complexity value="266" level="1" />
+<McCabes_cyclomatic_complexity_per_member_function value="******" level="2" />
+<lines_of_code value="86" level="0" />
+<lines_of_code_per_member_function value="********" level="2" />
+<lines_of_code_per_line_of_comment value="11.965" level="1" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="3.093" level="0" />
+<weighted_methods_per_class_unity value="30" level="0" />
+<weighted_methods_per_class_visibility value="7" level="0" />
+<depth_of_inheritance_tree value="0" level="0" />
+<number_of_children value="0" level="0" />
+<coupling_between_objects value="6" level="0" />
+<IF4 value="0" level="0" />
+<IF4_per_member_function value="********" level="0" />
+<IF4_visible value="0" level="0" />
+<IF4_visible_per_member_function value="********" level="0" />
+<IF4_concrete value="0" level="0" />
+<IF4_concrete_per_member_function value="********" level="0" />
+</module_summary>
+<module_detail>
+<description>definition</description>
+<source_reference file="TextUI.h" line="6" />
+<lines_of_code value="6" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="3" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</module_detail>
+<procedural_detail>
+<member_function>
+<name>TextUI()</name>
+<extent>
+<description>definition</description>
+<source_reference file="TextUI.cpp" line="16" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="TextUI.h" line="15" />
+</extent>
+<lines_of_code value="4" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>balances(BankClient *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="TextUI.cpp" line="1063" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="TextUI.h" line="53" />
+</extent>
+<lines_of_code value="15" level="0" />
+<McCabes_cyclomatic_complexity value="3" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>changePIN(BankMember *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="TextUI.cpp" line="201" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="TextUI.h" line="29" />
+</extent>
+<lines_of_code value="73" level="1" />
+<McCabes_cyclomatic_complexity value="20" level="1" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="******" level="2" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="******" level="2" />
+</member_function>
+<member_function>
+<name>closeAccount(BankManager *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="TextUI.cpp" line="433" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="TextUI.h" line="36" />
+</extent>
+<lines_of_code value="40" level="1" />
+<McCabes_cyclomatic_complexity value="11" level="1" />
+<lines_of_comment value="6" level="0" />
+<lines_of_code_per_line_of_comment value="6.667" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="1.833" level="0" />
+</member_function>
+<member_function>
+<name>deposit(BankClient *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="TextUI.cpp" line="808" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="TextUI.h" line="51" />
+</extent>
+<lines_of_code value="50" level="1" />
+<McCabes_cyclomatic_complexity value="14" level="1" />
+<lines_of_comment value="4" level="0" />
+<lines_of_code_per_line_of_comment value="12.500" level="1" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="3.500" level="0" />
+</member_function>
+<member_function>
+<name>displayHeader()</name>
+<extent>
+<description>definition</description>
+<source_reference file="TextUI.cpp" line="24" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="TextUI.h" line="17" />
+</extent>
+<lines_of_code value="9" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>enableLogging()</name>
+<extent>
+<description>definition</description>
+<source_reference file="TextUI.cpp" line="610" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="TextUI.h" line="44" />
+</extent>
+<lines_of_code value="22" level="0" />
+<McCabes_cyclomatic_complexity value="9" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="******" level="2" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="******" level="2" />
+</member_function>
+<member_function>
+<name>getShutdownStatus()</name>
+<extent>
+<description>definition</description>
+<source_reference file="TextUI.cpp" line="152" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="TextUI.h" line="23" />
+</extent>
+<lines_of_code value="4" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>isValidPIN(int)</name>
+<extent>
+<description>definition</description>
+<source_reference file="TextUI.cpp" line="279" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="TextUI.h" line="30" />
+</extent>
+<lines_of_code value="7" level="0" />
+<McCabes_cyclomatic_complexity value="2" level="0" />
+<lines_of_comment value="2" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>openAccount()</name>
+<extent>
+<description>definition</description>
+<source_reference file="TextUI.cpp" line="342" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="TextUI.h" line="35" />
+</extent>
+<lines_of_code value="80" level="1" />
+<McCabes_cyclomatic_complexity value="32" level="2" />
+<lines_of_comment value="2" level="0" />
+<lines_of_code_per_line_of_comment value="40.000" level="2" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="16.000" level="2" />
+</member_function>
+<member_function>
+<name>openComplimentary(BankClient *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="TextUI.cpp" line="1079" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="TextUI.h" line="54" />
+</extent>
+<lines_of_code value="21" level="0" />
+<McCabes_cyclomatic_complexity value="5" level="0" />
+<lines_of_comment value="5" level="0" />
+<lines_of_code_per_line_of_comment value="4.200" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="1.000" level="0" />
+</member_function>
+<member_function>
+<name>printLogs()</name>
+<extent>
+<description>definition</description>
+<source_reference file="TextUI.cpp" line="635" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="TextUI.h" line="45" />
+</extent>
+<lines_of_code value="7" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>processClientTransaction(BankClient *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="TextUI.cpp" line="666" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="TextUI.h" line="49" />
+</extent>
+<lines_of_code value="70" level="1" />
+<McCabes_cyclomatic_complexity value="20" level="1" />
+<lines_of_comment value="6" level="0" />
+<lines_of_code_per_line_of_comment value="11.667" level="1" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="3.333" level="0" />
+</member_function>
+<member_function>
+<name>processMaintainerTransaction(BankMaintainer *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="TextUI.cpp" line="571" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="TextUI.h" line="43" />
+</extent>
+<lines_of_code value="38" level="1" />
+<McCabes_cyclomatic_complexity value="10" level="0" />
+<lines_of_comment value="2" level="0" />
+<lines_of_code_per_line_of_comment value="19.000" level="1" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="5.000" level="0" />
+</member_function>
+<member_function>
+<name>processManagerTransaction(BankManager *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="TextUI.cpp" line="298" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="TextUI.h" line="34" />
+</extent>
+<lines_of_code value="42" level="1" />
+<McCabes_cyclomatic_complexity value="11" level="1" />
+<lines_of_comment value="13" level="0" />
+<lines_of_code_per_line_of_comment value="3.231" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="0.846" level="0" />
+</member_function>
+<member_function>
+<name>processTransaction()</name>
+<extent>
+<description>definition</description>
+<source_reference file="TextUI.cpp" line="87" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="TextUI.h" line="21" />
+</extent>
+<lines_of_code value="52" level="1" />
+<McCabes_cyclomatic_complexity value="17" level="1" />
+<lines_of_comment value="9" level="0" />
+<lines_of_code_per_line_of_comment value="5.778" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="1.889" level="0" />
+</member_function>
+<member_function>
+<name>promptForId()</name>
+<extent>
+<description>definition</description>
+<source_reference file="TextUI.cpp" line="156" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="TextUI.h" line="27" />
+</extent>
+<lines_of_code value="24" level="0" />
+<McCabes_cyclomatic_complexity value="4" level="0" />
+<lines_of_comment value="2" level="0" />
+<lines_of_code_per_line_of_comment value="12.000" level="1" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>promptForPin(BankMember *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="TextUI.cpp" line="181" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="TextUI.h" line="28" />
+</extent>
+<lines_of_code value="20" level="0" />
+<McCabes_cyclomatic_complexity value="5" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="******" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="******" level="0" />
+</member_function>
+<member_function>
+<name>queryAccount()</name>
+<extent>
+<description>definition</description>
+<source_reference file="TextUI.cpp" line="484" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="TextUI.h" line="37" />
+</extent>
+<lines_of_code value="14" level="0" />
+<McCabes_cyclomatic_complexity value="2" level="0" />
+<lines_of_comment value="6" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>queryAccounts()</name>
+<extent>
+<description>definition</description>
+<source_reference file="TextUI.cpp" line="510" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="TextUI.h" line="38" />
+</extent>
+<lines_of_code value="6" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="3" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>removeMoneyFromChequing(BankClient *,long)</name>
+<extent>
+<description>definition</description>
+<source_reference file="TextUI.cpp" line="1105" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="TextUI.h" line="55" />
+</extent>
+<lines_of_code value="46" level="1" />
+<McCabes_cyclomatic_complexity value="11" level="1" />
+<lines_of_comment value="1" level="0" />
+<lines_of_code_per_line_of_comment value="46.000" level="2" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="11.000" level="2" />
+</member_function>
+<member_function>
+<name>removeMoneyFromSavings(BankClient *,long)</name>
+<extent>
+<description>definition</description>
+<source_reference file="TextUI.cpp" line="1152" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="TextUI.h" line="56" />
+</extent>
+<lines_of_code value="12" level="0" />
+<McCabes_cyclomatic_complexity value="2" level="0" />
+<lines_of_comment value="1" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>setupFirstMaintainer()</name>
+<extent>
+<description>definition</description>
+<source_reference file="TextUI.cpp" line="33" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="TextUI.h" line="18" />
+</extent>
+<lines_of_code value="27" level="0" />
+<McCabes_cyclomatic_complexity value="3" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="******" level="2" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>setupFirstManager()</name>
+<extent>
+<description>definition</description>
+<source_reference file="TextUI.cpp" line="60" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="TextUI.h" line="19" />
+</extent>
+<lines_of_code value="27" level="0" />
+<McCabes_cyclomatic_complexity value="3" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="******" level="2" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>showAccount(BankMember *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="TextUI.cpp" line="520" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="TextUI.h" line="39" />
+</extent>
+<lines_of_code value="43" level="1" />
+<McCabes_cyclomatic_complexity value="5" level="0" />
+<lines_of_comment value="1" level="0" />
+<lines_of_code_per_line_of_comment value="43.000" level="2" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="5.000" level="0" />
+</member_function>
+<member_function>
+<name>shutdown()</name>
+<extent>
+<description>definition</description>
+<source_reference file="TextUI.cpp" line="642" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="TextUI.h" line="46" />
+</extent>
+<lines_of_code value="23" level="0" />
+<McCabes_cyclomatic_complexity value="4" level="0" />
+<lines_of_comment value="3" level="0" />
+<lines_of_code_per_line_of_comment value="7.667" level="1" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>transfer(BankClient *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="TextUI.cpp" line="865" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="TextUI.h" line="52" />
+</extent>
+<lines_of_code value="179" level="2" />
+<McCabes_cyclomatic_complexity value="53" level="2" />
+<lines_of_comment value="11" level="0" />
+<lines_of_code_per_line_of_comment value="16.273" level="1" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="4.818" level="0" />
+</member_function>
+<member_function>
+<name>viewBankTotals()</name>
+<extent>
+<description>definition</description>
+<source_reference file="TextUI.cpp" line="564" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="TextUI.h" line="40" />
+</extent>
+<lines_of_code value="7" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>withdrawal(BankClient *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="TextUI.cpp" line="741" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="TextUI.h" line="50" />
+</extent>
+<lines_of_code value="58" level="1" />
+<McCabes_cyclomatic_complexity value="15" level="1" />
+<lines_of_comment value="5" level="0" />
+<lines_of_code_per_line_of_comment value="11.600" level="1" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="3.000" level="0" />
+</member_function>
+<member_function>
+<name>~TextUI()</name>
+<extent>
+<description>definition</description>
+<source_reference file="TextUI.cpp" line="20" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="TextUI.h" line="16" />
+</extent>
+<lines_of_code value="3" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="1" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+</procedural_detail>
+<structural_detail>
+<module>
+<name>TextUI</name>
+<client_module>
+</client_module>
+<supplier_module>
+<name>Bank</name>
+<visible>false</visible>
+<concrete>true</concrete>
+<extent>
+<description>has by value</description>
+<source_reference file="TextUI.h" line="11" />
+</extent>
+<name>BankClient</name>
+<visible>false</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="TextUI.cpp" line="666" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="TextUI.cpp" line="741" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="TextUI.cpp" line="808" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="TextUI.cpp" line="865" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="TextUI.cpp" line="1063" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="TextUI.cpp" line="1079" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="TextUI.cpp" line="1105" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="TextUI.cpp" line="1152" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="TextUI.h" line="49" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="TextUI.h" line="50" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="TextUI.h" line="51" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="TextUI.h" line="52" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="TextUI.h" line="53" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="TextUI.h" line="54" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="TextUI.h" line="55" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="TextUI.h" line="56" />
+</extent>
+<name>BankMaintainer</name>
+<visible>false</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="TextUI.cpp" line="571" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="TextUI.h" line="43" />
+</extent>
+<name>BankManager</name>
+<visible>false</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="TextUI.cpp" line="298" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="TextUI.cpp" line="433" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="TextUI.h" line="34" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="TextUI.h" line="36" />
+</extent>
+<name>BankMember</name>
+<visible>false</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="TextUI.cpp" line="181" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="TextUI.cpp" line="201" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="TextUI.cpp" line="520" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="TextUI.h" line="28" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="TextUI.h" line="29" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="TextUI.h" line="39" />
+</extent>
+<name>bool</name>
+<visible>false</visible>
+<concrete>true</concrete>
+<extent>
+<description>has by value</description>
+<source_reference file="TextUI.h" line="12" />
+</extent>
+</supplier_module>
+</module>
+</structural_detail>
+</CCCC_Project>
