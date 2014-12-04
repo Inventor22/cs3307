@@ -2,15 +2,15 @@
 <!--Detailed report on module anonymous-->
 <CCCC_Project>
 <module_summary>
-<lines_of_code value="25" level="0" />
+<lines_of_code value="122" level="0" />
 <lines_of_code_per_member_function value="******" level="0" />
-<McCabes_cyclomatic_complexity value="4" level="0" />
+<McCabes_cyclomatic_complexity value="22" level="0" />
 <McCabes_cyclomatic_complexity_per_member_function value="******" level="2" />
-<lines_of_code value="68" level="0" />
+<lines_of_code value="179" level="0" />
 <lines_of_code_per_member_function value="********" level="2" />
-<lines_of_code_per_line_of_comment value="0.368" level="0" />
-<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
-<weighted_methods_per_class_unity value="3" level="0" />
+<lines_of_code_per_line_of_comment value="0.682" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="0.123" level="0" />
+<weighted_methods_per_class_unity value="16" level="0" />
 <weighted_methods_per_class_visibility value="0" level="0" />
 <depth_of_inheritance_tree value="0" level="0" />
 <number_of_children value="0" level="0" />
@@ -26,6 +26,18 @@
 </module_detail>
 <procedural_detail>
 <member_function>
+<name>PROJECT_PRINTF(...)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./mtk/mtktrace.cpp" line="54" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="29" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
 <name>main()</name>
 <extent>
 <description>definition</description>
@@ -35,6 +47,198 @@
 <McCabes_cyclomatic_complexity value="4" level="0" />
 <lines_of_comment value="67" level="0" />
 <lines_of_code_per_line_of_comment value="0.299" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>mtkDumpLastSteps(int)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./mtk/mtktrace.cpp" line="839" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="./mtk/mtktrace.hpp" line="90" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>mtkDumpStackTrace(int)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./mtk/mtktrace.cpp" line="834" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="./mtk/mtktrace.hpp" line="89" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>mtkEnable(bool)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./mtk/mtktrace.cpp" line="784" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="./mtk/mtktrace.hpp" line="93" />
+</extent>
+<lines_of_code value="4" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="14" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>mtkHexDump(const char *,void *,long,const char *,int,char)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./mtk/mtktrace.cpp" line="854" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="./mtk/mtktrace.hpp" line="95" />
+</extent>
+<lines_of_code value="26" level="0" />
+<McCabes_cyclomatic_complexity value="5" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="******" level="2" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="******" level="0" />
+</member_function>
+<member_function>
+<name>mtkSetRingTrace(char *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./mtk/mtktrace.cpp" line="844" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="./mtk/mtktrace.hpp" line="91" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>mtkSetTermTrace(char *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./mtk/mtktrace.cpp" line="849" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="./mtk/mtktrace.hpp" line="92" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>mtkTraceForm(...)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./mtk/mtktrace.cpp" line="795" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="./mtk/mtktrace.hpp" line="86" />
+</extent>
+<lines_of_code value="12" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="1" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>mtkTraceMethodEntry(void *,const char *,int,const char *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./mtk/mtktrace.cpp" line="757" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="./mtk/mtktrace.hpp" line="62" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="58" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>mtkTraceMethodExit(void *,const char *,int,const char *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./mtk/mtktrace.cpp" line="763" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="./mtk/mtktrace.hpp" line="63" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="1" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>mtkTracePost(...)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./mtk/mtktrace.cpp" line="819" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="./mtk/mtktrace.hpp" line="88" />
+</extent>
+<lines_of_code value="12" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="3" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>mtkTracePre(const char *,int,char)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./mtk/mtktrace.cpp" line="812" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="./mtk/mtktrace.hpp" line="87" />
+</extent>
+<lines_of_code value="7" level="0" />
+<McCabes_cyclomatic_complexity value="3" level="0" />
+<lines_of_comment value="4" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>mtkTraceRaw(const char *,int,char,char *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./mtk/mtktrace.cpp" line="789" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="./mtk/mtktrace.hpp" line="85" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="1" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
 <McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
 </member_function>
 <member_function>
