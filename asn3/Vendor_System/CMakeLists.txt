@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.4)
-project(asn3)
+project(Vendor_System)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++98")
 
@@ -30,4 +30,4 @@ set(SOURCE_FILES
     TextUI.cpp
     TextUI.h)
 
-add_executable(asn3 ${SOURCE_FILES})
+add_executable(vendor ${SOURCE_FILES})
