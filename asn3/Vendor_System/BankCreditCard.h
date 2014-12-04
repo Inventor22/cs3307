@@ -3,28 +3,28 @@
 
 #include <iostream>
 #include <fstream>
-#include <string>
 #include <vector>
 
+#include "CreditState.h"
+class CreditState;
+
 class BankCreditCard {
+
 public:
-  typedef enum CreditType { FROZEN = 0, UNFROZEN = 1 };
-  static const int INSUFFICIENT_FUNDS = -1;
+	BankCreditCard(unsigned int id);
+	~BankCreditCard();
+	void purchase();
+	void payInterest();
+	void setCreditState(CreditState* state);
+	CreditState* getCreditState();
+
+	long getBalance(void);
+	void deposit(long amount);
 
 private:
-  CreditType _creditType;
-  int _creditLimit;
-  int _interestAccumulation;
-
-public:
-  BankCreditCard(CreditType creditType);
-  BankCreditCard(CreditType creditType, int creditLimit);
-  BankCreditCard(CreditType creditType, int creditLimit, int interestAccumulation);
-
-  CreditType getCreditType();
-  int getCreditLimit();
-  int getInterestAccumulation();
-
+	CreditState* _state;
+	unsigned int _id;
+	BankCreditCard();
 };
 
 #endif

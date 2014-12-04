@@ -1,29 +1,43 @@
 #include "BankCreditCard.h"
+#include "NormalCreditState.h"
 
-BankCreditCard::BankCreditCard(BankCreditCard::CreditType creditType) :
-_creditType(creditType), _creditLimit(100), _interestAccumulation(0) {
+
+BankCreditCard::BankCreditCard(unsigned int id):_id(id)
+{
+	_state = reinterpret_cast<CreditState*>(new NormalCreditState(0.0, this)); //default
 }
 
-
-BankCreditCard::BankCreditCard(BankCreditCard::CreditType creditType,
-             int creditLimit) :
-_creditType(creditType), _creditLimit(creditLimit), _interestAccumulation(0) {
+BankCreditCard::~BankCreditCard()
+{
+	delete _state;
 }
 
-BankCreditCard::BankCreditCard(BankCreditCard::CreditType creditType,
-             int creditLimit, int interestAccumulation) :
-_creditType(creditType), _creditLimit(creditLimit), _interestAccumulation(interestAccumulation) {
+long BankCreditCard::getBalance(void)
+{
+	return _state->getBalance();
 }
 
-BankCreditCard::CreditType BankCreditCard::getCreditType() {
-  return _creditType;
+void BankCreditCard::deposit(long amount)
+{
+	_state->deposit(amount);
 }
 
-int BankCreditCard::getCreditLimit() {
-  return _creditLimit;
+void BankCreditCard::purchase()
+{
+	_state->purchase();
 }
 
-int BankCreditCard::getInterestAccumulation() {
-  return _interestAccumulation;
+void BankCreditCard::payInterest()
+{
+	_state->payInterest();
 }
 
+void BankCreditCard::setCreditState(CreditState* state)
+{
+	_state = state;
+}
+
+CreditState* BankCreditCard::getCreditState()
+{
+	return _state;
+}
