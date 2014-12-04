@@ -5,11 +5,13 @@
 #include <fstream>
 #include <string>
 #include <vector>
+#include <iostream>
+#include <fstream>
 #include "BankAccount.h"
 #include "BankMember.h"
 #include "IdManager.h"
-#include <iostream>
-#include<fstream>
+#include "BankCreditCard.h
+#include "CreditState.h"
 
 class BankClient : public BankMember {
 private:

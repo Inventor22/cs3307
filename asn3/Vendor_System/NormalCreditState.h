@@ -12,17 +12,17 @@ class BankCreditCard;
 
 class NormalCreditState : public CreditState
 {
-	public:
-		NormalCreditState(CreditState* state);
-		NormalCreditState(long balance, BankCreditCard* CreditCard);
-		void deposit(long amount);
-		void purchase();
-		void payInterest();
-		void stateChangeCheck();
+  public:
+    NormalCreditState(CreditState* state);
+    NormalCreditState(long balance, BankCreditCard* CreditCard);
+    void deposit(long amount);
+    void purchase();
+    void payInterest();
+    void stateChangeCheck();
  
-	private:
-		NormalCreditState();
-		void Initialise();
+  private:
+    NormalCreditState();
+    void Initialise();
 };
 
 #endif

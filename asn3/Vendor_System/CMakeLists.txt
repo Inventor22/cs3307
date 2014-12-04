@@ -22,11 +22,15 @@ set(SOURCE_FILES
     BankMemberDatabase.h
     BankProfile.cpp
     BankProfile.h
+    CreditState.cpp
+    CreditState.h
     IdManager.cpp
     IdManager.h
     InputParser.cpp
     InputParser.h
     main.cpp
+    NormalCreditState.cpp
+    NormalCreditState.h
     TextUI_Vendor.cpp
     TextUI_Vendor.h)
 

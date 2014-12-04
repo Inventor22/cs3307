@@ -10,17 +10,17 @@ using namespace std;
 
 BankCreditCard* CreditState::getBankCreditCard(void)
 {
-	return _CreditCard;
+  return _CreditCard;
 }
 
 void CreditState::setBankCreditCard(BankCreditCard* CreditCard)
 {
-	_CreditCard = CreditCard;
+  _CreditCard = CreditCard;
 }
 
 string CreditState::getStateName(void)
 {
-	return _stateName;
+  return _stateName;
 }
 
 
@@ -31,5 +31,5 @@ long CreditState::getBalance(void)
 
 void CreditState::setBalance(long balance)
 {
-	_balance = balance;
+  _balance = balance;
 }

@@ -8,48 +8,48 @@ using namespace std;
 
 NormalCreditState::NormalCreditState(CreditState* state)
 {
-	this->_balance = state->getBalance();
-	this->_CreditCard = state->getBankCreditCard();
-	Initialise();
+  this->_balance = state->getBalance();
+  this->_CreditCard = state->getBankCreditCard();
+  Initialise();
 }
 
 NormalCreditState::NormalCreditState(long balance, BankCreditCard* CreditCard)
 {
-	this->_balance = balance;
-	this->_CreditCard = CreditCard;
-	Initialise();
+  this->_balance = balance;
+  this->_CreditCard = CreditCard;
+  Initialise();
 }
 
 void NormalCreditState::deposit(long amount)
 {
-	cout << "Original Balance: " << _balance;	
-	_balance += amount;
-	cout << "New Balance: " << _balance;	
+  cout << "Original Balance: " << _balance;  
+  _balance += amount;
+  cout << "New Balance: " << _balance;  
 
-	stateChangeCheck();
+  stateChangeCheck();
 }
 
 void NormalCreditState::purchase()
 {
-	cout <<"Purchase DONE\n";
-	cout << "Original Balance: " << _balance;	
-	_balance -= 10;
-	cout << "New Balance: " << _balance;	
+  cout <<"Purchase DONE\n";
+  cout << "Original Balance: " << _balance;  
+  _balance -= 10;
+  cout << "New Balance: " << _balance;  
 
-	// something like rng then balance deduction
-	stateChangeCheck();
+  // something like rng then balance deduction
+  stateChangeCheck();
 }
 
 void NormalCreditState::payInterest()
 {
-	cout <<"WOW interest\n";
-	_balance = _balance * _interest;
-	stateChangeCheck();
+  cout <<"WOW interest\n";
+  _balance = _balance * _interest;
+  stateChangeCheck();
 }
 
 void NormalCreditState::stateChangeCheck()
 {
-	cout <<"WOW change check\n";
+  cout <<"WOW change check\n";
 
 /*
  if (_balance < _lowerLimit)

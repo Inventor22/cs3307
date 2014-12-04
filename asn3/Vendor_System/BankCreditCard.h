@@ -11,20 +11,20 @@ class CreditState;
 class BankCreditCard {
 
 public:
-	BankCreditCard(unsigned int id);
-	~BankCreditCard();
-	void purchase();
-	void payInterest();
-	void setCreditState(CreditState* state);
-	CreditState* getCreditState();
+  BankCreditCard(unsigned int id);
+  ~BankCreditCard();
+  void purchase();
+  void payInterest();
+  void setCreditState(CreditState* state);
+  CreditState* getCreditState();
 
-	long getBalance(void);
-	void deposit(long amount);
+  long getBalance(void);
+  void deposit(long amount);
 
 private:
-	CreditState* _state;
-	unsigned int _id;
-	BankCreditCard();
+  CreditState* _state;
+  unsigned int _id;
+  BankCreditCard();
 };
 
 #endif
