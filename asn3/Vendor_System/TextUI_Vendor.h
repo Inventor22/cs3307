@@ -4,7 +4,7 @@
 #include "Bank.h"
 #include "BankMember.h"
 
-class TextUI{
+class TextUI_Vendor {
 private:
   //BankMember currUser;
   //BankMember::UserType currUserType;
@@ -14,8 +14,8 @@ private:
   bool _bShutdown;
 
 public:
-  TextUI(bool logging, Bank &bank);
-  ~TextUI();
+  TextUI_Vendor(bool logging, Bank &bank);
+  ~TextUI_Vendor();
   void displayHeader();
   
   bool processTransaction();
@@ -38,7 +38,7 @@ private:
   bool processClientTransaction(BankClient* user);
   long purchase(BankClient* client);
   void viewPurchases(BankClient* client);
-  //long removeMoneyFromChequing(BankClient* client, long amount);
+  long removeMoneyFromChequing(BankClient* client, long amount);
 
 };
 

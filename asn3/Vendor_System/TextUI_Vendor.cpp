@@ -6,7 +6,7 @@
 #include <syslog.h>
 #include <fstream>
 
-#include "TextUI.h"
+#include "TextUI_Vendor.h"
 
 #include "InputParser.h"
 
@@ -15,7 +15,7 @@
 #include "BankManager.h"
 #include "BankMemberDatabase.h"
 
-TextUI::TextUI(bool logging, Bank &bank) : _bank(bank){
+TextUI_Vendor::TextUI_Vendor(bool logging, Bank &bank) : _bank(bank){
     _bShutdown = false;
     _bLogging = logging;
     if (logging){
@@ -26,11 +26,11 @@ TextUI::TextUI(bool logging, Bank &bank) : _bank(bank){
     }
 }
 
-TextUI::~TextUI(){
+TextUI_Vendor::~TextUI_Vendor(){
   //Nothing to release.
 }
 
-void TextUI::displayHeader(){
+void TextUI_Vendor::displayHeader(){
   syslog(LOG_DEBUG, "displayHeader() entered");
   std::cout << "\n" << "****************************************************" << std::endl
     << "\tVendor Machine v0.9c.b42" << std::endl
@@ -39,7 +39,7 @@ void TextUI::displayHeader(){
   return;
 }
 
-bool TextUI::processTransaction(){
+bool TextUI_Vendor::processTransaction(){
   syslog(LOG_DEBUG, "processTransaction() entered");
   bool successful = true;
   //Get user ID
@@ -104,11 +104,11 @@ bool TextUI::processTransaction(){
   return successful;
 }
 
-bool TextUI::getShutdownStatus(){
+bool TextUI_Vendor::getShutdownStatus(){
   return _bShutdown;
 }
 
-BankMember* TextUI::promptForId(){
+BankMember*TextUI_Vendor::promptForId(){
   syslog(LOG_DEBUG, "promptForID() entered");
   //Promt to log in.
   long lngID;
@@ -133,7 +133,7 @@ BankMember* TextUI::promptForId(){
   return member;
 }
 
-bool TextUI::promptForPin(BankMember* user) {
+bool TextUI_Vendor::promptForPin(BankMember* user) {
   syslog(LOG_DEBUG, "promptForPin(BankMember) entered");
   bool successful = true;
   char attempts = 0;
@@ -153,7 +153,7 @@ bool TextUI::promptForPin(BankMember* user) {
   return successful;
 }
 
-bool TextUI::isValidPIN(int pin){
+bool TextUI_Vendor::isValidPIN(int pin){
   syslog(LOG_DEBUG, "isValidPin(int) entered");
   // Pin must be 4 digits and positive
   bool isValid = (pin < 10000) && (pin>999);
@@ -161,7 +161,7 @@ bool TextUI::isValidPIN(int pin){
   return isValid;
 }
 
-bool TextUI::processManagerTransaction(BankManager* user){
+bool TextUI_Vendor::processManagerTransaction(BankManager* user){
   syslog(LOG_DEBUG, "processManagerTransaction(BankMember) entered");
   bool successful = true;
   std::cout 
@@ -182,7 +182,7 @@ bool TextUI::processManagerTransaction(BankManager* user){
   return successful;
 }
 
-bool TextUI::processMaintainerTransaction(BankMaintainer* user){
+bool TextUI_Vendor::processMaintainerTransaction(BankMaintainer* user){
   syslog(LOG_DEBUG, "processMaintainerTransaction(BankMember) entered");
   bool successful = true;
   std::cout
@@ -203,7 +203,7 @@ bool TextUI::processMaintainerTransaction(BankMaintainer* user){
   return successful;
 }
 
-bool TextUI::processClientTransaction(BankClient* user){
+bool TextUI_Vendor::processClientTransaction(BankClient* user){
   syslog(LOG_DEBUG, "processClientTransaction(BankMember) entered");
   bool cont = true;
   //Check if there is a complimentary account
@@ -248,7 +248,7 @@ bool TextUI::processClientTransaction(BankClient* user){
   return cont;
 }
 
-long TextUI::purchase(BankClient* client){
+long TextUI_Vendor::purchase(BankClient* client){
   syslog(LOG_DEBUG, "withdrawal(BankClient*) entered");
   long amount = 0;
   //Print out balances
@@ -315,7 +315,7 @@ long TextUI::purchase(BankClient* client){
   return amount;
 }
 
-void TextUI::balances(BankClient* client){
+void TextUI_Vendor::balances(BankClient* client){
   syslog(LOG_DEBUG, "balances(BankClient*) entered");
   bool hasChequing = client->hasChequing();
   bool hasSavings = client->hasSavings();
@@ -331,7 +331,7 @@ void TextUI::balances(BankClient* client){
   return;
 }
 
-long TextUI::removeMoneyFromChequing(BankClient* client, long amount){
+long TextUI_Vendor::removeMoneyFromChequing(BankClient* client, long amount){
   syslog(LOG_DEBUG, "removeMoneyFromChequing(BankClient*,long) entered");
   if (amount > client->checkChequingBalance()){
     std::cout << "Error: Insufficient funds.\n";

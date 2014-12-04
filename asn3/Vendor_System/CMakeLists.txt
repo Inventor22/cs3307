@@ -27,7 +27,7 @@ set(SOURCE_FILES
     InputParser.cpp
     InputParser.h
     main.cpp
-    TextUI.cpp
-    TextUI.h)
+    TextUI_Vendor.cpp
+    TextUI_Vendor.h)
 
 add_executable(vendor ${SOURCE_FILES})

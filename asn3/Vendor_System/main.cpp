@@ -2,7 +2,7 @@
 #include <fstream>
 #include <syslog.h>
 
-#include "TextUI.h"
+#include "TextUI_Vendor.h"
 #include "Bank.h"
 
 using namespace std; //Replace this with something else?
@@ -21,7 +21,7 @@ int main(){
   Bank bank;
 
   // Initialize text ui, starting debug level debugging
-  TextUI ui(true, bank);
+  TextUI_Vendor ui(true, bank);
 
   // If not found, perform first time setup (add maintainer, then manager)
   if (!dbFileIn.is_open()){
