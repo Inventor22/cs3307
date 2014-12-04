@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Detailed report on module BankMemberDatabase-->
+<CCCC_Project>
+<module_summary>
+<lines_of_code value="139" level="0" />
+<lines_of_code_per_member_function value="******" level="0" />
+<McCabes_cyclomatic_complexity value="33" level="0" />
+<McCabes_cyclomatic_complexity_per_member_function value="******" level="2" />
+<lines_of_code value="35" level="0" />
+<lines_of_code_per_member_function value="********" level="2" />
+<lines_of_code_per_line_of_comment value="3.971" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="0.943" level="0" />
+<weighted_methods_per_class_unity value="11" level="0" />
+<weighted_methods_per_class_visibility value="4" level="0" />
+<depth_of_inheritance_tree value="0" level="0" />
+<number_of_children value="0" level="0" />
+<coupling_between_objects value="6" level="0" />
+<IF4 value="25" level="0" />
+<IF4_per_member_function value="********" level="2" />
+<IF4_visible value="25" level="0" />
+<IF4_visible_per_member_function value="********" level="2" />
+<IF4_concrete value="4" level="0" />
+<IF4_concrete_per_member_function value="********" level="2" />
+</module_summary>
+<module_detail>
+<description>definition</description>
+<source_reference file="BankMemberDatabase.h" line="15" />
+<lines_of_code value="10" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</module_detail>
+<procedural_detail>
+<member_function>
+<name>BankMemberDatabase()</name>
+<extent>
+<description>definition</description>
+<source_reference file="BankMemberDatabase.cpp" line="5" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="BankMemberDatabase.h" line="26" />
+</extent>
+<lines_of_code value="3" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>addBankAccount(long,AccountType)</name>
+<extent>
+<description>definition</description>
+<source_reference file="BankMemberDatabase.cpp" line="54" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="BankMemberDatabase.h" line="34" />
+</extent>
+<lines_of_code value="11" level="0" />
+<McCabes_cyclomatic_complexity value="3" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>addBankMember(BankMember *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="BankMemberDatabase.cpp" line="26" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="BankMemberDatabase.h" line="30" />
+</extent>
+<lines_of_code value="7" level="0" />
+<McCabes_cyclomatic_complexity value="2" level="0" />
+<lines_of_comment value="11" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>deleteBankAccount(long)</name>
+<extent>
+<description>definition</description>
+<source_reference file="BankMemberDatabase.cpp" line="64" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="BankMemberDatabase.h" line="37" />
+</extent>
+<lines_of_code value="9" level="0" />
+<McCabes_cyclomatic_complexity value="3" level="0" />
+<lines_of_comment value="1" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>deleteBankMember(long)</name>
+<extent>
+<description>definition</description>
+<source_reference file="BankMemberDatabase.cpp" line="44" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="BankMemberDatabase.h" line="32" />
+</extent>
+<lines_of_code value="9" level="0" />
+<McCabes_cyclomatic_complexity value="3" level="0" />
+<lines_of_comment value="1" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>generateNewBankAccountId()</name>
+<extent>
+<description>definition</description>
+<source_reference file="BankMemberDatabase.cpp" line="161" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="BankMemberDatabase.h" line="45" />
+</extent>
+<lines_of_code value="4" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>generateNewBankMemberId()</name>
+<extent>
+<description>definition</description>
+<source_reference file="BankMemberDatabase.cpp" line="157" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="BankMemberDatabase.h" line="43" />
+</extent>
+<lines_of_code value="4" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="5" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>getBankMember(long)</name>
+<extent>
+<description>definition</description>
+<source_reference file="BankMemberDatabase.cpp" line="18" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="BankMemberDatabase.h" line="28" />
+</extent>
+<lines_of_code value="8" level="0" />
+<McCabes_cyclomatic_complexity value="3" level="0" />
+<lines_of_comment value="8" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>loadDatabaseFromFile(ifstream &amp;)</name>
+<extent>
+<description>definition</description>
+<source_reference file="BankMemberDatabase.cpp" line="74" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="BankMemberDatabase.h" line="41" />
+</extent>
+<lines_of_code value="41" level="1" />
+<McCabes_cyclomatic_complexity value="9" level="0" />
+<lines_of_comment value="4" level="0" />
+<lines_of_code_per_line_of_comment value="10.250" level="1" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="2.250" level="0" />
+</member_function>
+<member_function>
+<name>processMonthlyCreditPayments()</name>
+<extent>
+<description>definition</description>
+<source_reference file="BankMemberDatabase.cpp" line="165" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="BankMemberDatabase.h" line="52" />
+</extent>
+<lines_of_code value="11" level="0" />
+<McCabes_cyclomatic_complexity value="3" level="0" />
+<lines_of_comment value="4" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>writeDatabaseToFile(ofstream &amp;)</name>
+<extent>
+<description>definition</description>
+<source_reference file="BankMemberDatabase.cpp" line="126" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="BankMemberDatabase.h" line="39" />
+</extent>
+<lines_of_code value="22" level="0" />
+<McCabes_cyclomatic_complexity value="5" level="0" />
+<lines_of_comment value="1" level="0" />
+<lines_of_code_per_line_of_comment value="22.000" level="1" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="5.000" level="0" />
+</member_function>
+</procedural_detail>
+<structural_detail>
+<module>
+<name>BankMemberDatabase</name>
+<client_module>
+<name>Bank</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>has by value</description>
+<source_reference file="Bank.h" line="29" />
+</extent>
+</client_module>
+<supplier_module>
+<name>AccountType</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="BankMemberDatabase.cpp" line="54" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="BankMemberDatabase.h" line="35" />
+</extent>
+<name>BankMember</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="BankMemberDatabase.cpp" line="26" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="BankMemberDatabase.h" line="30" />
+</extent>
+<name>ifstream</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="BankMemberDatabase.cpp" line="74" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="BankMemberDatabase.h" line="41" />
+</extent>
+<name>map</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>has by value</description>
+<source_reference file="BankMemberDatabase.h" line="17" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="BankMemberDatabase.h" line="21" />
+</extent>
+<name>ofstream</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="BankMemberDatabase.cpp" line="126" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="BankMemberDatabase.h" line="39" />
+</extent>
+</supplier_module>
+</module>
+</structural_detail>
+</CCCC_Project>
