@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Detailed report on module MTKMain-->
+<CCCC_Project>
+<module_summary>
+<lines_of_code value="480" level="0" />
+<lines_of_code_per_member_function value="******" level="0" />
+<McCabes_cyclomatic_complexity value="173" level="0" />
+<McCabes_cyclomatic_complexity_per_member_function value="******" level="2" />
+<lines_of_code value="130" level="0" />
+<lines_of_code_per_member_function value="********" level="2" />
+<lines_of_code_per_line_of_comment value="3.692" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="1.331" level="0" />
+<weighted_methods_per_class_unity value="10" level="0" />
+<weighted_methods_per_class_visibility value="10" level="0" />
+<depth_of_inheritance_tree value="0" level="0" />
+<number_of_children value="0" level="0" />
+<coupling_between_objects value="4" level="0" />
+<IF4 value="0" level="0" />
+<IF4_per_member_function value="********" level="0" />
+<IF4_visible value="0" level="0" />
+<IF4_visible_per_member_function value="********" level="0" />
+<IF4_concrete value="0" level="0" />
+<IF4_concrete_per_member_function value="********" level="0" />
+</module_summary>
+<module_detail>
+<description>definition</description>
+<source_reference file="./mtk/mtktrace.cpp" line="65" />
+<lines_of_code value="26" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="7" level="0" />
+<lines_of_code_per_line_of_comment value="3.714" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</module_detail>
+<procedural_detail>
+<member_function>
+<name>MTKMain()</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./mtk/mtktrace.cpp" line="68" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="./mtk/mtktrace.cpp" line="115" />
+</extent>
+<lines_of_code value="35" level="1" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="40" level="0" />
+<lines_of_code_per_line_of_comment value="0.875" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>dumpLastSteps(bool)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./mtk/mtktrace.cpp" line="77" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="./mtk/mtktrace.cpp" line="667" />
+</extent>
+<lines_of_code value="67" level="1" />
+<McCabes_cyclomatic_complexity value="19" level="1" />
+<lines_of_comment value="11" level="0" />
+<lines_of_code_per_line_of_comment value="6.091" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="1.727" level="0" />
+</member_function>
+<member_function>
+<name>dumpStackTrace(bool)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./mtk/mtktrace.cpp" line="76" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="./mtk/mtktrace.cpp" line="600" />
+</extent>
+<lines_of_code value="54" level="1" />
+<McCabes_cyclomatic_complexity value="18" level="1" />
+<lines_of_comment value="4" level="0" />
+<lines_of_code_per_line_of_comment value="13.500" level="1" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="4.500" level="0" />
+</member_function>
+<member_function>
+<name>setFileTrace(char *)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./mtk/mtktrace.cpp" line="80" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="./mtk/mtktrace.cpp" line="228" />
+</extent>
+<lines_of_code value="18" level="0" />
+<McCabes_cyclomatic_complexity value="10" level="0" />
+<lines_of_comment value="1" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="10.000" level="1" />
+</member_function>
+<member_function>
+<name>setRingTrace(char *)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./mtk/mtktrace.cpp" line="78" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="./mtk/mtktrace.cpp" line="195" />
+</extent>
+<lines_of_code value="16" level="0" />
+<McCabes_cyclomatic_complexity value="9" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="******" level="2" />
+</member_function>
+<member_function>
+<name>setTermTrace(char *)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./mtk/mtktrace.cpp" line="79" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="./mtk/mtktrace.cpp" line="211" />
+</extent>
+<lines_of_code value="17" level="0" />
+<McCabes_cyclomatic_complexity value="9" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="******" level="2" />
+</member_function>
+<member_function>
+<name>traceMessageRaw(const char *,int,char,char *)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./mtk/mtktrace.cpp" line="72" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="./mtk/mtktrace.cpp" line="394" />
+</extent>
+<lines_of_code value="101" level="2" />
+<McCabes_cyclomatic_complexity value="54" level="2" />
+<lines_of_comment value="32" level="0" />
+<lines_of_code_per_line_of_comment value="3.156" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="1.687" level="0" />
+</member_function>
+<member_function>
+<name>traceMethodEntry(void *,const char *,int,const char *)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./mtk/mtktrace.cpp" line="70" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="./mtk/mtktrace.cpp" line="246" />
+</extent>
+<lines_of_code value="72" level="1" />
+<McCabes_cyclomatic_complexity value="21" level="1" />
+<lines_of_comment value="15" level="0" />
+<lines_of_code_per_line_of_comment value="4.800" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="1.400" level="0" />
+</member_function>
+<member_function>
+<name>traceMethodExit(void *,const char *,int,const char *)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./mtk/mtktrace.cpp" line="71" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="./mtk/mtktrace.cpp" line="350" />
+</extent>
+<lines_of_code value="32" level="1" />
+<McCabes_cyclomatic_complexity value="10" level="0" />
+<lines_of_comment value="6" level="0" />
+<lines_of_code_per_line_of_comment value="5.333" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="1.667" level="0" />
+</member_function>
+<member_function>
+<name>tracePre(const char *,int,char)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./mtk/mtktrace.cpp" line="73" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="./mtk/mtktrace.cpp" line="536" />
+</extent>
+<lines_of_code value="42" level="1" />
+<McCabes_cyclomatic_complexity value="22" level="1" />
+<lines_of_comment value="14" level="0" />
+<lines_of_code_per_line_of_comment value="3.000" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="1.571" level="0" />
+</member_function>
+</procedural_detail>
+<structural_detail>
+<module>
+<name>MTKMain</name>
+<client_module>
+</client_module>
+<supplier_module>
+<name>FILE</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>has by reference</description>
+<source_reference file="./mtk/mtktrace.cpp" line="102" />
+</extent>
+<name>bool</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="./mtk/mtktrace.cpp" line="76" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="./mtk/mtktrace.cpp" line="77" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="./mtk/mtktrace.cpp" line="600" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="./mtk/mtktrace.cpp" line="667" />
+</extent>
+<name>uchar</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>has by value</description>
+<source_reference file="./mtk/mtktrace.cpp" line="97" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="./mtk/mtktrace.cpp" line="103" />
+</extent>
+<name>ulong</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>has by value</description>
+<source_reference file="./mtk/mtktrace.cpp" line="82" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="./mtk/mtktrace.cpp" line="83" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="./mtk/mtktrace.cpp" line="84" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="./mtk/mtktrace.cpp" line="86" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="./mtk/mtktrace.cpp" line="90" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="./mtk/mtktrace.cpp" line="91" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="./mtk/mtktrace.cpp" line="95" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="./mtk/mtktrace.cpp" line="96" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="./mtk/mtktrace.cpp" line="98" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="./mtk/mtktrace.cpp" line="99" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="./mtk/mtktrace.cpp" line="100" />
+</extent>
+</supplier_module>
+</module>
+</structural_detail>
+</CCCC_Project>
