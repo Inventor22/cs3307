@@ -8,12 +8,12 @@
 #include "CreditState.h"
 class CreditState;
 
-class BankCreditCard {
+class CreditCard {
 
 public:
-  BankCreditCard(unsigned int id);
-  ~BankCreditCard();
-  void purchase();
+  CreditCard();
+  ~CreditCard();
+  void purchase(long);
   void payInterest();
   void setCreditState(CreditState* state);
   CreditState* getCreditState();
@@ -23,8 +23,6 @@ public:
 
 private:
   CreditState* _state;
-  unsigned int _id;
-  BankCreditCard();
 };
 
 #endif
