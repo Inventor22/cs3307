@@ -12,11 +12,6 @@ BankMaintainer::BankMaintainer(std::string fN, std::string lN, unsigned long id,
 BankMember(fN, lN, id, pin, MAINTENANCE) {
 }
 
-//void setTrace(Bank::TraceState traceState)
-//{
-//  _bank->setExecutionTraceStatus(traceState);
-//}
-
 void BankMaintainer::printTrace() {
   std::ifstream traceFile("trace.txt");
   std::string currentLine;

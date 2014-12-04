@@ -1,27 +1,24 @@
 #ifndef NormalCreditState_h
 #define NormalCreditState_h
 
-#include "BankCreditCard.h"
+#include "CreditCard.h"
 #include "CreditState.h"
+#include "FrozenCreditState.h"
 
 #include <iostream>
 #include <string>
-
-class CreditState;
-class BankCreditCard;
 
 class NormalCreditState : public CreditState
 {
   public:
     NormalCreditState(CreditState* state);
-    NormalCreditState(long balance, BankCreditCard* CreditCard);
+    NormalCreditState(long balance, CreditCard * CreditCard);
     void deposit(long amount);
-    void purchase();
+    void purchase(long);
     void payInterest();
     void stateChangeCheck();
  
   private:
-    NormalCreditState();
     void Initialise();
 };
 

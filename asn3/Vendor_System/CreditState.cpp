@@ -8,12 +8,12 @@
 
 using namespace std;
 
-BankCreditCard* CreditState::getBankCreditCard(void)
+CreditCard * CreditState::getBankCreditCard(void)
 {
   return _CreditCard;
 }
 
-void CreditState::setBankCreditCard(BankCreditCard* CreditCard)
+void CreditState::setBankCreditCard(CreditCard * CreditCard)
 {
   _CreditCard = CreditCard;
 }
@@ -22,7 +22,6 @@ string CreditState::getStateName(void)
 {
   return _stateName;
 }
-
 
 long CreditState::getBalance(void)
 {

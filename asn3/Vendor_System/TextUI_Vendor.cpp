@@ -163,7 +163,7 @@ bool TextUI_Vendor::isValidPIN(int pin){
 
 bool TextUI_Vendor::processManagerTransaction(BankManager* user){
   syslog(LOG_DEBUG, "processManagerTransaction(BankMember) entered");
-  bool successful = true;
+  bool cont = false;
   std::cout 
       << "====================================\n"
       << "  Welcome manager " << user->getFirstName() << "!\n"
@@ -171,78 +171,76 @@ bool TextUI_Vendor::processManagerTransaction(BankManager* user){
       << "There are no manager transactions\n"
       << "on this machine, please enter a\n"
       << "character to retrun the the idle\n"
-      << "screen:n\"
+      << "screen:\n"
       << "------------------------------------\n   ";
   char choice;
-  // Dont' care what they input, just get something so they can
+  // Don't care what they input, just get something so they can
   // see the message.
   InputParser::getChar(choice);
 
   syslog(LOG_DEBUG, "processManagerTransaction(BankMember) exited");
-  return successful;
+  return cont;
 }
 
 bool TextUI_Vendor::processMaintainerTransaction(BankMaintainer* user){
   syslog(LOG_DEBUG, "processMaintainerTransaction(BankMember) entered");
-  bool successful = true;
+  bool cont = false;
   std::cout
-      << "====================================\n"
-      << "  Welcome manager " << user->getFirstName() << "!\n"
-      << "====================================\n"
-      << "There are no manager transactions\n"
+      << "======================================\n"
+      << "  Welcome maintainer " << user->getFirstName() << "!\n"
+      << "======================================\n"
+      << "There are no maintainer transactions\n"
       << "on this machine, please enter a\n"
       << "character to retrun the the idle\n"
-      << "screen:n\"
-      << "------------------------------------\n   ";
+      << "screen:\n"
+      << "--------------------------------------\n   ";
   char choice;
-  // Dont' care what they input, just get something so they can
+  // Don't care what they input, just get something so they can
   // see the message.
   InputParser::getChar(choice);
 
   syslog(LOG_DEBUG, "processMaintainerTransaction(BankMember) exited");
-  return successful;
+  return cont;
 }
 
 bool TextUI_Vendor::processClientTransaction(BankClient* user){
   syslog(LOG_DEBUG, "processClientTransaction(BankMember) entered");
   bool cont = true;
-  //Check if there is a complimentary account
-  bool bMissingComplimentary = !((user->hasChequing())&&(user->hasSavings()));
-  int i = 5;
-  std::cout 
-      << "============================\n"
-      << "  Welcome user " << user->getFirstName() << "!\n"
-      << "============================\n"
-      << "Please select a transaction:\n"
-      << "  (1) -- Purchase\n"
-      << "  (2) -- Deposit\n"
-      << "  (3) -- Transfer\n"
-      << "  (4) -- View Balances\n";
-  std::cout << "----------------------------\n   ";
-  char choice;
-  bool bBreak;
-  while (!InputParser::getChar(choice) || !((choice >= '1') && (choice <= '5'))){
-    if ((choice==6)&&(!bMissingComplimentary)){ //Add complimentary not valid if user has both already
-      std::cout << "Invalid choice, please try again.\n\n";
-      continue;
-    }
-    else if (choice == '6'){
-      //If user presses 6 and does not have missing accounts, they have cancelled
-      break;
-    }
+  //Check if the user has a credit card
+  if (!user->hasChequing())
+  {
+    cont = false;
+    std::cout
+        << "========================================\n"
+        << "  Welcome client " << user->getFirstName() << "!\n"
+        << "========================================\n"
+        << "Sorry, but you must have a credit card\n"
+        << "to use this machine. Please enter\n"
+        << "anything to exit:\n"
+        << "----------------------------------------\n   ";
+    char choice;
+    // Don't care what they input, just get something so they can
+    // see the message.
+    InputParser::getChar(choice);
+
+    syslog(LOG_DEBUG, "processMaintainerTransaction(BankMember) exited");
+    return cont;
   }
-  switch (choice){
-  case '1':
+//  int i = 5;
+//  std::cout
+//      << "============================\n"
+//      << "  Welcome user " << user->getFirstName() << "!\n"
+//      << "============================\n"
+//      << "Please select a transaction:\n"
+//      << "  (1) -- Purchase\n"
+//      << "  (2) -- Deposit\n"
+//      << "  (3) -- Transfer\n"
+//      << "  (4) -- View Balances\n"
+//      << "----------------------------\n   ";
+//  char choice;
+
     purchase(user);
-    break;
-  case '2':
-    viewPurchases(user);
-    break;
-  default:
-    //Should be unreachable
-    syslog(LOG_ERR, "Reached unreachable case. Invalid type.");
-    break;
-  }
+
   
   syslog(LOG_DEBUG, "processClientTransaction(BankMember) exited");
   return cont;
@@ -251,9 +249,6 @@ bool TextUI_Vendor::processClientTransaction(BankClient* user){
 long TextUI_Vendor::purchase(BankClient* client){
   syslog(LOG_DEBUG, "withdrawal(BankClient*) entered");
   long amount = 0;
-  //Print out balances
-  //balances(client);
-  //Ask which account to withdraw from
   bool hasChequing = client->hasChequing();
   bool hasSavings  = client->hasSavings();
   bool fromChequing;

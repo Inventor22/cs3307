@@ -6,6 +6,7 @@
 #include <string>
 #include <vector>
 #include <fstream>
+#include "CreditCard.h"
 
 class BankAccount {
 public:
@@ -16,6 +17,9 @@ private:
   AccountType _accountType;
   int _balance;
   unsigned long _id;
+
+public:
+  CreditCard creditCard;
 
 public:
   BankAccount(std::ifstream &is);

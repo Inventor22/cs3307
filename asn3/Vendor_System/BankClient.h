@@ -10,7 +10,7 @@
 #include "BankAccount.h"
 #include "BankMember.h"
 #include "IdManager.h"
-#include "BankCreditCard.h
+#include "CreditCard.h"
 #include "CreditState.h"
 
 class BankClient : public BankMember {

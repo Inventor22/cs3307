@@ -10,8 +10,8 @@ set(SOURCE_FILES
     BankAccount.h
     BankClient.cpp
     BankClient.h
-    BankCreditCard.cpp
-    BankCreditCard.h
+    CreditCard.cpp
+    CreditCard.h
     BankMaintainer.cpp
     BankMaintainer.h
     BankManager.cpp
@@ -24,6 +24,8 @@ set(SOURCE_FILES
     BankProfile.h
     CreditState.cpp
     CreditState.h
+    FrozenCreditState.cpp
+    FrozenCreditState.h
     IdManager.cpp
     IdManager.h
     InputParser.cpp
