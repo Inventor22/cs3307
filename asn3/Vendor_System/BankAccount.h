@@ -19,7 +19,7 @@ private:
   unsigned long _id;
 
 public:
-  CreditCard creditCard;
+  CreditCard* creditCard;
 
 public:
   BankAccount(std::ifstream &is);
